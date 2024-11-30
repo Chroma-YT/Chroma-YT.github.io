@@ -3,24 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Sidebar</title>
+    <title>Interactive Website</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sidebar">
-            <h1 id="sidebar-title">Title</h1>
-            <img id="sidebar-image" src="default.jpg" alt="Default Image">
-            <p id="sidebar-text">Body text that can scroll...</p>
-        </div>
-        <div class="main-content">
-            <div class="square" id="square1" data-title="Title 1" data-image="image1.jpg" data-text="Text for square 1.">
-                <img src="thumbnail1.jpg" alt="Thumbnail 1">
-                <p>Square 1</p>
-            </div>
-            <!-- Repeat similar blocks for the remaining 6 squares -->
-        </div>
+    <div class="sidebar" id="sidebar">
+        <h1>Sidebar Heading</h1>
+        <p>Sidebar text</p>
+        <img src="https://via.placeholder.com/150" alt="Placeholder">
     </div>
-    <script src="scripts.js"></script>
+    <div class="main-section">
+        <div class="square" data-text="Text 1" data-heading="Heading 1" data-image="https://via.placeholder.com/150"></div>
+        <div class="square" data-text="Text 2" data-heading="Heading 2" data-image="https://via.placeholder.com/150"></div>
+        <div class="square" data-text="Text 3" data-heading="Heading 3" data-image="https://via.placeholder.com/150"></div>
+        <div class="square" data-text="Text 4" data-heading="Heading 4" data-image="https://via.placeholder.com/150"></div>
+        <div class="square" data-text="Text 5" data-heading="Heading 5" data-image="https://via.placeholder.com/150"></div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
