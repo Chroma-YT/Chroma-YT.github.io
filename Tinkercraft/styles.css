@@ -48,8 +48,8 @@ body {
 }
 
 .rounded-square {
-    width: 150px;
-    height: 150px;
+    width: 200px; /* Increased width */
+    height: 200px; /* Increased height */
     background-color: #333; /* Dark gray color */
     border-radius: 10px; /* Rounded corners */
     display: flex;
@@ -74,3 +74,4 @@ body {
     margin: 0; /* Remove default margins */
     padding: 5px 0; /* Adjust padding to fit well within the square */
 }
+
