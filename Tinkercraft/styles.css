@@ -53,9 +53,9 @@ body {
     background-color: #333; /* Dark gray color */
     border-radius: 10px; /* Rounded corners */
     display: flex;
-    justify-content: flex-end; /* Align text to the bottom */
-    align-items: center; /* Center the text horizontally */
-    padding: 10px; /* Add padding */
+    flex-direction: column; /* Stack children vertically */
+    justify-content: flex-end; /* Align children to the bottom */
+    padding: 10px;
 }
 
 .image-caption {
