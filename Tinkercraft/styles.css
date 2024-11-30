@@ -61,10 +61,11 @@ body {
 }
 
 .rounded-square img {
-    width: 100%; /* Added this line */
-    height: 66.67%; /* Two-thirds of the container height */
+    width: 80%; /* Make the image smaller */
+    height: auto; /* Maintain aspect ratio */
     border-radius: 10px 10px 0 0; /* Rounded corners on top */
     object-fit: cover; /* Ensure the image covers the space */
+    margin-bottom: auto; /* Push the image to the top */
 }
 
 .image-caption {
