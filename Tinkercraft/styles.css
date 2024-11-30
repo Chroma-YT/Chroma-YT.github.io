@@ -54,8 +54,17 @@ body {
     border-radius: 10px; /* Rounded corners */
     display: flex;
     flex-direction: column; /* Stack children vertically */
-    justify-content: flex-end; /* Align children to the bottom */
+    justify-content: space-between; /* Space out children vertically */
     padding: 10px;
+    box-sizing: border-box;
+}
+
+.rounded-square img {
+    width: 100%;
+    height: auto;
+    max-height: calc(100% - 30px); /* Adjust to avoid overflow with padding and text */
+    border-radius: 10px 10px 0 0; /* Rounded corners on top */
+    object-fit: contain;
 }
 
 .image-caption {
@@ -63,4 +72,5 @@ body {
     text-align: center; /* Center the text */
     width: 100%; /* Ensure the text takes the full width */
     margin: 0; /* Remove default margins */
+    padding: 5px 0; /* Adjust padding to fit well within the square */
 }
