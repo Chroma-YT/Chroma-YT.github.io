@@ -1,28 +1,22 @@
-document.querySelectorAll('.square').forEach(square => {
+document.addEventListener('DOMContentLoaded', () => {
+    const squares = document.querySelectorAll('.square');
+    const sidebar = document.getElementById('sidebar');
     let hoverTimeout;
 
-    square.addEventListener('mouseover', () => {
-        hoverTimeout = setTimeout(() => {
-            updateSidebar(square);
-        }, 200);
-    });
+    squares.forEach(square => {
+        square.addEventListener('mouseenter', () => {
+            hoverTimeout = setTimeout(() => {
+                const text = square.getAttribute('data-text');
+                const heading = square.getAttribute('data-heading');
+                const image = square.getAttribute('data-image');
+                sidebar.querySelector('h1').innerText = heading;
+                sidebar.querySelector('p').innerText = text;
+                sidebar.querySelector('img').src = image;
+            }, 200);
+        });
 
-    square.addEventListener('mouseout', () => {
-        clearTimeout(hoverTimeout);
-        square.classList.remove('flash');
-    });
-
-    square.addEventListener('mouseenter', () => {
-        square.classList.add('flash');
-    });
-
-    square.addEventListener('mouseleave', () => {
-        square.classList.remove('flash');
+        square.addEventListener('mouseleave', () => {
+            clearTimeout(hoverTimeout);
+        });
     });
 });
-
-function updateSidebar(square) {
-    document.getElementById('sidebar-title').innerText = square.dataset.title;
-    document.getElementById('sidebar-image').src = square.dataset.image;
-    document.getElementById('sidebar-text').innerText = square.dataset.text;
-}
