@@ -52,20 +52,10 @@ body {
     height: 150px;
     background-color: #333; /* Dark gray color */
     border-radius: 10px; /* Rounded corners */
-    position: relative; /* Added this line */
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centering the elements */
     justify-content: center; /* Centering the elements */
-    padding: 10px; /* Added this line */
-}
-
-.rounded-square img {
-    width: 80%; /* Make the image smaller */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px 10px 0 0; /* Rounded corners on top */
-    object-fit: cover; /* Ensure the image covers the space */
-    transform: translateY(-20px); /* Raise the image by 20 pixels */
+    align-items: center; /* Centering the elements */
+    padding: 10px;
 }
 
 .image-caption {
