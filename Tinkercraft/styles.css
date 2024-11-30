@@ -56,7 +56,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center; /* Centering the elements */
-    justify-content: space-between; /* Added this line */
+    justify-content: center; /* Centering the elements */
     padding: 10px; /* Added this line */
 }
 
@@ -65,7 +65,7 @@ body {
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px 10px 0 0; /* Rounded corners on top */
     object-fit: cover; /* Ensure the image covers the space */
-    margin-bottom: auto; /* Push the image to the top */
+    transform: translateY(-20px); /* Raise the image by 20 pixels */
 }
 
 .image-caption {
