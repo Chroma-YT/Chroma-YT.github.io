@@ -5,12 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <script src="scripts.js" defer></script> <!-- Link to external JavaScript file -->
 </head>
 <body>
     <!-- Sidebar section with a heading and an image -->
-    <div class="sidebar">
-        <h2>Sidebar Title</h2> <!-- Sidebar heading -->
-        <img src="image.jpg" alt="Sidebar Image"> <!-- Sidebar image -->
+    <div class="sidebar" id="sidebar">
+        <h2 id="sidebar-title">Sidebar Title</h2> <!-- Sidebar heading -->
+        <img id="sidebar-image" src="image.jpg" alt="Sidebar Image"> <!-- Sidebar image -->
+        <div id="sidebar-body"> <!-- Sidebar body text container -->
+            <p>Initial sidebar body text.</p>
+        </div>
     </div>
     
     <!-- Main content area with flexible layout -->
@@ -23,14 +27,14 @@
         </div>
         
         <!-- Rounded square component with an image and caption -->
-        <div class="rounded-square">
+        <div class="rounded-square" data-title="New Title 1" data-image="new-image1.jpg" data-body="New body text 1">
             <img src="square-image.jpg" alt="Square Image"> <!-- Image inside the rounded square -->
             <p class="image-caption">Image Caption</p> <!-- Caption for the image -->
         </div>
         
         <!-- Instructions: Duplicate this rounded square component to create more instances with different images and captions -->
         <!-- Duplicate rounded square component for another image -->
-        <div class="rounded-square">
+        <div class="rounded-square" data-title="New Title 2" data-image="new-image2.jpg" data-body="New body text 2">
             <img src="square-image-2.jpg" alt="Another Square Image">
             <p class="image-caption">Another Image Caption</p>
         </div>
