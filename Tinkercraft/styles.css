@@ -1,77 +1,102 @@
+/* Global styles for the body */
 body {
-    font-family: Arial, sans-serif;
-    display: flex;
+    font-family: Arial, sans-serif; /* Font style */
+    display: flex; /* Flexbox layout for the body */
 }
 
+/* Main content container */
 .content {
-    width: 75%;
-    padding: 20px;
-    margin-right: 25%;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    width: 75%; /* 75% of the width */
+    padding: 20px; /* Padding inside the container */
+    margin-right: 25%; /* Space for the sidebar */
+    display: flex; /* Flexbox layout */
+    flex-wrap: wrap; /* Wrap items */
+    gap: 20px; /* Gap between items */
 }
 
+/* Sidebar container */
 .sidebar {
-    width: 25%;
-    height: 100vh;
-    position: fixed;
-    right: 0;
-    top: 0;
-    background-color: #111;
-    padding: 20px;
-    box-sizing: border-box;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 25%; /* Fixed width */
+    height: 100vh; /* Full viewport height */
+    position: fixed; /* Fixed position */
+    right: 0; /* Align right */
+    top: 0; /* Align top */
+    background-color: #111; /* Dark background */
+    padding: 20px; /* Padding inside the container */
+    box-sizing: border-box; /* Include padding in dimensions */
+    color: white; /* White text */
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Column layout */
+    align-items: center; /* Center align items */
 }
 
+/* Sidebar heading */
 .sidebar h2 {
-    margin-bottom: 20px;
+    margin-bottom: 20px; /* Margin below heading */
 }
 
+/* Sidebar image */
 .sidebar img {
-    margin-bottom: 20px;
-    width: 100%;
-    height: auto;
+    margin-bottom: 20px; /* Margin below image */
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
 }
 
+/* Scrollable text container */
 .body-text {
-    overflow-y: auto;
-    height: calc(100vh - 140px); /* Adjust the height based on other elements' heights */
-    width: 100%;
+    overflow-y: auto; /* Vertical scrolling */
+    height: calc(100vh - 140px); /* Adjust height */
+    width: 100%; /* Full width */
 }
 
+/* Paragraphs within the body text */
 .body-text p {
-    margin: 10px 0;
+    margin: 10px 0; /* Margin around paragraphs */
 }
 
+/* Rounded square component */
 .rounded-square {
-    width: 200px; /* Increased width */
-    height: 200px; /* Increased height */
-    background-color: #333; /* Dark gray color */
+    width: 200px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    background-color: #333; /* Dark gray background */
     border-radius: 10px; /* Rounded corners */
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    justify-content: space-between; /* Space out children vertically */
-    padding: 10px;
-    box-sizing: border-box;
+    display: flex; /* Flexbox layout */
+    flex-direction: column; /* Column layout */
+    justify-content: space-between; /* Space out children */
+    padding: 10px; /* Padding inside the component */
+    box-sizing: border-box; /* Include padding in dimensions */
 }
 
+/* Image inside the rounded square */
 .rounded-square img {
-    width: 100%;
-    height: auto;
-    max-height: calc(100% - 30px); /* Adjust to avoid overflow with padding and text */
-    border-radius: 10px 10px 0 0; /* Rounded corners on top */
-    object-fit: contain;
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    max-height: calc(100% - 30px); /* Avoid overflow */
+    border-radius: 10px 10px 0 0; /* Rounded top corners */
+    object-fit: contain; /* Contain within the box */
 }
 
+/* Caption for the image */
 .image-caption {
-    color: white; /* White text color */
-    text-align: center; /* Center the text */
-    width: 100%; /* Ensure the text takes the full width */
+    color: white; /* White text */
+    text-align: center; /* Center align text */
+    width: 100%; /* Full width */
     margin: 0; /* Remove default margins */
-    padding: 5px 0; /* Adjust padding to fit well within the square */
+    padding: 5px 0; /* Padding inside the caption */
 }
 
+/* Instructions: To duplicate the rounded square component, follow these steps:
+1. Duplicate the rounded square div.
+2. Change the src attribute of the img tag to specify different image files for each rounded square.
+3. Update the caption text within the image-caption p tag to provide unique captions for each image.
+Example:
+<div class="rounded-square">
+    <img src="square-image.jpg" alt="Square Image"> 
+    <p class="image-caption">Image Caption</p>
+</div>
+
+<div class="rounded-square">
+    <img src="square-image-2.jpg" alt="Another Square Image">
+    <p class="image-caption">Another Image Caption</p>
+</div>
+*/
