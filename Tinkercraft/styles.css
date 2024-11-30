@@ -74,6 +74,12 @@ body {
     max-height: calc(100% - 30px); /* Avoid overflow */
     border-radius: 10px 10px 0 0; /* Rounded top corners */
     object-fit: contain; /* Contain within the box */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for background color */
+}
+
+/* Hover effect for the image */
+.rounded-square img:hover {
+    background-color: lightgreen; /* Flash light green on hover */
 }
 
 /* Caption for the image */
@@ -89,13 +95,14 @@ body {
 1. Duplicate the rounded square div.
 2. Change the src attribute of the img tag to specify different image files for each rounded square.
 3. Update the caption text within the image-caption p tag to provide unique captions for each image.
+4. Set data-title, data-image, and data-body attributes to configure new sidebar title, image, and body text.
 Example:
-<div class="rounded-square">
+<div class="rounded-square" data-title="New Title 1" data-image="new-image1.jpg" data-body="New body text 1">
     <img src="square-image.jpg" alt="Square Image"> 
     <p class="image-caption">Image Caption</p>
 </div>
 
-<div class="rounded-square">
+<div class="rounded-square" data-title="New Title 2" data-image="new-image2.jpg" data-body="New body text 2">
     <img src="square-image-2.jpg" alt="Another Square Image">
     <p class="image-caption">Another Image Caption</p>
 </div>
