@@ -33,6 +33,13 @@ body {
     border-radius: 8px;
     text-align: center;
     transition: background-color 0.2s;
+    position: relative;
+}
+
+.grid-item::before {
+    content: "";
+    display: block;
+    padding-top: 100%; /* This makes the element square */
 }
 
 .grid-item img {
