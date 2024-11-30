@@ -21,17 +21,31 @@ body, html {
 
 .main-content {
     width: 75%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: flex-start;
     background: #e0e0e0;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.square {
-    width: calc(25% - 20px); /* Adjust to make room for padding and margin */
+.collapsible-button {
+    background-color: #e0e0e0;
+    color: #333;
+    cursor: pointer;
+    padding: 10px;
+    border: none;
+    text-align: left;
+    width: 100%;
+    font-size: 18px;
+}
+
+.collapsible-content {
+    display: none;
+    padding: 10px;
+    overflow: hidden;
+    background-color: #f4f4f4;
+}
+
+.collapsible-content .square {
+    width: calc(25% - 20px);
     margin: 10px;
     background: #d3d3d3;
     text-align: center;
@@ -39,17 +53,22 @@ body, html {
     border-radius: 10px;
     box-sizing: border-box;
     transition: background-color 0.3s;
+    display: inline-block;
 }
 
-.square img {
+.collapsible-content .square img {
     width: 100%;
     height: auto;
     border-radius: 5px;
 }
 
-.square p {
+.collapsible-content .square p {
     margin: 10px 0 0 0;
     text-align: center;
+}
+
+.collapsible-content .square:hover {
+    background-color: #a9a9a9;
 }
 
 .square:hover {
