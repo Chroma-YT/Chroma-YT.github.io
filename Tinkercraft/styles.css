@@ -1,51 +1,45 @@
 body {
-    font-family: Arial, sans-serif;
+    display: flex;
     margin: 0;
-    padding: 0;
-    display: flex;
-    height: 100vh;
-}
-
-.container {
-    display: flex;
-    width: 100%;
-    height: 100%;
+    font-family: Arial, sans-serif;
 }
 
 .sidebar {
     width: 25%;
-    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    right: 0;
     background-color: #f4f4f4;
-    overflow-y: auto;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
 }
 
-.main-content {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+.main-section {
+    margin-left: 25%;
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
     padding: 20px;
-    flex-grow: 1;
-    background-color: #fff;
 }
 
 .square {
-    background-color: #ccc;
-    text-align: center;
-    padding: 10px;
-    transition: background-color 0.2s;
+    width: calc(20% - 40px);
+    height: 200px;
+    background-color: lightgray;
+    margin: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
 }
 
 .square img {
-    width: 100%;
-    height: auto;
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 5px;
 }
 
 .square:hover {
-    background-color: #666;
-    cursor: pointer;
-}
-
-.square.flash {
-    background-color: #444;
+    background-color: darkgray;
 }
