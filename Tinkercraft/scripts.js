@@ -1,27 +1,26 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const squares = document.querySelectorAll('.rounded-square img');
+// scripts.js
+document.addEventListener('DOMContentLoaded', function() {
+    const squares = document.querySelectorAll('.square');
     let hoverTimeout;
 
     squares.forEach(square => {
-        square.addEventListener('mouseover', function() {
-            this.classList.add('hovered'); /* Add class for hover effect */
+        square.addEventListener('mouseenter', function() {
+            this.style.backgroundColor = '#555'; // Flash dark gray
 
             hoverTimeout = setTimeout(() => {
-                const parentDiv = this.parentElement;
-                const title = parentDiv.getAttribute('data-title');
-                const image = parentDiv.getAttribute('data-image');
-                const body = parentDiv.getAttribute('data-body');
+                const title = this.getAttribute('data-title');
+                const image = this.getAttribute('data-image');
+                const text = this.getAttribute('data-text');
 
-                // Update sidebar content
-                document.getElementById('sidebar-title').textContent = title;
+                document.getElementById('sidebar-title').innerText = title;
                 document.getElementById('sidebar-image').src = image;
-                document.getElementById('sidebar-body').innerHTML = `<p>${body}</p>`;
-            }, 200); // 200 ms delay
+                document.getElementById('sidebar-text').innerText = text;
+            }, 200);
         });
 
-        square.addEventListener('mouseout', function() {
-            clearTimeout(hoverTimeout); /* Clear the timeout if mouse out before 200 ms */
-            this.classList.remove('hovered'); /* Remove hover effect class */
+        square.addEventListener('mouseleave', function() {
+            this.style.backgroundColor = '#d3d3d3'; // Revert to light gray
+            clearTimeout(hoverTimeout);
         });
     });
 });
