@@ -3,41 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
-    <script src="scripts.js" defer></script> <!-- Link to external JavaScript file -->
+    <title>My Website</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Sidebar section with a heading and an image -->
-    <div class="sidebar" id="sidebar">
-        <h2 id="sidebar-title">Sidebar Title</h2> <!-- Sidebar heading -->
-        <img id="sidebar-image" src="image.jpg" alt="Sidebar Image"> <!-- Sidebar image -->
-        <div id="sidebar-body"> <!-- Sidebar body text container -->
-            <p>Initial sidebar body text.</p>
+    <div class="container">
+        <div class="sidebar">
+            <h1 id="sidebar-title">Title</h1>
+            <img id="sidebar-image" src="https://via.placeholder.com/300" alt="Sidebar Image">
+            <p id="sidebar-text">This is the body text.</p>
+        </div>
+        <div class="main-content">
+            <div class="square" data-title="Title 1" data-image="https://via.placeholder.com/150" data-text="This is the body text for square 1.">
+                <img src="https://via.placeholder.com/150" alt="Image 1">
+                <p>Text 1</p>
+            </div>
+            <div class="square" data-title="Title 2" data-image="https://via.placeholder.com/150" data-text="This is the body text for square 2.">
+                <img src="https://via.placeholder.com/150" alt="Image 2">
+                <p>Text 2</p>
+            </div>
+            <div class="square" data-title="Title 3" data-image="https://via.placeholder.com/150" data-text="This is the body text for square 3.">
+                <img src="https://via.placeholder.com/150" alt="Image 3">
+                <p>Text 3</p>
+            </div>
+            <div class="square" data-title="Title 4" data-image="https://via.placeholder.com/150" data-text="This is the body text for square 4.">
+                <img src="https://via.placeholder.com/150" alt="Image 4">
+                <p>Text 4</p>
+            </div>
         </div>
     </div>
-    
-    <!-- Main content area with flexible layout -->
-    <div class="content">
-        <!-- Scrollable text container -->
-        <div class="body-text">
-            <p>First paragraph of body text.</p>
-            <p>Second paragraph of body text.</p>
-            <!-- Additional paragraphs can be added here -->
-        </div>
-        
-        <!-- Rounded square component with an image and caption -->
-        <div class="rounded-square" data-title="New Title 1" data-image="new-image1.jpg" data-body="New body text 1">
-            <img src="square-image.jpg" alt="Square Image"> <!-- Image inside the rounded square -->
-            <p class="image-caption">Image Caption</p> <!-- Caption for the image -->
-        </div>
-        
-        <!-- Instructions: Duplicate this rounded square component to create more instances with different images and captions -->
-        <!-- Duplicate rounded square component for another image -->
-        <div class="rounded-square" data-title="New Title 2" data-image="new-image2.jpg" data-body="New body text 2">
-            <img src="square-image-2.jpg" alt="Another Square Image">
-            <p class="image-caption">Another Image Caption</p>
-        </div>
-    </div>
+    <script src="scripts.js"></script>
 </body>
 </html>
