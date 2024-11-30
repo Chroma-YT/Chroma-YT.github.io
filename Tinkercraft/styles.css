@@ -46,3 +46,29 @@ body {
 .body-text p {
     margin: 10px 0;
 }
+
+.rounded-square {
+    width: 150px;
+    height: 150px;
+    background-color: #333; /* Dark gray color */
+    border-radius: 10px; /* Rounded corners */
+    position: relative; /* Added this line */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering the elements */
+    justify-content: space-between; /* Added this line */
+    padding: 10px; /* Added this line */
+}
+
+.rounded-square img {
+    width: 100%; /* Added this line */
+    height: 66.67%; /* Two-thirds of the container height */
+    border-radius: 10px 10px 0 0; /* Rounded corners on top */
+    object-fit: cover; /* Ensure the image covers the space */
+}
+
+.image-caption {
+    color: white; /* White text color */
+    text-align: center; /* Center the text */
+    margin: 0; /* Remove default margins */
+}
