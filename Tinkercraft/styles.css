@@ -23,23 +23,33 @@ body, html {
     width: 75%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     background: #e0e0e0;
     padding: 20px;
+    box-sizing: border-box;
 }
 
 .square {
-    width: 45%;
+    width: calc(25% - 20px); /* Adjust to make room for padding and margin */
     margin: 10px;
     background: #d3d3d3;
     text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    box-sizing: border-box;
     transition: background-color 0.3s;
 }
 
 .square img {
     width: 100%;
     height: auto;
+    border-radius: 5px;
+}
+
+.square p {
+    margin: 10px 0 0 0;
+    text-align: center;
 }
 
 .square:hover {
