@@ -1,109 +1,47 @@
-/* Global styles for the body */
-body {
-    font-family: Arial, sans-serif; /* Font style */
-    display: flex; /* Flexbox layout for the body */
+/* styles.css */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
 }
 
-/* Main content container */
-.content {
-    width: 75%; /* 75% of the width */
-    padding: 20px; /* Padding inside the container */
-    margin-right: 25%; /* Space for the sidebar */
-    display: flex; /* Flexbox layout */
-    flex-wrap: wrap; /* Wrap items */
-    gap: 20px; /* Gap between items */
+.container {
+    display: flex;
+    height: 100vh;
 }
 
-/* Sidebar container */
 .sidebar {
-    width: 25%; /* Fixed width */
-    height: 100vh; /* Full viewport height */
-    position: fixed; /* Fixed position */
-    right: 0; /* Align right */
-    top: 0; /* Align top */
-    background-color: #111; /* Dark background */
-    padding: 20px; /* Padding inside the container */
-    box-sizing: border-box; /* Include padding in dimensions */
-    color: white; /* White text */
-    display: flex; /* Flexbox layout */
-    flex-direction: column; /* Column layout */
-    align-items: center; /* Center align items */
+    width: 25%;
+    background: #f4f4f4;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
 }
 
-/* Sidebar heading */
-.sidebar h2 {
-    margin-bottom: 20px; /* Margin below heading */
+.main-content {
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    background: #e0e0e0;
+    padding: 20px;
 }
 
-/* Sidebar image */
-.sidebar img {
-    margin-bottom: 20px; /* Margin below image */
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
+.square {
+    width: 45%;
+    margin: 10px;
+    background: #d3d3d3;
+    text-align: center;
+    transition: background-color 0.3s;
 }
 
-/* Scrollable text container */
-.body-text {
-    overflow-y: auto; /* Vertical scrolling */
-    height: calc(100vh - 140px); /* Adjust height */
-    width: 100%; /* Full width */
+.square img {
+    width: 100%;
+    height: auto;
 }
 
-/* Paragraphs within the body text */
-.body-text p {
-    margin: 10px 0; /* Margin around paragraphs */
+.square:hover {
+    background-color: #a9a9a9;
 }
-
-/* Rounded square component */
-.rounded-square {
-    width: 200px; /* Fixed width */
-    height: 200px; /* Fixed height */
-    background-color: #333; /* Dark gray background */
-    border-radius: 10px; /* Rounded corners */
-    display: flex; /* Flexbox layout */
-    flex-direction: column; /* Column layout */
-    justify-content: space-between; /* Space out children */
-    padding: 10px; /* Padding inside the component */
-    box-sizing: border-box; /* Include padding in dimensions */
-}
-
-/* Image inside the rounded square */
-.rounded-square img {
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
-    max-height: calc(100% - 30px); /* Avoid overflow */
-    border-radius: 10px 10px 0 0; /* Rounded top corners */
-    object-fit: contain; /* Contain within the box */
-    transition: background-color 0.3s ease-in-out; /* Smooth transition for background color */
-}
-
-/* Hover effect for the image */
-.rounded-square img:hover {
-    background-color: lightgreen; /* Flash light green on hover */
-}
-
-/* Caption for the image */
-.image-caption {
-    color: white; /* White text */
-    text-align: center; /* Center align text */
-    width: 100%; /* Full width */
-    margin: 0; /* Remove default margins */
-    padding: 5px 0; /* Padding inside the caption */
-}
-
-/* Instructions: To duplicate the rounded square component, follow these steps:
-1. Duplicate the rounded square div.
-2. Change the src attribute of the img tag to specify different image files for each rounded square.
-3. Update the caption text within the image-caption p tag to provide unique captions for each image.
-4. Set data-title, data-image, and data-body attributes to configure new sidebar title, image, and body text.
-Example:
-<div class="rounded-square" data-title="New Title 1" data-image="new-image1.jpg" data-body="New body text 1">
-    <img src="square-image.jpg" alt="Square Image"> 
-    <p class="image-caption">Image Caption</p>
-</div>
-
-<div class="rounded-square" data-title="New Title 2" data-image="new-image2.jpg" data-body="New body text 2">
-    <img src="square-image-2.jpg" alt="Another Square Image">
-    <p class="image-caption">Another Image Caption</p>
-</div>
-*/
