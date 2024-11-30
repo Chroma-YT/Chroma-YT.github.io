@@ -7,44 +7,20 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="sidebar">
-        <h2 id="sidebar-title">Title</h2>
-        <img id="sidebar-image" src="https://via.placeholder.com/150" alt="Sidebar Image">
-        <p id="sidebar-text">This is the body text.</p>
-    </div>
-    <div class="main-content">
-        <div class="grid">
-            <div class="grid-item" data-title="Title 1" data-image="https://via.placeholder.com/150" data-text="Text 1">
-                <img src="https://via.placeholder.com/150" alt="Image 1">
-                <p>Image 1</p>
+    <div class="container">
+        <div class="sidebar">
+            <h1 id="sidebar-title">Title</h1>
+            <img id="sidebar-image" src="default.jpg" alt="Default Image">
+            <p id="sidebar-text">Body text that can scroll...</p>
+        </div>
+        <div class="main-content">
+            <div class="square" id="square1" data-title="Title 1" data-image="image1.jpg" data-text="Text for square 1.">
+                <img src="thumbnail1.jpg" alt="Thumbnail 1">
+                <p>Square 1</p>
             </div>
-            <div class="grid-item" data-title="Title 2" data-image="https://via.placeholder.com/150" data-text="Text 2">
-                <img src="https://via.placeholder.com/150" alt="Image 2">
-                <p>Image 2</p>
-            </div>
-            <div class="grid-item" data-title="Title 3" data-image="https://via.placeholder.com/150" data-text="Text 3">
-                <img src="https://via.placeholder.com/150" alt="Image 3">
-                <p>Image 3</p>
-            </div>
-            <div class="grid-item" data-title="Title 4" data-image="https://via.placeholder.com/150" data-text="Text 4">
-                <img src="https://via.placeholder.com/150" alt="Image 4">
-                <p>Image 4</p>
-            </div>
-            <div class="grid-item" data-title="Title 5" data-image="https://via.placeholder.com/150" data-text="Text 5">
-                <img src="https://via.placeholder.com/150" alt="Image 5">
-                <p>Image 5</p>
-            </div>
-            <div class="grid-item" data-title="Title 6" data-image="https://via.placeholder.com/150" data-text="Text 6">
-                <img src="https://via.placeholder.com/150" alt="Image 6">
-                <p>Image 6</p>
-            </div>
-            <div class="grid-item" data-title="Title 7" data-image="https://via.placeholder.com/150" data-text="Text 7">
-                <img src="https://via.placeholder.com/150" alt="Image 7">
-                <p>Image 7</p>
-            </div>
+            <!-- Repeat similar blocks for the remaining 6 squares -->
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
-
