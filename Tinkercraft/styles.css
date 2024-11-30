@@ -1,29 +1,30 @@
 body {
-    font-family: Arial, sans-serif;
-}
-
-.layout {
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 8px;
+  font-family: "Lato", sans-serif;
 }
 
 .sidebar {
-    grid-area: sidebar;
-    width: 250px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    border: 1px solid #ddd;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    overflow-y: auto;  /* Optional: if you want the sidebar to have its own scroll bar when content overflows */
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  padding-top: 20px;
 }
 
-.body {
-    grid-area: body;
-    margin-left: 260px;  /* Adjust this value based on the width of your sidebar to avoid content overlapping */
-    padding: 20px;
+.sidebar a {
+  padding: 15px 10px;
+  text-decoration: none;
+  font-size: 18px;
+  color: white;
+  display: block;
+}
+
+.sidebar a:hover {
+  background-color: #575757;
+}
+
+.content {
+  margin-left: 220px;
+  padding: 20px;
 }
