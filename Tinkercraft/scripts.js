@@ -1,17 +1,28 @@
-document.querySelectorAll('.grid-item').forEach(item => {
+document.querySelectorAll('.square').forEach(square => {
     let hoverTimeout;
 
-    item.addEventListener('mouseover', () => {
-        item.style.backgroundColor = 'darkgray';
+    square.addEventListener('mouseover', () => {
         hoverTimeout = setTimeout(() => {
-            document.getElementById('sidebar-title').innerText = item.dataset.title;
-            document.getElementById('sidebar-image').src = item.dataset.image;
-            document.getElementById('sidebar-text').innerText = item.dataset.text;
+            updateSidebar(square);
         }, 200);
     });
 
-    item.addEventListener('mouseout', () => {
-        item.style.backgroundColor = 'lightgray';
+    square.addEventListener('mouseout', () => {
         clearTimeout(hoverTimeout);
+        square.classList.remove('flash');
+    });
+
+    square.addEventListener('mouseenter', () => {
+        square.classList.add('flash');
+    });
+
+    square.addEventListener('mouseleave', () => {
+        square.classList.remove('flash');
     });
 });
+
+function updateSidebar(square) {
+    document.getElementById('sidebar-title').innerText = square.dataset.title;
+    document.getElementById('sidebar-image').src = square.dataset.image;
+    document.getElementById('sidebar-text').innerText = square.dataset.text;
+}
