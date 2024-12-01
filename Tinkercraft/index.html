@@ -15,7 +15,7 @@
             margin: 10px;
             text-align: center;
             vertical-align: top;
-            line-height: 150px; /* This is to center the image vertically */
+            line-height: 150px;
             transition: background-color 0.3s ease;
         }
 
@@ -34,13 +34,12 @@
         .square img {
             max-width: 100%;
             max-height: 100%;
-            vertical-align: middle; /* This is to center the image vertically */
+            vertical-align: middle;
         }
     </style>
 </head>
 <body>
     <div class="main-content">
-        <!-- Collapsible Section Start -->
         <div class="collapsible-section">
             <button class="collapsible">Better Looks</button>
             <div class="collapsible-content">
@@ -61,15 +60,12 @@
                 <p>This is the collapsible content for Section 2.</p>
             </div>
         </div>
-        <!-- Collapsible Section End -->
     </div>
     <div class="sidebar" id="sidebar">
-        <!-- Sidebar content -->
         <h2>Sidebar</h2>
         <p>This is my fixed sidebar.</p>
     </div>
 
-    <!-- New section for displaying selected packs -->
     <div class="selected-packs" id="selectedPacks">
         <h2>Selected Packs</h2>
         <ul id="packsList"></ul>

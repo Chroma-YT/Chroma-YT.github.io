@@ -57,7 +57,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Additional styles for the toggle effect */
 .square {
     width: 150px;
     height: 150px;
@@ -67,7 +66,7 @@ body {
     margin: 10px;
     text-align: center;
     vertical-align: top;
-    line-height: 150px; /* This is to center the image vertically */
+    line-height: 150px;
     transition: background-color 0.3s ease;
 }
 
@@ -86,5 +85,5 @@ body {
 .square img {
     max-width: 100%;
     max-height: 100%;
-    vertical-align: middle; /* This is to center the image vertically */
+    vertical-align: middle;
 }
