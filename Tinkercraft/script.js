@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Collapsible Section Toggle
     var coll = document.getElementsByClassName("collapsible");
     var i;
 
@@ -14,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Hover Effect for Squares
     const squares = document.querySelectorAll(".square");
     const sidebarText = document.getElementById("sidebar").querySelector("p");
 
