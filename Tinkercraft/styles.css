@@ -52,3 +52,61 @@ body {
     word-wrap: break-word; /* Ensure text wraps properly */
     word-break: break-word; /* Ensure text wraps properly */
 }
+body {
+    display: flex;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    margin-right: 25%; /* Ensure the main content does not overlap with the sidebar */
+    box-sizing: border-box;
+}
+
+.sidebar {
+    width: 25%; /* Sidebar width set to 25% of the screen */
+    height: 100vh;
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: #333; /* Dark background for contrast */
+    color: white; /* White text */
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    box-sizing: border-box;
+}
+
+.collapsible-section {
+    margin-bottom: 10px;
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px; /* Added padding */
+    width: calc(100% - 40px); /* Adjust to include padding */
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin: 0 -20px; /* Extend to the edge of the main content area */
+    box-sizing: border-box; /* Include padding in the element's width and height */
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.collapsible-content {
+    padding: 10px 20px; /* Added padding */
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Ensure text wraps properly */
+    word-break: break-word; /* Ensure text wraps properly */
+    box-sizing: border-box; /* Include padding in the element's width and height */
+}
