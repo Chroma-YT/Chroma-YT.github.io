@@ -13,4 +13,21 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    const squares = document.querySelectorAll(".square");
+    const sidebarText = document.getElementById("sidebar").querySelector("p");
+
+    squares.forEach(square => {
+        let hoverTimer;
+
+        square.addEventListener("mouseenter", function() {
+            hoverTimer = setTimeout(() => {
+                sidebarText.textContent = `Hovered over ${square.id}`;
+            }, 200);
+        });
+
+        square.addEventListener("mouseleave", function() {
+            clearTimeout(hoverTimer);
+        });
+    });
 });
