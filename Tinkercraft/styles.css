@@ -11,7 +11,7 @@ body {
 }
 
 .sidebar {
-    width: 30%; /* Sidebar width set to 30% of the screen */
+    width: 25%; /* Sidebar width set to 25% of the screen */
     height: 100vh;
     position: fixed;
     right: 0;
