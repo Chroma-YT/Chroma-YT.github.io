@@ -31,5 +31,9 @@ document.addEventListener("DOMContentLoaded", function() {
         square.addEventListener("mouseleave", function() {
             clearTimeout(hoverTimer);
         });
+
+        square.addEventListener("click", function() {
+            square.classList.toggle("clicked");
+        });
     });
 });
