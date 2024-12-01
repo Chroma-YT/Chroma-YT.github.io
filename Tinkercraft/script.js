@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Collapsible Section Toggle
     var coll = document.getElementsByClassName("collapsible");
     var i;
 
@@ -14,10 +15,9 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Hover Effect for Squares
     const squares = document.querySelectorAll(".square");
     const sidebarText = document.getElementById("sidebar").querySelector("p");
-    const packsSelected = [];
-    const packsList = document.getElementById("packsList");
 
     squares.forEach(square => {
         let hoverTimer;
@@ -33,27 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
 
         square.addEventListener("click", function() {
-            const packName = square.getAttribute('id');
-            const index = packsSelected.indexOf(packName);
-
-            if (index > -1) {
-                packsSelected.splice(index, 1);
-                square.classList.remove('clicked');
-            } else {
-                packsSelected.push(packName);
-                square.classList.add('clicked');
-            }
-
-            updatePacksList();
+            square.classList.toggle("clicked");
         });
     });
-
-    function updatePacksList() {
-        packsList.innerHTML = "";
-        packsSelected.forEach(pack => {
-            const listItem = document.createElement("li");
-            listItem.textContent = pack;
-            packsList.appendChild(listItem);
-        });
-    }
 });
