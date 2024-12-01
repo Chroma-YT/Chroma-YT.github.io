@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Site</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .square {
+            width: 150px;
+            height: 150px;
+            background-color: lightgray;
+            border-radius: 15px;
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+            vertical-align: top;
+            line-height: 150px; /* This is to center the image vertically */
+            transition: background-color 0.3s ease;
+        }
+
+        .square:hover {
+            background-color: darkgray;
+        }
+
+        .square img {
+            max-width: 100%;
+            max-height: 100%;
+            vertical-align: middle; /* This is to center the image vertically */
+        }
+    </style>
 </head>
 <body>
     <div class="main-content">
@@ -12,7 +36,15 @@
         <div class="collapsible-section">
             <button class="collapsible">Section 1</button>
             <div class="collapsible-content">
-                <p>This is the collapsible content for Section 1.</p>
+                <div class="square">
+                    <img src="https://via.placeholder.com/100" alt="Placeholder Image">
+                </div>
+                <div class="square">
+                    <img src="https://via.placeholder.com/100" alt="Placeholder Image">
+                </div>
+                <div class="square">
+                    <img src="https://via.placeholder.com/100" alt="Placeholder Image">
+                </div>
             </div>
         </div>
         <div class="collapsible-section">
