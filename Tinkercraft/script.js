@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         square.addEventListener("mouseenter", function() {
             hoverTimer = setTimeout(() => {
-                sidebarText.textContent = `Hovered over ${square.id}`;
+                sidebarText.textContent = square.getAttribute("data-hover-text");
             }, 200);
         });
 
