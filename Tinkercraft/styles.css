@@ -49,4 +49,6 @@ body {
     overflow: hidden;
     background-color: #f1f1f1;
     margin-bottom: 10px;
+    word-wrap: break-word; /* Ensure text wraps properly */
+    word-break: break-word; /* Ensure text wraps properly */
 }
