@@ -7,7 +7,7 @@ body {
 .content {
     flex: 1;
     padding: 20px;
-    margin-right: 30%; /* Ensure the main content does not overlap with the sidebar */
+    margin-right: 25%; /* Ensure the main content does not overlap with the sidebar */
 }
 
 .sidebar {
@@ -20,4 +20,28 @@ body {
     color: white; /* White text */
     padding: 20px;
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+
+.collapsible {
+    background-color: #777;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+
+.active, .collapsible:hover {
+    background-color: #555;
+}
+
+.collapsible-content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
+    margin-bottom: 10px;
 }
