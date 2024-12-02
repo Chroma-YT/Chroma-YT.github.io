@@ -1,13 +1,11 @@
 body {
-    display: flex;
-    flex-direction: column;
     margin: 0;
     font-family: Arial, sans-serif;
     background-image: url('dirt.png'); /* Set background image for the body */
     background-repeat: repeat; /* Tile the background image */
 }
 
-#sky-blue-screen {
+#landing-section {
     width: 100%;
     height: 100vh;
     background-color: skyblue;
@@ -15,9 +13,8 @@ body {
 
 #background-tiles {
     width: 100%;
-    height: 100vh; /* Cover the viewport height */
     position: absolute;
-    top: 0;
+    top: 100vh; /* Start below the landing section */
     left: 0;
     z-index: -1; /* Ensure it stays behind other content */
     display: flex;
@@ -29,15 +26,20 @@ body {
     height: 100px; /* Match the size of dirt.png */
     background-image: url('dirt.png');
     background-size: cover;
+}
+
+#content-section {
     position: relative;
+    top: 100vh; /* Start below the landing section */
+    display: flex;
+    margin-right: 20px; /* Adjusted margin */
+    box-sizing: border-box;
 }
 
 .main-content {
     flex: 1;
     padding: 20px;
-    margin-right: 20px; /* Adjusted margin */
     box-sizing: border-box;
-    position: relative; /* Ensure it stays above the background tiles */
 }
 
 .sidebar {
@@ -53,14 +55,12 @@ body {
     overflow: hidden;
     background-image: url('stone.png');
     background-repeat: repeat;
-    z-index: 1; /* Ensure it stays above other content */
 }
 
 .sidebar-content {
     height: 100%;
     overflow-y: auto; /* Makes the content scrollable */
     padding-right: 10px; /* Adjusts padding to accommodate scrollbar */
-    position: relative;
 }
 
 .sidebar-content::-webkit-scrollbar {
