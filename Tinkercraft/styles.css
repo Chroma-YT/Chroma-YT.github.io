@@ -5,16 +5,10 @@ body {
     background-repeat: repeat; /* Tile the background image */
 }
 
-#landing-section {
-    width: 100%;
-    height: 100vh;
-    background-color: skyblue;
-}
-
 #background-tiles {
     width: 100%;
     position: absolute;
-    top: 100vh; /* Start below the landing section */
+    top: 0; /* Ensure it starts from the top */
     left: 0;
     z-index: -1; /* Ensure it stays behind other content */
     display: flex;
@@ -30,7 +24,6 @@ body {
 
 #content-section {
     position: relative;
-    top: 100vh; /* Start below the landing section */
     display: flex;
     margin-right: 20px; /* Adjusted margin */
     box-sizing: border-box;
