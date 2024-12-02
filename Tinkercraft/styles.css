@@ -2,6 +2,8 @@ body {
     display: flex;
     margin: 0;
     font-family: Arial, sans-serif;
+    background-image: url('dirt.png'); /* Set background image for the body */
+    background-repeat: repeat; /* Tile the background image */
 }
 
 .main-content {
@@ -57,12 +59,11 @@ body {
     color: white;
     cursor: pointer;
     padding: 10px 20px;
-    width: calc(100% - 40px); /* Ensure the button takes full width within the padding */
+    width: 100%; /* Ensure the button takes full width */
     border: none;
     text-align: left; /* Align text to the left */
     outline: none;
     font-size: 15px;
-    margin: 0;
     box-sizing: border-box;
 }
 
