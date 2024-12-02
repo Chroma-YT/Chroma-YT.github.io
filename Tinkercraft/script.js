@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+/*document.addEventListener('DOMContentLoaded', function() {
     const backgroundContainer = document.getElementById('background-tiles');
     const totalHeight = document.body.scrollHeight;
     const skyBlueScreenHeight = document.getElementById('sky-blue-screen').clientHeight;
@@ -67,5 +67,4 @@ document.addEventListener('DOMContentLoaded', function() {
         tile.style.transform = `rotate(${randomRotation}deg)`;
         backgroundContainer.appendChild(tile);
     }
-});
-
+});*/
