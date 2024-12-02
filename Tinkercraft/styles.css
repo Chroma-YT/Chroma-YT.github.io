@@ -22,9 +22,15 @@ body {
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
     box-sizing: border-box;
     overflow: hidden;
-    background-image: url('stone.png');
-    background-repeat: repeat;
-    filter: brightness(50%);
+    background: url('stone.png') repeat; /* Use background shorthand to set the image */
+    background-size: 100px 100px; /* Set the size to match the image dimensions */
+    filter: brightness(50%); /* Adjust the brightness */
+    position: relative; /* Ensure this doesn't affect other properties */
+}
+
+.sidebar * {
+    position: relative; /* Ensures that text and other elements are unaffected by the filter */
+    z-index: 1; /* Keeps the text above the background */
 }
 
 .collapsible-section {
