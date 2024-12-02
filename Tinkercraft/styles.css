@@ -2,8 +2,26 @@ body {
     display: flex;
     margin: 0;
     font-family: Arial, sans-serif;
-    background-image: url('dirt.png'); /* Set background image for the body */
-    background-repeat: repeat; /* Tile the background image */
+    overflow: hidden; /* Prevent body scrolling */
+}
+
+#background-tiles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; /* Ensure it stays behind other content */
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.background-tile {
+    width: 100px; /* Match the size of dirt.png */
+    height: 100px; /* Match the size of dirt.png */
+    background-image: url('dirt.png');
+    background-size: cover;
+    position: relative;
 }
 
 .main-content {

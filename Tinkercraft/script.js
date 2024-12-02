@@ -32,3 +32,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const backgroundContainer = document.getElementById('background-tiles');
+    const tileCountX = Math.ceil(window.innerWidth / 100);
+    const tileCountY = Math.ceil(window.innerHeight / 100);
+    
+    for (let i = 0; i < tileCountX * tileCountY; i++) {
+        const tile = document.createElement('div');
+        tile.className = 'background-tile';
+        
+        // Apply random rotation
+        const rotations = [0, 90, 180, 270];
+        const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
+        tile.style.transform = `rotate(${randomRotation}deg)`;
+        
+        backgroundContainer.appendChild(tile);
+    }
+});
