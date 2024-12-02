@@ -31,18 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         square.addEventListener("mouseleave", () => {
             clearTimeout(hoverTimer);
-            console.log(selected);
         });
 
         square.addEventListener("click", () => {
             square.classList.toggle("clicked");
 
-            const toAppend = square.getAttribute("name");
+            const toAppend = square.getAttribute("id");
             if(selected.includes(toAppend)) {
                 selected = selected.filter(item => item !== toAppend);
-                return;
+            } else {
+                selected.push(toAppend);
             }
-            selected.push(toAppend);
 
             console.log(selected);
         });
