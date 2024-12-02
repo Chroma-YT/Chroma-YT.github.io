@@ -1,5 +1,3 @@
-let selected = [];
-
 document.addEventListener("DOMContentLoaded", () => {
     // Collapsible Section Toggle
     var coll = document.getElementsByClassName("collapsible");
@@ -31,19 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         square.addEventListener("mouseleave", () => {
             clearTimeout(hoverTimer);
-        });
-
-        square.addEventListener("click", () => {
-            square.classList.toggle("clicked");
-
-            const toAppend = square.getAttribute("id");
-            if(selected.includes(toAppend)) {
-                selected = selected.filter(item => item !== toAppend);
-            } else {
-                selected.push(toAppend);
-            }
-
-            console.log(selected);
         });
     });
 });
