@@ -15,8 +15,10 @@
             margin: 10px;
             text-align: center;
             vertical-align: top;
-            line-height: 150px; /* This is to center the image vertically */
+            line-height: 150px;
             transition: background-color 0.3s ease;
+
+            font-size: 0;
         }
 
         .square:hover {
@@ -31,59 +33,50 @@
             background-color: mediumseagreen;
         }
 
-        .square img {
+        .square * {
+            display: none;
+        }
+
+        .square-img {
+            display: none;
+        }
+
+        .square .square-img {
             max-width: 90%;
             max-height: 90%;
-            vertical-align: middle; /* This is to center the image vertically */
+            vertical-align: middle;
+            display: inline;
         }
     </style>
 </head>
 <body>
-    <div id="sky-blue-screen"></div>
-    
-    <div id="background-tiles"></div>
-    
     <div class="main-content">
         <!-- Collapsible Section Start -->
         <div class="collapsible-section">
-            <button class="collapsible">Visuals</button>
+            <button class="collapsible">Better Looks</button>
             <div class="collapsible-content">
-                <div name="modern_creepers" class="square">
-                    Da creepers be modern no cap.
-                </div>
+                <div name="wheatier_wheat" class="square" data-hover-text="You hovered over Square 1!"></div>
+                <div name="carrotier_carrots" class="square" data-hover-text="You hovered over Square 2!"></div>
+                <div name="potent_tatoes" class="square" data-hover-text="You hovered over Square 3!">Hehe</div>
+                <!-- Additional Squares -->
+                <div name="custom-image4" class="square" data-hover-text="You hovered over Square 4!">Wassup</div>
+                <div name="custom-image5" class="square" data-hover-text="You hovered over Square 5!"></div>    
+                <div name="custom-image6" class="square" data-hover-text="You hovered over Square 6!"></div>
             </div>
         </div>
         <div class="collapsible-section">
-            <button class="collapsible">Worldgen</button>
+            <button class="collapsible">Less Annoying</button>
             <div class="collapsible-content">
                 <p>This is the collapsible content for Section 2.</p>
-            </div>
-        </div>
-        <div class="collapsible-section">
-            <button class="collapsible">Quality of Life</button>
-            <div class="collapsible-content">
-                <p>This is the collapsible content for Section 3.</p>
-                <div class="collapsible-section">
-                    <button class="collapsible">Unobtrusive</button>
-                    <div class="collapsible-content">
-                        <p>This is the collapsible content for Section 2.</p>
-                    </div>
-                </div>
             </div>
         </div>
         <!-- Collapsible Section End -->
     </div>
     <div class="sidebar" id="sidebar">
-        <div class="sidebar-content">
-            <!-- Sidebar content -->
-            <h2>Sidebar</h2>
-            <p>This is my fixed sidebar.</p>
-            <p>Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable.</p>
-            <p>Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable.</p>
-            <p>Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable. Add more content here to make it scrollable.</p>
-        </div>
+        <!-- Sidebar content -->
+        <h2>Sidebar</h2>
+        <p>This is my fixed sidebar.</p>
     </div>
     <script src="script.js"></script>
 </body>
 </html>
-
