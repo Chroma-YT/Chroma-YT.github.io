@@ -71,7 +71,7 @@ body {
 }
 
 .collapsible-content {
-    padding: 10px 0; /* Adjust padding to balance left and right */
+    padding: 10px 20px; /* Add padding to the text inside the collapsibles */
     display: none;
     overflow: hidden;
     background-color: #f1f1f1;
@@ -79,4 +79,35 @@ body {
     word-wrap: break-word;
     word-break: break-word;
     box-sizing: border-box;
+}
+
+.square {
+    width: 150px;
+    height: 150px;
+    background-color: lightgray;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 10px;
+    text-align: center;
+    vertical-align: top;
+    line-height: 150px;
+    transition: background-color 0.3s ease;
+}
+
+.square:hover {
+    background-color: darkgray;
+}
+
+.square.clicked {
+    background-color: palegreen;
+}
+
+.square.clicked:hover {
+    background-color: mediumseagreen;
+}
+
+.square img {
+    max-width: 50%;
+    max-height: 50%;
+    vertical-align: middle;
 }
