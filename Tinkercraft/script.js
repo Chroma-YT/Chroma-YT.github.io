@@ -41,28 +41,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const backgroundContainer = document.getElementById('background-tiles');
-    const totalHeight = document.body.scrollHeight - window.innerHeight;
+    const skyBlueScreenHeight = document.getElementById('sky-blue-screen').clientHeight;
+    const totalHeight = document.body.scrollHeight;
     const tileCountX = Math.ceil(window.innerWidth / 100);
     const tileCountY = Math.ceil(totalHeight / 100);
-
     for (let i = 0; i < tileCountX * tileCountY; i++) {
         const tile = document.createElement('div');
         tile.className = 'background-tile';
-
         // Apply random rotation
         const rotations = [0, 90, 180, 270];
         const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
         tile.style.transform = `rotate(${randomRotation}deg)`;
-
         backgroundContainer.appendChild(tile);
     }
-            const toAppend = square.getAttribute("name");
-            if(selected.includes(toAppend)) {
-                selected = selected.filter(item => item !== toAppend);
-                return;
-            }
-            selected.push(toAppend);
-        });
-    });
 });
+
 
