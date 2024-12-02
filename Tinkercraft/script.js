@@ -1,3 +1,5 @@
+let selected = [];
+
 document.addEventListener("DOMContentLoaded", () => {
     // Collapsible Section Toggle
     var coll = document.getElementsByClassName("collapsible");
@@ -28,13 +30,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
         square.addEventListener("mouseenter", () => {
             hoverTimer = setTimeout(() => {
-                sidebarText.textContent = square.getAttribute("data-hover-text");
                 sidebarText.innerHTML = square.innerHTML;
             }, 200);
         });
 
         square.addEventListener("mouseleave", () => {
             clearTimeout(hoverTimer);
+        });
+
+        square.addEventListener("click", () => {
+            square.classList.toggle("clicked");
+
+            const toAppend = square.getAttribute("name");
+            if(selected.includes(toAppend)) {
+                selected = selected.filter(item => item !== toAppend);
+                return;
+            }
+            selected.push(toAppend);
         });
     });
 });
@@ -55,5 +67,3 @@ document.addEventListener('DOMContentLoaded', function() {
         backgroundContainer.appendChild(tile);
     }
 });
-
-
