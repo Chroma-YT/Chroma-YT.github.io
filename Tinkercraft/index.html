@@ -15,10 +15,8 @@
             margin: 10px;
             text-align: center;
             vertical-align: top;
-            line-height: 150px;
+            line-height: 150px; /* This is to center the image vertically */
             transition: background-color 0.3s ease;
-
-            font-size: 0;
         }
 
         .square:hover {
@@ -33,25 +31,14 @@
             background-color: mediumseagreen;
         }
 
-        .square * {
-            display: none;
-        }
-
-        .square-img {
-            display: none;
-        }
-
-        .square .square-img {
+        .square img {
             max-width: 90%;
             max-height: 90%;
-            vertical-align: middle;
-            display: inline;
+            vertical-align: middle; /* This is to center the image vertically */
         }
     </style>
 </head>
 <body>
-    <div id="landing-section"></div>
-    
     <div id="background-tiles"></div>
     
     <div id="content-section">

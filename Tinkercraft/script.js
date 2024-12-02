@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const backgroundContainer = document.getElementById('background-tiles');
+    const totalHeight = document.body.scrollHeight;
     const skyBlueScreenHeight = document.getElementById('sky-blue-screen').clientHeight;
     const totalHeight = document.body.scrollHeight;
     const tileCountX = Math.ceil(window.innerWidth / 100);
@@ -67,3 +68,4 @@ document.addEventListener('DOMContentLoaded', function() {
         backgroundContainer.appendChild(tile);
     }
 });
+
