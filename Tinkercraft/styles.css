@@ -25,13 +25,14 @@ body {
 #content-section {
     position: relative;
     display: flex;
-    margin-right: 20px; /* Adjusted margin */
+    margin-right: 0; /* Reset the margin */
     box-sizing: border-box;
 }
 
 .main-content {
     flex: 1;
     padding: 20px;
+    margin-right: 25%; /* Make room for the sidebar */
     box-sizing: border-box;
 }
 
