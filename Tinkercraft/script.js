@@ -8,14 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
         coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                content.style.paddingTop = "0";
-                content.style.paddingBottom = "0";
+            if (content.style.display === "block") {
+                content.style.display = "none";
             } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                content.style.paddingTop = "10px";
-                content.style.paddingBottom = "10px";
+                content.style.display = "block";
             }
         });
     }
