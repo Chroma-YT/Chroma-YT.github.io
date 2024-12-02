@@ -16,10 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    for(let i=0;i<options.length;i++) {
-
-    }
-
     // Hover Effect for Squares
     const squares = document.querySelectorAll(".square");
     const sidebarText = document.getElementById("sidebar").querySelector("p");
