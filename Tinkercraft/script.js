@@ -1,3 +1,5 @@
+let selected = [];
+
 document.addEventListener("DOMContentLoaded", () => {
     // Collapsible Section Toggle
     var coll = document.getElementsByClassName("collapsible");
@@ -14,11 +16,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    for(let i=0;i<options.length;i++) {
+
+    }
+
     // Hover Effect for Squares
     const squares = document.querySelectorAll(".square");
     const sidebarText = document.getElementById("sidebar").querySelector("p");
 
     squares.forEach(square => {
+        const img = document.createElement("img");
+        img.src = square.getAttribute("name")+".png";
+        square.appendChild(img);
+
         let hoverTimer;
 
         square.addEventListener("mouseenter", () => {
@@ -29,6 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
         square.addEventListener("mouseleave", () => {
             clearTimeout(hoverTimer);
+            console.log(selected);
+        });
+
+        square.addEventListener("click", () => {
+            square.classList.toggle("clicked");
+
+            const toAppend = square.getAttribute("name");
+            if(selected.includes(toAppend)) {
+                selected = selected.filter(item => item !== toAppend);
+                return;
+            }
+            selected.push(toAppend);
+
+            console.log(selected);
         });
     });
 });
