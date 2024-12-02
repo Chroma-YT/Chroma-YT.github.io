@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         square.addEventListener("mouseenter", () => {
             hoverTimer = setTimeout(() => {
-                sidebarText.innerHTML = square.innerHTML;
+                sidebarText.textContent = square.innerText;
             }, 200);
         });
 
