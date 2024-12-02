@@ -10,11 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
             var content = this.nextElementSibling;
             if (content.style.display === "block") {
                 content.style.display = "none";
-                console.log(selected); // Print selected array when collapsing
             } else {
                 content.style.display = "block";
-                console.log(selected); // Print selected array when expanding
             }
+            console.log(selected); // Print selected array
         });
     }
 
@@ -38,12 +37,14 @@ document.addEventListener("DOMContentLoaded", () => {
         square.addEventListener("click", () => {
             square.classList.toggle("clicked");
 
-            const toAppend = square.getAttribute("name");
+            const toAppend = square.getAttribute("id");
             if (selected.includes(toAppend)) {
                 selected = selected.filter(item => item !== toAppend);
             } else {
                 selected.push(toAppend);
             }
+
+            console.log(selected);
         });
     });
 });
