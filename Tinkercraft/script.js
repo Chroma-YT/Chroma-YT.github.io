@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
 document.addEventListener('DOMContentLoaded', function() {
     const backgroundContainer = document.getElementById('background-tiles');
     const tileCountX = Math.ceil(window.innerWidth / 100);
