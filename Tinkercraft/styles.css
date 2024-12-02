@@ -15,10 +15,10 @@ body {
 
 #background-tiles {
     width: 100%;
-    height: calc(100vh + 100%); /* Additional height to ensure it covers the whole body plus sky blue screen */
+    height: 100vh; /* Cover the viewport height */
+    position: absolute;
     top: 0;
     left: 0;
-    position: absolute;
     z-index: -1; /* Ensure it stays behind other content */
     display: flex;
     flex-wrap: wrap;
@@ -37,6 +37,7 @@ body {
     padding: 20px;
     margin-right: 20px; /* Adjusted margin */
     box-sizing: border-box;
+    position: relative; /* Ensure it stays above the background tiles */
 }
 
 .sidebar {
@@ -52,7 +53,7 @@ body {
     overflow: hidden;
     background-image: url('stone.png');
     background-repeat: repeat;
-    position: relative;
+    z-index: 1; /* Ensure it stays above other content */
 }
 
 .sidebar-content {
