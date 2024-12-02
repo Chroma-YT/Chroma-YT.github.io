@@ -1,3 +1,5 @@
+let selected = [];
+
 document.addEventListener("DOMContentLoaded", () => {
     // Collapsible Section Toggle
     var coll = document.getElementsByClassName("collapsible");
@@ -8,8 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
             var content = this.nextElementSibling;
             if (content.style.display === "block") {
                 content.style.display = "none";
+                console.log(selected); // Print selected array when collapsing
             } else {
                 content.style.display = "block";
+                console.log(selected); // Print selected array when expanding
             }
         });
     }
@@ -29,6 +33,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
         square.addEventListener("mouseleave", () => {
             clearTimeout(hoverTimer);
+        });
+
+        square.addEventListener("click", () => {
+            square.classList.toggle("clicked");
+
+            const toAppend = square.getAttribute("name");
+            if (selected.includes(toAppend)) {
+                selected = selected.filter(item => item !== toAppend);
+            } else {
+                selected.push(toAppend);
+            }
         });
     });
 });
