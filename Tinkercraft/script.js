@@ -21,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebarText = document.getElementById("sidebar").querySelector("p");
 
     squares.forEach(square => {
+        let img = document.createElement("img");
+        img.src = square.getAttribute("name")+".png";
+        square.appendChild(img);
+
         let hoverTimer;
 
         square.addEventListener("mouseenter", () => {
