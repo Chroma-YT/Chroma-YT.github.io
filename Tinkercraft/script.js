@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     squares.forEach(square => {
         const img = document.createElement("img");
         img.src = square.getAttribute("name")+".png";
-        img.classList.add("square-img"); // I could just use innerText for descriptions and ignore this, but writing HTML code for descriptions would be better.
+        img.classList.add("square-img");
         square.appendChild(img);
 
         let hoverTimer;
@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         square.addEventListener("mouseleave", () => {
             clearTimeout(hoverTimer);
-            console.log(selected);
         });
 
         square.addEventListener("click", () => {
@@ -48,8 +47,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
             selected.push(toAppend);
-
-            console.log(selected);
         });
     });
 });
