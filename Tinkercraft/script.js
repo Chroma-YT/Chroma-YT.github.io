@@ -8,10 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
         coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.style.paddingTop = "0";
+                content.style.paddingBottom = "0";
             } else {
-                content.style.display = "block";
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.style.paddingTop = "10px";
+                content.style.paddingBottom = "10px";
             }
         });
     }
@@ -22,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     squares.forEach(square => {
         const img = document.createElement("img");
-        img.src = square.getAttribute("name")+".png";
+        img.src = square.getAttribute("name") + ".png";
         img.classList.add("square-img");
         square.appendChild(img);
 
@@ -42,29 +46,29 @@ document.addEventListener("DOMContentLoaded", () => {
             square.classList.toggle("clicked");
 
             const toAppend = square.getAttribute("name");
-            if(selected.includes(toAppend)) {
+            if (selected.includes(toAppend)) {
                 selected = selected.filter(item => item !== toAppend);
                 return;
             }
             selected.push(toAppend);
         });
     });
-});
 
-/*document.addEventListener('DOMContentLoaded', function() {
+    // Background Tiles
     const backgroundContainer = document.getElementById('background-tiles');
-    const totalHeight = document.body.scrollHeight;
-    const skyBlueScreenHeight = document.getElementById('sky-blue-screen').clientHeight;
     const totalHeight = document.body.scrollHeight;
     const tileCountX = Math.ceil(window.innerWidth / 100);
     const tileCountY = Math.ceil(totalHeight / 100);
+    
     for (let i = 0; i < tileCountX * tileCountY; i++) {
         const tile = document.createElement('div');
         tile.className = 'background-tile';
+        
         // Apply random rotation
         const rotations = [0, 90, 180, 270];
         const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
         tile.style.transform = `rotate(${randomRotation}deg)`;
+        
         backgroundContainer.appendChild(tile);
     }
-});*/
+});
