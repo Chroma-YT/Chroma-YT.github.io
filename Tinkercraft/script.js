@@ -1,9 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
+let selected = [];
+
+document.addEventListener("DOMContentLoaded", () => {
     // Collapsible Section Toggle
     var coll = document.getElementsByClassName("collapsible");
-    var i;
 
-    for (i = 0; i < coll.length; i++) {
+    for (let i = 0; i < coll.length; i++) {
         coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
@@ -22,18 +23,28 @@ document.addEventListener("DOMContentLoaded", function() {
     squares.forEach(square => {
         let hoverTimer;
 
-        square.addEventListener("mouseenter", function() {
+        square.addEventListener("mouseenter", () => {
             hoverTimer = setTimeout(() => {
                 sidebarText.textContent = square.getAttribute("data-hover-text");
             }, 200);
         });
 
-        square.addEventListener("mouseleave", function() {
+        square.addEventListener("mouseleave", () => {
             clearTimeout(hoverTimer);
+            console.log(selected);
         });
 
-        square.addEventListener("click", function() {
+        square.addEventListener("click", () => {
             square.classList.toggle("clicked");
+
+            const toAppend = square.getAttribute("name");
+            if(selected.includes(toAppend)) {
+                selected = selected.filter(item => item !== toAppend);
+                return;
+            }
+            selected.push(toAppend);
+
+            console.log(selected);
         });
     });
 });
