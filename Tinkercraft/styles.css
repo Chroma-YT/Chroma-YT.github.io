@@ -24,6 +24,27 @@ body {
     overflow: hidden;
     background-image: url('stone.png');
     background-repeat: repeat;
+    position: relative;
+}
+
+.sidebar-content {
+    height: 100%;
+    overflow-y: auto; /* Makes the content scrollable */
+    padding-right: 10px; /* Adjusts padding to accommodate scrollbar */
+    position: relative;
+}
+
+.sidebar-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 3px;
+}
+
+.sidebar-content::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .collapsible-section {
