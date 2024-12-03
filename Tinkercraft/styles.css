@@ -1,207 +1,220 @@
+/* Existing styles.css */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-image: url('dirt.png'); /* Set background image for the body */
-    background-repeat: repeat; /* Tile the background image */
-    background-size: 100px 100px; /* Ensure the dirt tiles match the size of the stone tiles */
-    background-position: top right; /* Start tiling from the top right */
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('dirt.png'); /* Set background image for the body */
+  background-repeat: repeat; /* Tile the background image */
+  background-size: 100px 100px; /* Ensure the dirt tiles match the size of the stone tiles */
+  background-position: top right; /* Start tiling from the top right */
 }
 
 #content-section {
-    position: relative;
-    display: flex;
-    margin-right: 0; /* Reset the margin */
-    box-sizing: border-box;
+  position: relative;
+  display: flex;
+  margin-right: 0; /* Reset the margin */
+  box-sizing: border-box;
 }
 
 .main-content {
-    flex: 1;
-    padding: 20px;
-    margin-right: 25%; /* Make room for the sidebar */
-    box-sizing: border-box;
+  flex: 1;
+  padding: 120px 20px 20px 20px; /* Adjust top padding to make room for the header */
+  margin-right: 25%; /* Make room for the sidebar */
+  box-sizing: border-box;
 }
 
 .sidebar {
-    width: 25%;
-    height: 100vh;
-    position: fixed;
-    right: 0;
-    top: 0;
-    color: white;
-    padding: 20px;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
-    box-sizing: border-box;
-    overflow: hidden;
-    background-image: url('stone.png');
-    background-repeat: repeat;
-    background-size: 100px 100px; /* Ensure the stone tiles have the same size as the dirt tiles */
-    background-position: top right; /* Start tiling from the top right */
+  width: 25%;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  color: white;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  overflow: hidden;
+  background-image: url('stone.png');
+  background-repeat: repeat;
+  background-size: 100px 100px; /* Ensure the stone tiles have the same size as the dirt tiles */
+  background-position: top right; /* Start tiling from the top right */
 }
 
 .sidebar-content {
-    height: 100%;
-    overflow-y: auto; /* Makes the content scrollable */
-    padding-right: 10px; /* Adjusts padding to accommodate scrollbar */
+  height: 100%;
+  overflow-y: auto; /* Makes the content scrollable */
+  padding-right: 10px; /* Adjusts padding to accommodate scrollbar */
 }
 
 .sidebar-content::-webkit-scrollbar {
-    width: 6px;
+  width: 6px;
 }
 
 .sidebar-content::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 3px;
+  background: #888;
+  border-radius: 3px;
 }
 
 .sidebar-content::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 .collapsible-section {
-    margin-bottom: 10px;
-    padding: 0 20px; /* Add padding to left and right */
+  margin-bottom: 10px;
+  padding: 0 20px; /* Add padding to left and right */
 }
 
 .collapsible {
-    background-color: #777;
-    color: white;
-    cursor: pointer;
-    padding: 10px 20px;
-    width: 100%; /* Ensure the button takes full width */
-    border: none;
-    text-align: left; /* Align text to the left */
-    outline: none;
-    font-size: 15px;
-    box-sizing: border-box;
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+  width: 100%; /* Ensure the button takes full width */
+  border: none;
+  text-align: left; /* Align text to the left */
+  outline: none;
+  font-size: 15px;
+  box-sizing: border-box;
 }
 
 .active, .collapsible:hover {
-    background-color: #555;
+  background-color: #555;
 }
 
 .collapsible-content {
-    padding: 10px 20px; /* Add padding to the text inside the collapsibles */
-    display: none;
-    overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.4); /* White background with 40% opacity */
-    margin-bottom: 10px;
-    word-wrap: break-word;
-    word-break: break-word;
-    box-sizing: border-box;
+  padding: 10px 20px; /* Add padding to the text inside the collapsibles */
+  display: none;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.4); /* White background with 40% opacity */
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  word-break: break-word;
+  box-sizing: border-box;
 }
 
 .square {
-    width: 150px;
-    height: 150px;
-    background-color: lightgray;
-    border-radius: 15px;
-    display: inline-block;
-    margin: 10px;
-    text-align: center;
-    vertical-align: top;
-    line-height: 150px;
-    transition: background-color 0.3s ease;
+  width: 150px;
+  height: 150px;
+  background-color: lightgray;
+  border-radius: 15px;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  vertical-align: top;
+  line-height: 150px;
+  transition: background-color 0.3s ease;
 }
 
 .square:hover {
-    background-color: darkgray;
+  background-color: darkgray;
 }
 
 .square.clicked {
-    background-color: palegreen;
+  background-color: palegreen;
 }
 
 .square.clicked:hover {
-    background-color: mediumseagreen;
+  background-color: mediumseagreen;
 }
 
 .square img {
-    max-width: 50%;
-    max-height: 50%;
-    vertical-align: middle;
+  max-width: 50%;
+  max-height: 50%;
+  vertical-align: middle;
 }
 
 .center-text {
   text-align: center;
 }
 
-
 /*Slider that hopefully works (:*/
-
 .c-compare {
-    --h: 9;
-    --m: 1rem 0;
-    --w: 16;
-    --thumb-bgc: red;
-    --thumb-bgc-focus: hsla(0, 70%, 70%, 0.7);
-    --thumb-w: 1rem;
-  
-    margin: var(--m);
-    position: relative;
-  }
-  .c-compare::after {
-    content: "";
-    display: block;
-    padding-bottom: calc((var(--h) / var(--w)) * 100%);
-  }
-  .c-compare__left,
-  .c-compare__right {
-    height: 100%;
-    object-fit: cover;
-    position: absolute;
-    width: 100%;
-  }
-  .c-compare__left {
-    clip-path: polygon(0% 0%, var(--value) 0%, var(--value) 100%, 0% 100%);
-  }
-  .c-compare__right {
-    clip-path: polygon(100% 0%, var(--value) 0%, var(--value) 100%, 100% 100%);
-  }
-  .c-compare__range {
-    background-color: transparent;
-    box-sizing: border-box;
-    font-family: inherit;
-    height: 100%;
-    margin: 0;
-    outline: none;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-  .c-compare__range::-moz-range-thumb {
-    background-color: var(--thumb-bgc);
-    cursor: ew-resize;
-    height: 100%;  
-    width: var(--thumb-w);
-  }
-  .c-compare__range::-webkit-slider-thumb {
-    background-color: var(--thumb-bgc);
-    cursor: ew-resize;
-    height: 100%;  
-    width: var(--thumb-w);
-  }
-  .c-compare__range:focus::-webkit-slider-thumb {
-    background-color: var(--thumb-bgc-focus);
-    box-shadow: 0 0 0 3px var(--thumb-bgc);
-  }
-  .c-compare__range:focus::-moz-range-thumb {
-    background-color: var(--thumb-bgc-focus);
-    box-shadow: 0 0 0 3px var(--thumb-bgc);
-  }
-  .c-compare__range::-moz-range-track {
-    background: transparent;
-    background-size: 100%;
-    box-sizing: border-box;
-  }
-  .c-compare__range::-webkit-slider-runnable-track {
-    background: transparent;
-    background-size: 100%;
-    box-sizing: border-box;
-    height: 100%;
-  }
-  .c-compare__range,
-  .c-compare__range::-webkit-slider-runnable-track,
-  .c-compare__range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-  }
+  --h: 9;
+  --m: 1rem 0;
+  --w: 16;
+  --thumb-bgc: red;
+  --thumb-bgc-focus: hsla(0, 70%, 70%, 0.7);
+  --thumb-w: 1rem;
+
+  margin: var(--m);
+  position: relative;
+}
+.c-compare::after {
+  content: "";
+  display: block;
+  padding-bottom: calc((var(--h) / var(--w)) * 100%);
+}
+.c-compare__left,
+.c-compare__right {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+.c-compare__left {
+  clip-path: polygon(0% 0%, var(--value) 0%, var(--value) 100%, 0% 100%);
+}
+.c-compare__right {
+  clip-path: polygon(100% 0%, var(--value) 0%, var(--value) 100%, 100% 100%);
+}
+.c-compare__range {
+  background-color: transparent;
+  box-sizing: border-box;
+  font-family: inherit;
+  height: 100%;
+  margin: 0;
+  outline: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.c-compare__range::-moz-range-thumb {
+  background-color: var(--thumb-bgc);
+  cursor: ew-resize;
+  height: 100%;  
+  width: var(--thumb-w);
+}
+.c-compare__range::-webkit-slider-thumb {
+  background-color: var(--thumb-bgc);
+  cursor: ew-resize;
+  height: 100%;  
+  width: var(--thumb-w);
+}
+.c-compare__range:focus::-webkit-slider-thumb {
+  background-color: var(--thumb-bgc-focus);
+  box-shadow: 0 0 0 3px var(--thumb-bgc);
+}
+.c-compare__range:focus::-moz-range-thumb {
+  background-color: var(--thumb-bgc-focus);
+  box-shadow: 0 0 0 3px var(--thumb-bgc);
+}
+.c-compare__range::-moz-range-track {
+  background: transparent;
+  background-size: 100%;
+  box-sizing: border-box;
+}
+.c-compare__range::-webkit-slider-runnable-track {
+  background: transparent;
+  background-size: 100%;
+  box-sizing: border-box;
+  height: 100%;
+}
+.c-compare__range,
+.c-compare__range::-webkit-slider-runnable-track,
+.c-compare__range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* New header styles */
+.header {
+  width: 75%; /* Ensure the header stops at the sidebar */
+  height: 100px;
+  background-color: #333; /* Or any color you prefer */
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 20px;
+  z-index: 1000; /* Ensure it stays on top */
+}
