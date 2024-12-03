@@ -20,7 +20,10 @@ body {
     height: 100px; /* Match the size of dirt.png */
     background-image: url('dirt.png');
     background-size: cover;
+    background-repeat: no-repeat; /* Prevent image from repeating within each tile */
+    background-position: center;
 }
+
 
 #content-section {
     position: relative;
