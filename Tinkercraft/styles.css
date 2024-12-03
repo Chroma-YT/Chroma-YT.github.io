@@ -209,7 +209,10 @@ body {
 .header {
   width: 75%; /* Ensure the header stops at the sidebar */
   height: 100px;
-  background-color: #333; /* Or any color you prefer */
+  background-image: url('grass.png'); /* Set background image for the header */
+  background-repeat: repeat; /* Tile the background image */
+  background-size: 100px 100px; /* Ensure the grass tiles match the size of the dirt tiles */
+  background-position: top left; /* Start tiling from the top left */
   color: white;
   position: fixed;
   top: 0;
