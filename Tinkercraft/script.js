@@ -2,23 +2,19 @@ let selected = [];
 
 document.addEventListener("DOMContentLoaded", () => {
     // Collapsible Section Toggle
-    var coll = document.getElementsByClassName("collapsible");
+    const collapsibles = document.querySelectorAll(".collapsible");
 
-    for (let i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                content.style.paddingTop = "0";
-                content.style.paddingBottom = "0";
+    collapsibles.forEach(collapsible => {
+        collapsible.addEventListener("click", () => {
+            collapsible.classList.toggle("active");
+            const content = collapsible.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
             } else {
-                content.style.maxHeight = content.scrollHeight + "px";
-                content.style.paddingTop = "10px";
-                content.style.paddingBottom = "10px";
+                content.style.display = "block";
             }
         });
-    }
+    });
 
     // Hover Effect for Squares
     const squares = document.querySelectorAll(".square");
@@ -64,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const tile = document.createElement('div');
         tile.className = 'background-tile';
         
-        // Ensure background tiles work
+        // Apply random rotation
         const rotations = [0, 90, 180, 270];
         const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
         tile.style.transform = `rotate(${randomRotation}deg)`;
@@ -72,4 +68,3 @@ document.addEventListener("DOMContentLoaded", () => {
         backgroundContainer.appendChild(tile);
     }
 });
-
