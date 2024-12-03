@@ -83,7 +83,7 @@ body {
     padding: 10px 20px; /* Add padding to the text inside the collapsibles */
     display: none;
     overflow: hidden;
-    background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+    background-color: rgba(255, 255, 255, 0.4); /* White background with 40% opacity */
     margin-bottom: 10px;
     word-wrap: break-word;
     word-break: break-word;
