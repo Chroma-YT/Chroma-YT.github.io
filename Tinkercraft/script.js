@@ -60,11 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const tile = document.createElement('div');
         tile.className = 'background-tile';
         
-        // Apply random rotation
-        const rotations = [0, 90, 180, 270];
-        const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
-        tile.style.transform = `rotate(${randomRotation}deg)`;
-        
+        // Remove random rotation
         backgroundContainer.appendChild(tile);
     }
 });
