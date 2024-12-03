@@ -96,7 +96,22 @@
             <div class="collapsible-section">
                 <button class="collapsible">Worldgen</button>
                 <div class="collapsible-content">
-                    <p>This is the collapsible content for Section 2.</p>
+                    <!-- Button Start -->
+                    <div name="grand_world" class="square">
+                        <h2>Grand World</h2>
+                        <div class="c-compare" style="--value:50%;">
+                            <img class="c-compare__left" src="grandworld_before.png" alt="Before" />
+                            <img class="c-compare__right" src="grandworld_after.png" alt="After" />
+                            <input type="range" class="c-rng c-compare__range" min="0" max="100" value="50" oninput="this.parentNode.style.setProperty('--value', `${this.value}%`)" />
+                        </div>
+                        <p class="center-text"><small>Before   ------  Move the slider!  ------   After</small></p>
+                        <p>This pack expands and amplifies your world! You will find taller mountains, underground aquifers and rivers of both water and lava. By the coast, you can find dramatic cliffs, sometimes as tall as 50 blocks, and you can even find many smaller upgrades to individual biomes, such as desert dunes or carved mesas. Also, this pack fixes "lerp issues," or the weird staircasing you sometimes will find on hills when the game fails to smooth out your terrain properly.</p>
+                        <ul>
+                            <li>Completely Server-Side!</li>
+                            <li>No mods required!</li>
+                        </ul>
+                    </div>
+                    <!-- Button End -->
                 </div>
             </div>
             <div class="collapsible-section">
