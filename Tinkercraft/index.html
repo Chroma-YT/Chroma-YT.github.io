@@ -61,6 +61,11 @@
                     <div name="modern_creepers" class="square">
                         <h2>Modern Creepers</h2>
                         <p>This pack revamps the creeper and charged creeper texture and gives it a more modern look. In the style of JAPPA!</p>
+                        <div class="c-compare" style="--value:50%;">
+                            <img class="c-compare__left" src="color.jpg" alt="Color" />
+                            <img class="c-compare__right" src="bw.jpg" alt="B/W" />
+                            <input type="range" class="c-rng c-compare__range" min="0" max="100" value="50" oninput="this.parentNode.style.setProperty('--value', `${this.value}%`)" />
+                          </div>
                     </div>
                 </div>
             </div>
@@ -91,7 +96,6 @@
                 </a>
             </div>
             <!-- Download Button End -->
-
         </div>
         <div class="sidebar" id="sidebar">
             <div class="sidebar-content">
