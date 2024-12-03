@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS Image Comparison Slider Example </title>
+    <!-- Comparison Slider CSS -->
+    <link rel="stylesheet" href="css/style.css">
+	<!-- Demo CSS (No need to include it into your project) -->
+	<link rel="stylesheet" href="css/demo.css">
+  
+  </head>
+  <body>
+ <header class="intro">
+ <h1> CSS Image Comparison Slider Example </h1>
+ <p> Accessible image compare slider with HTML, CSS and 1 line of JavaScript.</p>
+ <div class="action">
+ <a href="https://www.codehim.com/html5-css3/html-css-image-comparison-slider/" title="Back to download and tutorial page" class="btn back">Back to Tutorial</a>
+ </div>
+ 
+ </header>
+  
+ <main>
+<!-- DEMO HTML -->
+<div class="c-compare" style="--value:50%;">
+  <img class="c-compare__left" src="img/color.jpg" alt="Color" />
+  <img class="c-compare__right" src="img/bw.jpg" alt="B/W" />
+  <input type="range" class="c-rng c-compare__range" min="0" max="100" value="50" oninput="this.parentNode.style.setProperty('--value', `${this.value}%`)" />
+</div>
+<p style="color: silver; font-size: 13px">&copy; Photo by Karley Saagi from Pexels </p>
+<!-- END DEMO HTML -->
+ </main>
+ 
+  <footer class="credit">Author: Mads Stoumann - Distributed By: <a title="Awesome web design code & scripts" href="https://www.codehim.com?source=demo-page" target="_blank">CodeHim</a></footer>
+  
+  </body>
+</html>
