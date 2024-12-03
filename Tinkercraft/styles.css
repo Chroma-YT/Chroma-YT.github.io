@@ -1,4 +1,4 @@
-/* Updated styles.css */
+/* Existing styles.css */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -6,6 +6,19 @@ body {
   background-repeat: repeat; /* Tile the background image */
   background-size: 100px 100px; /* Ensure the dirt tiles match the size of the stone tiles */
   background-position: top right; /* Start tiling from the top right */
+}
+
+.header {
+  width: 75%; /* Ensure the header stops at the sidebar */
+  height: 100px;
+  background-image: url('grass.png'); /* Set background image for the header */
+  background-repeat: repeat; /* Tile the background image */
+  background-size: 100px 100px; /* Ensure the grass tiles match the size of the dirt tiles */
+  background-position: top left; /* Start tiling from the top left */
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-bottom: 20px; /* Space between header and content */
 }
 
 #content-section {
@@ -17,7 +30,7 @@ body {
 
 .main-content {
   flex: 1;
-  padding: 120px 20px 20px 20px; /* Adjust top padding to make room for the header */
+  padding: 20px;
   margin-right: 25%; /* Make room for the sidebar */
   box-sizing: border-box;
 }
@@ -203,21 +216,4 @@ body {
 .c-compare__range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-}
-
-/* New header styles */
-.header {
-  width: 75%; /* Ensure the header stops at the sidebar */
-  height: 100px;
-  background-image: url('grass.png'); /* Set background image for the header */
-  background-repeat: repeat; /* Tile the background image */
-  background-size: 100px 100px; /* Ensure the grass tiles match the size of the dirt tiles */
-  background-position: top left; /* Start tiling from the top left */
-  color: white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-sizing: border-box;
-  padding: 20px;
-  z-index: 1000; /* Ensure it stays on top */
 }
