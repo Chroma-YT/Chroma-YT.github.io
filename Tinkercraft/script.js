@@ -8,10 +8,14 @@ document.addEventListener("DOMContentLoaded", () => {
         coll[i].addEventListener("click", function() {
             this.classList.toggle("active");
             var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                content.style.paddingTop = "0";
+                content.style.paddingBottom = "0";
             } else {
-                content.style.display = "block";
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.style.paddingTop = "10px";
+                content.style.paddingBottom = "10px";
             }
         });
     }
@@ -60,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const tile = document.createElement('div');
         tile.className = 'background-tile';
         
-        // Remove random rotation
+        // Removed random rotation as you indicated it's not the cause
         backgroundContainer.appendChild(tile);
     }
 });
