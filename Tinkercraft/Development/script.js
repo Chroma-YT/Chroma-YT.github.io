@@ -6,24 +6,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function onDrag(event) {
         const sliderRect = slider.getBoundingClientRect();
-        const offsetX = event.clientX - sliderRect.left;
-        const percent = offsetX / sliderRect.width;
+        const offsetX = event.clientX ? event.clientX - sliderRect.left : event.touches[0].clientX - sliderRect.left;
+        const percent = Math.max(0, Math.min(offsetX / sliderRect.width, 1));  // Ensure percent is between 0 and 1
 
         handle.style.left = `${percent * 100}%`;
         beforeImage.style.clipPath = `inset(0 ${100 - percent * 100}% 0 0)`;
     }
 
+    function endDrag() {
+        document.removeEventListener('mousemove', onDrag);
+        document.removeEventListener('mouseup', endDrag);
+        document.removeEventListener('touchmove', onDrag);
+        document.removeEventListener('touchend', endDrag);
+    }
+
     handle.addEventListener('mousedown', function () {
         document.addEventListener('mousemove', onDrag);
-        document.addEventListener('mouseup', function () {
-            document.removeEventListener('mousemove', onDrag);
-        });
+        document.addEventListener('mouseup', endDrag);
     });
 
     handle.addEventListener('touchstart', function () {
         document.addEventListener('touchmove', onDrag);
-        document.addEventListener('touchend', function () {
-            document.removeEventListener('touchmove', onDrag);
-        });
+        document.addEventListener('touchend', endDrag);
     });
 });
