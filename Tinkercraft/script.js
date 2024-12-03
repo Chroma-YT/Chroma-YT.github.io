@@ -64,7 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const tile = document.createElement('div');
         tile.className = 'background-tile';
         
-        // Removed random rotation as you indicated it's not the cause
+        // Ensure background tiles work
+        const rotations = [0, 90, 180, 270];
+        const randomRotation = rotations[Math.floor(Math.random() * rotations.length)];
+        tile.style.transform = `rotate(${randomRotation}deg)`;
+        
         backgroundContainer.appendChild(tile);
     }
 });
+
