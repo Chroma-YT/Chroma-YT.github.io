@@ -3,10 +3,7 @@ body {
     font-family: Arial, sans-serif;
     background-image: url('dirt.png'); /* Set background image for the body */
     background-repeat: repeat; /* Tile the background image */
-}
-
-#background-tiles {
-    display: none; /* Hide the background tiles container */
+    background-size: 100px 100px; /* Ensure the dirt tiles match the size of the stone tiles */
 }
 
 #content-section {
@@ -36,6 +33,7 @@ body {
     overflow: hidden;
     background-image: url('stone.png');
     background-repeat: repeat;
+    background-size: 100px 100px; /* Ensure the stone tiles have the same size as the dirt tiles */
 }
 
 .sidebar-content {
