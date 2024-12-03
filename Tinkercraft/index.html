@@ -58,6 +58,7 @@
             <div class="collapsible-section">
                 <button class="collapsible">Visuals</button>
                 <div class="collapsible-content">
+                    <!-- Button Start -->
                     <div name="modern_creepers" class="square">
                         <h2>Modern Creepers</h2>
                         <div class="c-compare" style="--value:50%;">
@@ -65,14 +66,33 @@
                             <img class="c-compare__right" src="moderncreepers_before.png" alt="Before" />
                             <input type="range" class="c-rng c-compare__range" min="0" max="100" value="50" oninput="this.parentNode.style.setProperty('--value', `${this.value}%`)" />
                         </div>
+                        <p class="center-text"><small>Before - Move the slider! - After</small></p>
                         <p>This pack revamps the creeper and charged creeper texture and gives it a more modern look. In the style of JAPPA!</p>
                         <ul>
                             <li>Completely client-side!</li>
                             <li>No mods required!</li>
                         </ul>
                     </div>
+                    <!-- Button End -->
+                    <!-- Button Start -->
+                    <div name="fresh_crops" class="square">
+                        <h2>Fresh Crops</h2>
+                        <div class="c-compare" style="--value:50%;">
+                            <img class="c-compare__left" src="freshcrops_before.png" alt="Before" />
+                            <img class="c-compare__right" src="freshcrops_after.png" alt="After" />
+                            <input type="range" class="c-rng c-compare__range" min="0" max="100" value="50" oninput="this.parentNode.style.setProperty('--value', `${this.value}%`)" />
+                        </div>
+                        <p class="center-text"><small>Before - Move the slider! - After</small></p>
+                        <p>This pack remodels and retextures all crops, giving them detail and per-block variation!</p>
+                        <ul>
+                            <li>Completely client-side!</li>
+                            <li>No mods required!</li>
+                        </ul>
+                    </div>
+                    <!-- Button End -->
                 </div>
             </div>
+            <!-- Collapsible Section End -->
             <div class="collapsible-section">
                 <button class="collapsible">Worldgen</button>
                 <div class="collapsible-content">
@@ -91,8 +111,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Collapsible Section End -->
-
             <!-- Download Button Start -->
             <div style="text-align: center; margin-top: 20px;">
                 <a href="testing.txt" download="testing.txt">

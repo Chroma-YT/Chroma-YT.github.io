@@ -121,6 +121,11 @@ body {
     vertical-align: middle;
 }
 
+.center-text {
+  text-align: center;
+}
+
+
 /*Slider that hopefully works (:*/
 
 .c-compare {
