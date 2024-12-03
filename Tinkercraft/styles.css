@@ -6,24 +6,8 @@ body {
 }
 
 #background-tiles {
-    width: 100%;
-    position: absolute;
-    top: 0; /* Ensure it starts from the top */
-    left: 0;
-    z-index: -1; /* Ensure it stays behind other content */
-    display: flex;
-    flex-wrap: wrap;
+    display: none; /* Hide the background tiles container */
 }
-
-.background-tile {
-    width: 100px; /* Match the size of dirt.png */
-    height: 100px; /* Match the size of dirt.png */
-    background-image: url('dirt.png');
-    background-size: cover;
-    background-repeat: no-repeat; /* Prevent image from repeating within each tile */
-    background-position: center;
-}
-
 
 #content-section {
     position: relative;
