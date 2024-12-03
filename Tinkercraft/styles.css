@@ -120,3 +120,36 @@ body {
     max-height: 50%;
     vertical-align: middle;
 }
+* {
+    box-sizing: border-box;
+}
+
+.img-comp-container {
+    position: relative;
+    height: 300px; /* Same height as the images */
+    overflow: hidden;
+}
+
+.img-comp-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Ensure this matches the height of the container */
+}
+
+.img-comp-img img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.img-comp-slider {
+    position: absolute;
+    z-index: 9;
+    cursor: ew-resize;
+    width: 40px;
+    height: 40px;
+    background-color: #2196F3;
+    opacity: 0.7;
+    border-radius: 50%;
+}
