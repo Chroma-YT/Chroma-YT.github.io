@@ -62,7 +62,6 @@ body {
   height: 100vh;
   position: fixed;
   right: 0;
-  top: 100px; /* Start below the header */
   color: white;
   padding: 20px;
   box-shadow: -2px 0 5px rgba(0,0,0,0.1);
