@@ -15,7 +15,7 @@ body {
   background-size: 100px 100px; /* Ensure the grass tiles match the size of the dirt tiles */
   background-position: top left; /* Start tiling from the top left */
   color: white;
-  padding: 20px;
+  padding: 10px;
   box-sizing: border-box;
   margin-bottom: 0; /* Remove space between header and content */
   display: flex;
