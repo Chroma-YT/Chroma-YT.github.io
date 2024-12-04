@@ -34,7 +34,7 @@ body {
   border-radius: 10px;
   cursor: pointer;
   background-color: #777; /* Light gray for non-selected */
-  color: black;
+  color: white;
   transition: background-color 0.3s ease;
 }
 
