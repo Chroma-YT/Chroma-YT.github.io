@@ -33,7 +33,7 @@ body {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  background-color: #777; /* Light gray for non-selected */
+  background-color: #999; /* Light gray for non-selected */
   color: white;
   transition: background-color 0.3s ease;
 }
@@ -43,7 +43,7 @@ body {
 }
 
 .header-button:not(.selected):hover {
-  background-color: #555; /* Dark gray on hover */
+  background-color: #777; /* Dark gray on hover */
 }
 
 #content-section {
