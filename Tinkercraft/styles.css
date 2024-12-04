@@ -49,6 +49,7 @@ body {
 #content-section {
   display: flex;
   box-sizing: border-box;
+  margin-top: 100px; /* Add margin-top to account for header height */
 }
 
 .main-content {
@@ -62,6 +63,7 @@ body {
   height: 100vh;
   position: fixed;
   right: 0;
+  top: 0; /* Start at the top of the viewport */
   color: white;
   padding: 20px;
   box-shadow: -2px 0 5px rgba(0,0,0,0.1);
