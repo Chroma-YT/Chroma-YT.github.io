@@ -49,7 +49,7 @@ body {
 #content-section {
   display: flex;
   box-sizing: border-box;
-  margin-top: 20px; /* Adjust margin to fit better under header */
+  margin-top: 10px; /* Reduced margin to fit better under header */
 }
 
 .main-content {
@@ -190,7 +190,7 @@ body {
   clip-path: polygon(0% 0%, var(--value) 0%, var(--value) 100%, 0% 100%);
 }
 .c-compare__right {
-  clip-path: polygon(100% 0%, var (--value) 0%, var (--value) 100%, 100% 100%);
+  clip-path: polygon(100% 0%, var(--value) 0%, var(--value) 100%, 100% 100%);
 }
 .c-compare__range {
   background-color: transparent;
