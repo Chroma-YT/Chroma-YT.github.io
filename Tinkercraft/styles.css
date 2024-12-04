@@ -8,16 +8,42 @@ body {
 }
 
 .header {
-  width: 100%; /* Ensure the header takes full width */
-  height: 100px;
-  background-image: url('grass.png'); /* Set background image for the header */
-  background-repeat: repeat; /* Tile the background image */
-  background-size: 100px 100px; /* Ensure the grass tiles match the size of the dirt tiles */
-  background-position: top left; /* Start tiling from the top left */
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
-  margin-bottom: 20px; /* Space between header and content */
+    width: 100%; /* Ensure the header takes full width */
+    height: 100px;
+    background-image: url('grass.png'); /* Set background image for the header */
+    background-repeat: repeat; /* Tile the background image */
+    background-size: 100px 100px; /* Ensure the grass tiles match the size of the dirt tiles */
+    background-position: top left; /* Start tiling from the top left */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px; /* Space between header and content */
+    display: flex;
+    justify-content: space-between; /* Spread out header content */
+    align-items: center;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+.header-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: lightgray; /* Light gray for non-selected */
+    color: black;
+    transition: background-color 0.3s ease;
+}
+
+.header-button.selected {
+    background-color: darkgray; /* Dark gray for selected */
+}
+
+.header-button:not(.selected):hover {
+    background-color: darkgray; /* Dark gray on hover */
 }
 
 #content-section {
