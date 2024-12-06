@@ -57,45 +57,4 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
-
-    // Use a MutationObserver to detect when the slider is added to the DOM
-    const observer = new MutationObserver(mutations => {
-        mutations.forEach(mutation => {
-            mutation.addedNodes.forEach(node => {
-                if (node.nodeType === 1 && node.matches('#slider')) {
-                    initializeSlider(node);
-                    observer.disconnect(); // Stop observing once the slider is found and initialized
-                }
-            });
-        });
-    });
-
-    observer.observe(document.body, { childList: true, subtree: true });
-
-    // Initialize slider function
-    function initializeSlider(slider) {
-        console.log('Slider found: ', slider); // Debugging log
-        let direction = 1; // 1 for right, -1 for left
-        const speed = 0.5; // Slower speed
-        let isUserInteracting = false;
-
-        slider.addEventListener('mousedown', () => { isUserInteracting = true; });
-        slider.addEventListener('mouseup', () => { isUserInteracting = false; });
-        slider.addEventListener('touchstart', () => { isUserInteracting = true; });
-        slider.addEventListener('touchend', () => { isUserInteracting = false; });
-
-        const animateSlider = () => {
-            if (!isUserInteracting) {
-                let value = parseInt(slider.value);
-                if (value >= 100) direction = -1;
-                if (value <= 0) direction = 1;
-                slider.value = value + direction * speed;
-                slider.parentNode.style.setProperty('--value', `${slider.value}%`);
-                console.log('Slider value: ', slider.value); // Debugging log
-            }
-            requestAnimationFrame(animateSlider);
-        };
-
-        requestAnimationFrame(animateSlider);
-    }
 });
