@@ -140,6 +140,7 @@ body {
   display: inline-block;
   margin: 10px;
   text-align: center;
+  font-size: 0;
   vertical-align: top;
   line-height: 150px;
   position: relative; /* Ensure proper positioning of child elements */
