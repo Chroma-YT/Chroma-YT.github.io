@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Slider initialization
     const slider = document.getElementById('slider');
     if (slider) {
+        console.log('Slider found: ', slider); // Debugging log
         let direction = 1; // 1 for right, -1 for left
         const speed = 0.5; // Slower speed
         let isUserInteracting = false;
@@ -77,10 +78,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (value <= 0) direction = 1;
                 slider.value = value + direction * speed;
                 slider.parentNode.style.setProperty('--value', `${slider.value}%`);
+                console.log('Slider value: ', slider.value); // Debugging log
             }
             requestAnimationFrame(animateSlider);
         };
 
         requestAnimationFrame(animateSlider);
+    } else {
+        console.log('Slider not found'); // Debugging log
     }
 });
