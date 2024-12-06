@@ -57,26 +57,30 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Slider initialization
+    const slider = document.getElementById('slider');
+    if (slider) {
+        let direction = 1; // 1 for right, -1 for left
+        const speed = 0.5; // Slower speed
+        let isUserInteracting = false;
+
+        slider.addEventListener('mousedown', () => { isUserInteracting = true; });
+        slider.addEventListener('mouseup', () => { isUserInteracting = false; });
+        slider.addEventListener('touchstart', () => { isUserInteracting = true; });
+        slider.addEventListener('touchend', () => { isUserInteracting = false; });
+
+        const animateSlider = () => {
+            if (!isUserInteracting) {
+                let value = parseInt(slider.value);
+                if (value >= 100) direction = -1;
+                if (value <= 0) direction = 1;
+                slider.value = value + direction * speed;
+                slider.parentNode.style.setProperty('--value', `${slider.value}%`);
+            }
+            requestAnimationFrame(animateSlider);
+        };
+
+        requestAnimationFrame(animateSlider);
+    }
 });
-// script.js
-const slider = document.getElementById('slider');
-let direction = 1; // 1 for right, -1 for left
-const speed = 0.5; // Slower speed
-let isUserInteracting = false;
-
-slider.addEventListener('mousedown', () => { isUserInteracting = true; });
-slider.addEventListener('mouseup', () => { isUserInteracting = false; });
-slider.addEventListener('touchstart', () => { isUserInteracting = true; });
-slider.addEventListener('touchend', () => { isUserInteracting = false; });
-
-const animateSlider = () => {
-  if (!isUserInteracting) {
-    let value = parseInt(slider.value);
-    if (value >= 100) direction = -1;
-    if (value <= 0) direction = 1;
-    slider.value = value + direction * speed;
-  }
-  requestAnimationFrame(animateSlider);
-};
-
-requestAnimationFrame(animateSlider);
