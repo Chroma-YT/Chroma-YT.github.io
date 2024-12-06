@@ -1,7 +1,6 @@
 let selected = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Collapsible Section Toggle
     const collapsibles = document.querySelectorAll(".collapsible");
 
     collapsibles.forEach(collapsible => {
@@ -16,12 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Hover Effect for Squares
     const squares = document.querySelectorAll(".square");
     const sidebarText = document.getElementById("sidebar").querySelector("p");
 
     squares.forEach(square => {
-        // Check if the image already exists before appending a new one
         if (!square.querySelector('.square-img')) {
             const img = document.createElement("img");
             img.src = square.getAttribute("name") + ".png";
@@ -33,7 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         square.addEventListener("mouseenter", () => {
             hoverTimer = setTimeout(() => {
-                sidebarText.innerHTML = square.querySelector('h2').innerHTML;
+                const content = square.getAttribute('data-sidebar-content');
+                sidebarText.innerHTML = content;
             }, 200);
         });
 

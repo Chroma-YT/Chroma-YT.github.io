@@ -94,6 +94,11 @@ body {
   background: #555;
 }
 
+.sidebar-text {
+  display: none; /* Hide the sidebar text div */
+}
+
+
 .collapsible-section {
   margin-bottom: 10px;
   padding: 0 20px; /* Add padding to left and right */
