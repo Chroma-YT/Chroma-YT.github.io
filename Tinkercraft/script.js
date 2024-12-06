@@ -21,16 +21,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const sidebarText = document.getElementById("sidebar").querySelector("p");
 
     squares.forEach(square => {
-        const img = document.createElement("img");
-        img.src = square.getAttribute("name") + ".png";
-        img.classList.add("square-img");
-        square.appendChild(img);
+        // Check if the image already exists before appending a new one
+        if (!square.querySelector('.square-img')) {
+            const img = document.createElement("img");
+            img.src = square.getAttribute("name") + ".png";
+            img.classList.add("square-img");
+            square.appendChild(img);
+        }
 
         let hoverTimer;
 
         square.addEventListener("mouseenter", () => {
             hoverTimer = setTimeout(() => {
-                sidebarText.innerHTML = square.innerHTML;
+                sidebarText.innerHTML = square.querySelector('h2').innerHTML;
             }, 200);
         });
 
@@ -44,9 +47,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const toAppend = square.getAttribute("name");
             if (selected.includes(toAppend)) {
                 selected = selected.filter(item => item !== toAppend);
-                return;
+            } else {
+                selected.push(toAppend);
             }
-            selected.push(toAppend);
         });
     });
 });
