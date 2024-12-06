@@ -58,9 +58,22 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Slider initialization
-    const slider = document.getElementById('slider');
-    if (slider) {
+    // Use a MutationObserver to detect when the slider is added to the DOM
+    const observer = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1 && node.matches('#slider')) {
+                    initializeSlider(node);
+                    observer.disconnect(); // Stop observing once the slider is found and initialized
+                }
+            });
+        });
+    });
+
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Initialize slider function
+    function initializeSlider(slider) {
         console.log('Slider found: ', slider); // Debugging log
         let direction = 1; // 1 for right, -1 for left
         const speed = 0.5; // Slower speed
@@ -84,7 +97,5 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         requestAnimationFrame(animateSlider);
-    } else {
-        console.log('Slider not found'); // Debugging log
     }
 });
