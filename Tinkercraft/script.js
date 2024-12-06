@@ -32,6 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
             hoverTimer = setTimeout(() => {
                 const content = square.getAttribute('data-sidebar-content');
                 sidebarText.innerHTML = content;
+                // Reinitialize the range input to ensure it works
+                const rangeInput = sidebarText.querySelector('.c-compare input[type="range"]');
+                if (rangeInput) {
+                    rangeInput.addEventListener('input', function() {
+                        this.parentNode.style.setProperty('--value', `${this.value}%`);
+                    });
+                }
             }, 200);
         });
 
