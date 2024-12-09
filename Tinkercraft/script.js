@@ -69,13 +69,12 @@ document.addEventListener("DOMContentLoaded", () => {
 const buttons = document.querySelectorAll('.header-button');
 
 // Loop through each button
-buttons.forEach((button, index) => {
-  // Add the selected-version attribute with a unique number
-  button.setAttribute('selected-version', index + 1);
-
+buttons.forEach((button) => {
   // Add an event listener to each button
-  button.addEventListener('click', () => {
-    // Get the selected-version attribute and log it to the console
-    console.log(button.getAttribute('selected-version'));
-  });
+button.addEventListener('click', () => {
+    // Remove the selected class from all buttons
+    buttons.forEach((b) => b.classList.remove('selected'));
+    button.classList.add('selected');
+    console.log(button.dataset.selectedVersion);
+});
 });
