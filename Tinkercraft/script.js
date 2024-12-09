@@ -1,5 +1,5 @@
 let selected = [];
-let version = null;
+let version = 21;
 
 document.addEventListener("DOMContentLoaded", () => {
     const collapsibles = document.querySelectorAll(".collapsible");
@@ -59,16 +59,3 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
-
-function selectButton(button, versionNumber) {
-  // Remove selected class from all buttons
-  const buttons = document.querySelectorAll('.header-button');
-  buttons.forEach(button => button.classList.remove('selected'));
-
-  // Add selected class to the clicked button
-  button.classList.add('selected');
-
-  // Update the version variable
-  version = versionNumber;
-  console.log(`Version set to: ${version}`);
-}
