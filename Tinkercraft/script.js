@@ -67,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Get all buttons with class header-button
 const buttons = document.querySelectorAll('.header-button');
+let selectedVersion = 21; // Initialize the variable to store the selected version
 
 // Loop through each button
 buttons.forEach((button) => {
@@ -75,6 +76,7 @@ button.addEventListener('click', () => {
     // Remove the selected class from all buttons
     buttons.forEach((b) => b.classList.remove('selected'));
     button.classList.add('selected');
-    console.log(button.dataset.selectedVersion);
+    selectedVersion = button.dataset.selectedVersion; // Save the selected version in the variable
+    console.log(selectedVersion);
 });
 });
