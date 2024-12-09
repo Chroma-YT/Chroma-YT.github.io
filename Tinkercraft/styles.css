@@ -39,7 +39,7 @@ body {
 }
 
 .header-button.selected {
-  background-color: #555; /* Dark gray for selected */
+  background-color: #555 !important;
 }
 
 .header-button:not(.selected):hover {
