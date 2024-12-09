@@ -1,4 +1,20 @@
 let selected = [];
+let version = 21;
+
+// Function to handle button selection
+function selectButton(button, ver) {
+    const buttons = document.querySelectorAll('.header-button');
+    buttons.forEach(btn => btn.classList.remove('selected'));
+    button.classList.add('selected');
+    version = ver;
+    console.log('Selected version:', version);
+}
+
+// Add event listeners to the buttons
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('.header-button:nth-child(1)').addEventListener('click', function() { selectButton(this, 20); });
+    document.querySelector('.header-button:nth-child(2)').addEventListener('click', function() { selectButton(this, 21); });
+});
 
 document.addEventListener("DOMContentLoaded", () => {
     const collapsibles = document.querySelectorAll(".collapsible");
