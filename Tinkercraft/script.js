@@ -86,13 +86,19 @@ buttons.forEach((button) => {
 function buildAndDownload() {
     console.log("Checking Compatibility...");
     
+    let incompatiblePacksFound = false;
     // Check if selected array contains any of the incompatible pairs
     for (let i = 0; i < incompatiblePacks.length; i++)
     {
         if (selected.includes(incompatiblePacks[i][0]) && selected.includes(incompatiblePacks[i][1]))
         {
-        console.log(`Incompatible packs detected: ${incompatiblePacks[i][0]} and ${incompatiblePacks[i][1]}.`);
+            console.log(`Incompatible packs detected: ${incompatiblePacks[i][0]} and ${incompatiblePacks[i][1]}.`);
+            incompatiblePacksFound = true;
         }
+    }
+    
+    if (!incompatiblePacksFound) {
+        console.log("No incompatible packs found. Proceeding to manifest creation...");
     }
 }
 // Get the button element
