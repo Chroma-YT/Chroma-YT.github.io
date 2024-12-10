@@ -92,8 +92,9 @@ function buildAndDownload() {
     // Check if selected array contains any of the incompatible pairs
     for (let i = 0; i < incompatiblePacks.length; i++) {
         const incompatiblePack = incompatiblePacks[i];
-        if (incompatiblePack.some(pack => selected.includes(pack))) {
-            console.log(`Incompatible packs detected: ${incompatiblePack.join(', ')}.`);
+        const sharedPacks = selected.filter(pack => incompatiblePack.includes(pack));
+        if (sharedPacks.length >= 2) {
+            console.log(`Incompatible packs detected: ${sharedPacks.join(', ')}.`);
             incompatiblePacksFound = true;
         }
     }
