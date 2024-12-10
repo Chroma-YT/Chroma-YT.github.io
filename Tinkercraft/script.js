@@ -120,46 +120,9 @@ function buildAndDownload() {
         console.log("No incompatible packs found. Proceeding to manifest creation...");
         console.log(`Version: ${version}`);
         console.log(`Packs selected: ${selected.join(', ')}`);
-        const fileTree = generateFileTree(selected);
-        console.log("File Tree:");
-        printFileTree(fileTree);
     }
 }
 // Get the button element
 const button = document.getElementById("run-button");
 // Add an event listener to the button
 button.addEventListener("click", buildAndDownload);
-
-
-
-
-
-
-//Function to generate the file tree
-function generateFileTree(selectedPacks) {
-    const fileTree = {};
-    selectedPacks.forEach(pack => {
-    const packConfig = packConfig[pack];
-    packConfig.files.forEach(file => {
-        const pathParts = file.path.split('/');
-        let currentFolder = fileTree;
-        pathParts.forEach(part => {
-        if (!currentFolder[part]) {
-            currentFolder[part] = {};
-        }
-        currentFolder = currentFolder[part];
-        });
-        currentFolder[file.name] = {};
-    });
-});
-return fileTree;
-}
-
-function printFileTree(fileTree, indent = 0) {
-    Object.keys(fileTree).forEach(key => {
-    console.log('  '.repeat(indent) + key);
-    if (typeof fileTree[key] === 'object') {
-        printFileTree(fileTree[key], indent + 1);
-    }
-});
-}
