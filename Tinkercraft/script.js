@@ -4,6 +4,11 @@ let incompatiblePacks = [
     ["transparent_ui", "dark_ui", "immersive_ui"]
 ];
 
+function selectButton(button) {
+    const buttons = document.querySelectorAll('.header-button');
+    buttons.forEach(btn => btn.classList.remove('selected'));
+    button.classList.add('selected');
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     const collapsibles = document.querySelectorAll(".collapsible");
