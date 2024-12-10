@@ -1,4 +1,5 @@
 let selected = [];
+let version = "21";
 
 document.addEventListener("DOMContentLoaded", () => {
     const collapsibles = document.querySelectorAll(".collapsible");
@@ -59,14 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-
-
-//Shenanigans
-
-
 // Get all buttons with class header-button
 const buttons = document.querySelectorAll('.header-button');
-let version = "21"; // Initialize the variable to store the selected version
 
 // Loop through each button
 buttons.forEach((button) => {
@@ -79,3 +74,22 @@ buttons.forEach((button) => {
     console.log(version);
   });
 });
+
+
+
+
+
+//Set up the download button
+
+// Define the function
+function buildAndDownload() {
+    // Code to run when the button is pressed goes here
+    console.log("Function ran successfully!");
+    // Add your code here to perform the desired action
+  }
+  
+  // Get the button element
+  const button = document.getElementById("run-button");
+  
+  // Add an event listener to the button
+  button.addEventListener("click", buildAndDownload);
