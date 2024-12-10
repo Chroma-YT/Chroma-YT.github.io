@@ -1,6 +1,8 @@
 let selected = [];
 let version = "21";
-
+let incompatiblePacks = [
+    ["modern_creepers", "fresh_crops"]
+];
 document.addEventListener("DOMContentLoaded", () => {
     const collapsibles = document.querySelectorAll(".collapsible");
 
@@ -66,30 +68,34 @@ const buttons = document.querySelectorAll('.header-button');
 // Loop through each button
 buttons.forEach((button) => {
   // Add an event listener to each button
-  button.addEventListener('click', () => {
+    button.addEventListener('click', () => {
     // Remove the selected class from all buttons
     buttons.forEach((b) => b.classList.remove('selected'));
     button.classList.add('selected');
     version = button.getAttribute('data-selected-version'); // Save the selected version in the variable
     console.log(version);
-  });
+    });
 });
 
 
 
 
 
-//Set up the download button
 
-// Define the function
+//Build and Download the file
 function buildAndDownload() {
-    // Code to run when the button is pressed goes here
-    console.log("Function ran successfully!");
-    // Add your code here to perform the desired action
-  }
-  
-  // Get the button element
-  const button = document.getElementById("run-button");
-  
-  // Add an event listener to the button
-  button.addEventListener("click", buildAndDownload);
+    console.log("Checking Compatibility...");
+    
+    // Check if selected array contains any of the incompatible pairs
+    for (let i = 0; i < incompatiblePacks.length; i++)
+    {
+        if (selected.includes(incompatiblePacks[i][0]) && selected.includes(incompatiblePacks[i][1]))
+        {
+        console.log(`Incompatible packs detected: ${incompatiblePacks[i][0]} and ${incompatiblePacks[i][1]}.`);
+        }
+    }
+}
+// Get the button element
+const button = document.getElementById("run-button");
+// Add an event listener to the button
+button.addEventListener("click", buildAndDownload);
