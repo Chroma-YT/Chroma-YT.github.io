@@ -75,7 +75,7 @@ buttons.forEach((button) => {
     // Remove the selected class from all buttons
     buttons.forEach((b) => b.classList.remove('selected'));
     button.classList.add('selected');
-    version = button.dataset.version; // Save the selected version in the variable
+    version = button.getAttribute('data-selected-version'); // Save the selected version in the variable
     console.log(version);
   });
 });
