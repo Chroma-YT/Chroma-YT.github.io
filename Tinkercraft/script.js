@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Get all buttons with class header-button
 const buttons = document.querySelectorAll('.header-button');
-let version = 21; // Initialize the variable to store the selected version
+let version = "21"; // Initialize the variable to store the selected version
 
 // Loop through each button
 buttons.forEach((button) => {
