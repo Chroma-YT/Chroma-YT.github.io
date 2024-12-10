@@ -1,5 +1,4 @@
 let selected = [];
-let version = 21;
 
 document.addEventListener("DOMContentLoaded", () => {
     const collapsibles = document.querySelectorAll(".collapsible");
@@ -67,14 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Get all buttons with class header-button
 const buttons = document.querySelectorAll('.header-button');
+let version = 21; // Initialize the variable to store the selected version
 
 // Loop through each button
 buttons.forEach((button) => {
   // Add an event listener to each button
-button.addEventListener('click', () => {
+  button.addEventListener('click', () => {
     // Remove the selected class from all buttons
     buttons.forEach((b) => b.classList.remove('selected'));
     button.classList.add('selected');
     version = button.dataset.version; // Save the selected version in the variable
-});
+    console.log(version);
+  });
 });
