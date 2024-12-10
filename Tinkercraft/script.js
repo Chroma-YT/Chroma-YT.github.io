@@ -1,24 +1,8 @@
 let selected = [];
 let version = "21";
 let incompatiblePacks = [
-    ["modern_creepers", "fresh_crops"]
+    ["transparent_ui", "dark_ui", "immersive_ui"]
 ];
-let packConfig = {
-    modern_creepers: {
-    files: [
-        { name: 'file1.txt', path: 'folder1' },
-        { name: 'file2.txt', path: 'folder1/subfolder' }
-    ]
-    },
-    fresh_crops: {
-    files: [
-        { name: 'file3.txt', path: 'folder2' },
-        { name: 'file4.txt', path: 'folder2/subfolder' }
-    ]
-    }
-    // Add more packs here...
-};
-
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -106,17 +90,15 @@ function buildAndDownload() {
     
     let incompatiblePacksFound = false;
     // Check if selected array contains any of the incompatible pairs
-    for (let i = 0; i < incompatiblePacks.length; i++)
-    {
-        if (selected.includes(incompatiblePacks[i][0]) && selected.includes(incompatiblePacks[i][1]))
-        {
-            console.log(`Incompatible packs detected: ${incompatiblePacks[i][0]} and ${incompatiblePacks[i][1]}.`);
+    for (let i = 0; i < incompatiblePacks.length; i++) {
+        const incompatiblePack = incompatiblePacks[i];
+        if (incompatiblePack.some(pack => selected.includes(pack))) {
+            console.log(`Incompatible packs detected: ${incompatiblePack.join(', ')}.`);
             incompatiblePacksFound = true;
         }
     }
     
-    if (!incompatiblePacksFound)
-    {
+    if (!incompatiblePacksFound) {
         console.log("No incompatible packs found. Proceeding to manifest creation...");
         console.log(`Version: ${version}`);
         console.log(`Packs selected: ${selected.join(', ')}`);
