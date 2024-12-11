@@ -9,6 +9,10 @@ let incompatiblePacks = [
     ["transparent_ui", "dark_ui", "immersive_ui"]
 ];
 
+const resourcepacks = ['modern_creepers', 'fresh_crops', 'immersive_ui', 'dark_ui', 'transparent_ui'];
+const datapacks = ['grand_world'];
+
+
 // Define the configuration rules
 const configRules = {
     '20': {
@@ -156,6 +160,17 @@ function buildAndDownload() {
             Object.keys(fileTree).forEach(filePath => {
                 console.log(`  ${filePath}`);
             });
+
+            const hasResourcepack = resourcepacks.some(value => selected.includes(value));
+            const hasDatapack = datapacks.some(value => selected.includes(value));
+            
+            if (hasResourcepack) {
+                console.log("Resourcepack detected");
+            }
+            
+            if (hasDatapack) {
+                console.log("Datapack detected");
+            }
 
             // Create a zip archive using JSZip
             const zip = new JSZip();

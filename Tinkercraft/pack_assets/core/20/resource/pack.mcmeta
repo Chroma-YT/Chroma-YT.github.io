@@ -1,0 +1,62 @@
+{
+  "pack": {
+    "description": [
+      {
+        "text": "My Tinkercraft Resource Pack.",
+        "color": "#b0b0b0"
+      },
+      "\n",
+      {
+        "text": "Tinkercraft by: ",
+        "color": "#888888"
+      },
+      {
+        "text": "C",
+        "color": "#ff0000" 
+      },
+      {
+        "text": "h",
+        "color": "#ff9900" 
+      },
+      {
+        "text": "r",
+        "color": "#ffff00"
+      },
+      {
+        "text": "o",
+        "color": "#00ff00" 
+      },
+      {
+        "text": "m",
+        "color": "#0000ff" 
+      },
+      {
+        "text": "a",
+        "color": "#ff00ff" 
+      },
+      {
+        "text": "_",
+        "color": "#7f00ff" 
+      }
+    ],
+    "pack_format": 15,
+    "overlays": [
+      {
+        "formats": 15,
+        "directory": "1_20"
+      },
+      {
+        "formats": 18,
+        "directory": "1_20_2"
+      },
+      {
+        "formats": 22,
+        "directory": "1_20_3"
+      },
+      {
+        "formats": 32,
+        "directory": "1_20_5"
+      }
+    ]
+  }
+}
