@@ -11,26 +11,34 @@ let incompatiblePacks = [
 
 // Define the configuration rules
 const configRules = {
-'20': {
-    'modern_creepers': {
-    'files': ['file1.txt', 'file2.txt'],
-    'path': 'path/to/pack1'
+    '20': {
+        'modern_creepers': {
+            'files': [
+                { 'file': 'file1.txt', 'path': 'path/to/pack1', 'libraryPath': 'path/to/library1' },
+                { 'file': 'file2.txt', 'path': 'path/to/pack2', 'libraryPath': 'path/to/library2' }
+            ]
+        },
+        'pack2': {
+            'files': [
+                { 'file': 'file3.txt', 'path': 'path/to/pack3', 'libraryPath': 'path/to/library3' },
+                { 'file': 'file4.txt', 'path': 'path/to/pack4', 'libraryPath': 'path/to/library4' }
+            ]
+        }
     },
-    'pack2': {
-    'files': ['file3.txt', 'file4.txt'],
-    'path': 'path/to/pack2'
+    '21': {
+        'modern_creepers': {
+            'files': [
+                { 'file': 'file5.txt', 'path': 'path/to/pack5', 'libraryPath': 'path/to/library5' },
+                { 'file': 'file6.txt', 'path': 'path/to/pack6', 'libraryPath': 'path/to/library6' }
+            ]
+        },
+        'pack2': {
+            'files': [
+                { 'file': 'file7.txt', 'path': 'path/to/pack7', 'libraryPath': 'path/to/library7' },
+                { 'file': 'file8.txt', 'path': 'path/to/pack8', 'libraryPath': 'path/to/library8' }
+            ]
+        }
     }
-},
-'21': {
-    'modern_creepers': {
-    'files': ['file5.txt', 'file6.txt'],
-    'path': 'path/to/pack1/v21'
-    },
-    'pack2': {
-    'files': ['file7.txt', 'file8.txt'],
-    'path': 'path/to/pack2/v21'
-    }
-}
 };
 
 function selectButton(button) {
@@ -153,24 +161,21 @@ button.addEventListener("click", buildAndDownload);
 
 
 // Function to generate the file tree
+// Function to generate the file tree
 function generateFileTree(selected, version) {
     const fileTree = {};
-    
-    // Iterate over the selected packs
+
     selected.forEach(pack => {
-        // Check if the pack has configuration rules for the current version
         if (configRules[version] && configRules[version][pack]) {
-            // Get the files and path for the pack
             const files = configRules[version][pack].files;
-            const path = configRules[version][pack].path;
-            
-            // Add the files to the file tree
             files.forEach(file => {
-                const filePath = `${path}/${file}`;
-                fileTree[filePath] = {};
+                const filePath = `${file.path}/${file.file}`;
+                const libraryPath = `${file.libraryPath}/${file.file}`;
+                fileTree[filePath] = { libraryPath };
+                console.log(`  ${filePath} has library at ${libraryPath}`);
             });
         }
     });
-    
+
     return fileTree;
 }
