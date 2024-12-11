@@ -1,8 +1,37 @@
+// Define the selected packs
 let selected = [];
+
+// Define the version
 let version = "21";
+
+// Define the incompatible packs
 let incompatiblePacks = [
     ["transparent_ui", "dark_ui", "immersive_ui"]
 ];
+
+// Define the configuration rules
+const configRules = {
+'20': {
+    'modern_creepers': {
+    'files': ['file1.txt', 'file2.txt'],
+    'path': 'path/to/pack1'
+    },
+    'pack2': {
+    'files': ['file3.txt', 'file4.txt'],
+    'path': 'path/to/pack2'
+    }
+},
+'21': {
+    'modern_creepers': {
+    'files': ['file5.txt', 'file6.txt'],
+    'path': 'path/to/pack1/v21'
+    },
+    'pack2': {
+    'files': ['file7.txt', 'file8.txt'],
+    'path': 'path/to/pack2/v21'
+    }
+}
+};
 
 function selectButton(button) {
     const buttons = document.querySelectorAll('.header-button');
@@ -108,9 +137,40 @@ function buildAndDownload() {
         console.log("No incompatible packs found. Proceeding to manifest creation...");
         console.log(`Version: ${version}`);
         console.log(`Packs selected: ${selected.join(', ')}`);
+        
+        // Generate the file tree
+        const fileTree = generateFileTree(selected, version);
+        console.log("File Tree:");
+        Object.keys(fileTree).forEach(filePath => {
+            console.log(`  ${filePath}`);
+        });
     }
 }
 // Get the button element
 const button = document.getElementById("run-button");
 // Add an event listener to the button
 button.addEventListener("click", buildAndDownload);
+
+
+// Function to generate the file tree
+function generateFileTree(selected, version) {
+    const fileTree = {};
+    
+    // Iterate over the selected packs
+    selected.forEach(pack => {
+        // Check if the pack has configuration rules for the current version
+        if (configRules[version] && configRules[version][pack]) {
+            // Get the files and path for the pack
+            const files = configRules[version][pack].files;
+            const path = configRules[version][pack].path;
+            
+            // Add the files to the file tree
+            files.forEach(file => {
+                const filePath = `${path}/${file}`;
+                fileTree[filePath] = {};
+            });
+        }
+    });
+    
+    return fileTree;
+}
