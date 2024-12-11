@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     squares.forEach(square => {
         if (!square.querySelector('.square-img')) {
             const img = document.createElement("img");
-            img.src = square.getAttribute("name") + ".png";
+            img.src = square.getAttribute("name") + ".svg";
             img.classList.add("square-img");
             square.appendChild(img);
         }
