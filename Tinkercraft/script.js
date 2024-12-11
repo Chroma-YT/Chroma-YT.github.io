@@ -14,8 +14,8 @@ const configRules = {
     '20': {
         'modern_creepers': {
             'files': [
-                { 'file': 'file1.txt', 'path': 'path/to/pack1', 'libraryPath': 'path/to/library1' },
-                { 'file': 'file2.txt', 'path': 'path/to/pack2', 'libraryPath': 'path/to/library2' }
+                { 'file': 'creeper.png', 'path': 'resourcepack/assets/minecraft/textures/entity/creeper', 'libraryPath': 'pack_assets/modern_creepers' },
+                { 'file': 'creeper_armor.png', 'path': 'resourcepack/assets/minecraft/textures/entity/creeper', 'libraryPath': 'pack_assets/modern_creepers' }
             ]
         },
         'pack2': {
@@ -28,8 +28,8 @@ const configRules = {
     '21': {
         'modern_creepers': {
             'files': [
-                { 'file': 'file5.txt', 'path': 'path/to/pack5', 'libraryPath': 'path/to/library5' },
-                { 'file': 'file6.txt', 'path': 'path/to/pack6', 'libraryPath': 'path/to/library6' }
+                { 'file': 'creeper.png', 'path': 'resourcepack/assets/minecraft/textures/entity/creeper', 'libraryPath': 'pack_assets/modern_creepers' },
+                { 'file': 'creeper_armor.png', 'path': 'resourcepack/assets/minecraft/textures/entity/creeper', 'libraryPath': 'pack_assets/modern_creepers' }
             ]
         },
         'pack2': {
