@@ -162,8 +162,8 @@ body {
 
 /* Ensure images within .square stay within the bounds */
 .square img, .square .square-img {
-  max-width: 100%;
-  max-height: 100%;
+  max-width: 250%;
+  max-height: 250%;
   vertical-align: middle;
   position: absolute; /* Ensure image positions correctly */
   top: 50%; /* Center the image vertically */
