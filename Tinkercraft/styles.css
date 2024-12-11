@@ -160,15 +160,13 @@ body {
   background-color: mediumseagreen;
 }
 
-/* Ensure images within .square stay within the bounds */
 .square img, .square .square-img {
-  max-width: 250%;
-  max-height: 250%;
+  transform: scale(1.25); /* scale up by 25% */
   vertical-align: middle;
   position: absolute; /* Ensure image positions correctly */
   top: 50%; /* Center the image vertically */
   left: 50%; /* Center the image horizontally */
-  transform: translate(-50%, -50%); /* Adjust for the image's size */
+  transform: translate(-50%, -50%) scale(1.25); /* Adjust for the image's size and scale */
 }
 
 .center-text {
