@@ -128,30 +128,75 @@ buttons.forEach((button) => {
 
 //Build and Download the file
 function buildAndDownload() {
-    console.log("Checking Compatibility...");
-    
-    let incompatiblePacksFound = false;
-    // Check if selected array contains any of the incompatible pairs
-    for (let i = 0; i < incompatiblePacks.length; i++) {
-        const incompatiblePack = incompatiblePacks[i];
-        const sharedPacks = selected.filter(pack => incompatiblePack.includes(pack));
-        if (sharedPacks.length >= 2) {
-            console.log(`Incompatible packs detected: ${sharedPacks.join(', ')}.`);
-            incompatiblePacksFound = true;
+    if (selected.length === 0) {
+        console.log("No packs selected. Please select at least one pack.");
+        return;
+    } else {
+        console.log("Checking Compatibility...");
+
+        let incompatiblePacksFound = false;
+        // Check if selected array contains any of the incompatible pairs
+        for (let i = 0; i < incompatiblePacks.length; i++) {
+            const incompatiblePack = incompatiblePacks[i];
+            const sharedPacks = selected.filter(pack => incompatiblePack.includes(pack));
+            if (sharedPacks.length >= 2) {
+                console.log(`Incompatible packs detected: ${sharedPacks.join(', ')}.`);
+                incompatiblePacksFound = true;
+            }
         }
-    }
-    
-    if (!incompatiblePacksFound) {
-        console.log("No incompatible packs found. Proceeding to manifest creation...");
-        console.log(`Version: ${version}`);
-        console.log(`Packs selected: ${selected.join(', ')}`);
-        
-        // Generate the file tree
-        const fileTree = generateFileTree(selected, version);
-        console.log("File Tree:");
-        Object.keys(fileTree).forEach(filePath => {
-            console.log(`  ${filePath}`);
-        });
+
+        if (!incompatiblePacksFound) {
+            console.log("No incompatible packs found. Proceeding to manifest creation...");
+            console.log(`Version: ${version}`);
+            console.log(`Packs selected: ${selected.join(', ')}`);
+
+            // Generate the file tree
+            const fileTree = generateFileTree(selected, version);
+            console.log("File Tree:");
+            Object.keys(fileTree).forEach(filePath => {
+                console.log(`  ${filePath}`);
+            });
+
+            // Create a zip archive using JSZip
+            const zip = new JSZip();
+            console.log("Creating zip archive...");
+            Object.keys(fileTree).forEach(filePath => {
+                const libraryPath = fileTree[filePath].libraryPath;
+                console.log(`Adding file to zip archive: ${filePath}`);
+                zip.file(filePath, '', { createFolders: true });
+                fetch(libraryPath)
+                    .then(response => {
+                        console.log(`Fetched file from library path: ${libraryPath}`);
+                        return response.blob();
+                    })
+                    .then(blob => {
+                        console.log(`Added file to zip archive: ${filePath}`);
+                        zip.file(filePath, blob);
+                    })
+                    .catch(error => {
+                        console.error(`Error adding file to zip archive: ${filePath}`, error);
+                    });
+            });
+
+            // Generate the zip archive as a blob
+            console.log("Generating zip archive as blob...");
+            zip.generateAsync({ type: 'blob' })
+                .then(blob => {
+                    console.log("Zip archive generated as blob.");
+                    // Create a URL that points to the blob
+                    const url = URL.createObjectURL(blob);
+                    console.log(`Created URL for zip archive: ${url}`);
+                    // Download the zip archive from the URL
+                    const link = document.createElement('a');
+                    link.href = url;
+                    link.download = 'download.zip';
+                    console.log("Downloading zip archive...");
+                    link.click();
+                })
+                .catch(error => {
+                    console.error("Error generating zip archive as blob:", error);
+                });
+        }
     }
 }
 // Get the button element
@@ -160,7 +205,7 @@ const button = document.getElementById("run-button");
 button.addEventListener("click", buildAndDownload);
 
 
-// Function to generate the file tree
+
 // Function to generate the file tree
 function generateFileTree(selected, version) {
     const fileTree = {};
