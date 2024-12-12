@@ -1024,8 +1024,8 @@ async function buildAndDownload() {
                 console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/loom");
 
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smithing").file("error.png", await fetch("pack_assets/immersive_ui/error.png").then(response => response.arrayBuffer()));
-                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smoker").file("burn_progress.png", await fetch("pack_assets/immersive_ui/burn_progress.png").then(response => response.arrayBuffer()));
-                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smoker").file("lit_progress.png", await fetch("pack_assets/immersive_ui/lit_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smoker").file("burn_progress.png", await fetch("pack_assets/immersive_ui/smoker/burn_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smoker").file("lit_progress.png", await fetch("pack_assets/immersive_ui/smoker/lit_progress.png").then(response => response.arrayBuffer()));
 
                 files = [
                     "out_of_stock.png",
@@ -1140,8 +1140,8 @@ async function buildAndDownload() {
                     zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/beacon").file(file, arrayBuffer);
                 }
 
-                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/blast_furnace").file("burn_progress.png", await fetch("pack_assets/immersive_ui/burn_progress.png").then(response => response.arrayBuffer()));
-                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/blast_furnace").file("lit_progress.png", await fetch("pack_assets/immersive_ui/lit_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/blast_furnace").file("burn_progress.png", await fetch("pack_assets/immersive_ui/blast/burn_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/blast_furnace").file("lit_progress.png", await fetch("pack_assets/immersive_ui/blast/lit_progress.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/brewing_stand").file("brew_progress.png", await fetch("pack_assets/immersive_ui/brew_progress.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/brewing_stand").file("bubbles.png", await fetch("pack_assets/immersive_ui/bubbles.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/bundle").file("slot.png", await fetch("pack_assets/immersive_ui/slot.png").then(response => response.arrayBuffer()));
@@ -1149,6 +1149,7 @@ async function buildAndDownload() {
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/cartography_table").file("error.png", await fetch("pack_assets/immersive_ui/error.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/crafter").file("disabled_slot.png", await fetch("pack_assets/immersive_ui/disabled_slot.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/crafter").file("unpowered_redstone.png", await fetch("pack_assets/immersive_ui/unpowered_redstone.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/crafter").file("powered_redstone.png", await fetch("pack_assets/immersive_ui/powered_redstone.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/hud").file("effect_background.png", await fetch("pack_assets/immersive_ui/effect_background.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/hud").file("effect_background_ambient.png", await fetch("pack_assets/immersive_ui/effect_background_ambient.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/advancements").file("window.png", await fetch("pack_assets/immersive_ui/window.png").then(response => response.arrayBuffer()));
