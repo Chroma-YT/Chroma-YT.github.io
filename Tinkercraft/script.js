@@ -159,6 +159,153 @@ async function buildAndDownload() {
                 zip.folder("resourcepack/assets/minecraft/textures/entity/creeper").file("creeper_armor.png", await fetch("pack_assets/modern_creepers/creeper_armor.png").then(response => response.arrayBuffer()));
                 console.log("Modern Creepers Loaded");
             }
+            if (selected.includes("fresh_crops") && (version === "21" || version === "20")) {
+                let files = [
+                "beetroots.json",
+                "carrots.json",
+                "melon_stem.json",
+                "potatoes.json",
+                "pumpkin_stem.json",
+                "wheat.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/fresh_crops/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/blockstates").file(file, arrayBuffer);
+                }
+
+                files = [
+                    "attached_melon_stem.png",
+                    "attached_pumpkin_stem.png",
+                    "beetroots_stage0.png",
+                    "beetroots_stage1.png",
+                    "beetroots_stage2.png",
+                    "beetroots_stage3.png",
+                    "beetroots_stage3a.png",
+                    "beetroots_stage3b.png",
+                    "beetroots_stage3c.png",
+                    "beetroots_stage3d.png",
+                    "carrots_break.png",
+                    "carrots_stage0.png",
+                    "carrots_stage1.png",
+                    "carrots_stage2.png",
+                    "carrots_stage3.png",
+                    "carrots_stage3a.png",
+                    "carrots_stage3b.png",
+                    "carrots_stage3c.png",
+                    "carrots_stage3d.png",
+                    "melon_break.png",
+                    "melon_stem_stage0.png",
+                    "melon_stem_stage1.png",
+                    "melon_stem_stage2.png",
+                    "melon_stem_stage3.png",
+                    "melon_stem_stage4.png",
+                    "melon_stem_stage5.png",
+                    "melon_stem_stage6.png",
+                    "melon_stem_stage7.png",
+                    "potatoes_break.png",
+                    "potatoes_stage0.png",
+                    "potatoes_stage1.png",
+                    "potatoes_stage2.png",
+                    "potatoes_stage3.png",
+                    "potatoes_stage3a.png",
+                    "potatoes_stage3b.png",
+                    "potatoes_stage3c.png",
+                    "potatoes_stage3d.png",
+                    "pumpkin_break.png",
+                    "pumpkin_stem_stage0.png",
+                    "pumpkin_stem_stage1.png",
+                    "pumpkin_stem_stage2.png",
+                    "pumpkin_stem_stage3.png",
+                    "pumpkin_stem_stage4.png",
+                    "pumpkin_stem_stage5.png",
+                    "pumpkin_stem_stage6.png",
+                    "pumpkin_stem_stage7.png",
+                    "wheat_break.png",
+                    "wheat_stage1.png",
+                    "wheat_stage2.png",
+                    "wheat_stage3.png",
+                    "wheat_stage4.png",
+                    "wheat_stage5.png",
+                    "wheat_stage6.png",
+                    "wheat_stage7.png",
+                    "wheat_stage7a.png",
+                    "wheat_stage7b.png",
+                    "wheat_stage7c.png",
+                    "wheat_stage7d.png"
+                    ];
+                    
+                    for (let file of files) {
+                        let response = await fetch(`pack_assets/fresh_crops/${file}`);
+                        let arrayBuffer = await response.arrayBuffer();
+                        zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                    }
+
+                files = [
+                "attached_melon_stem.json",
+                "attached_pumpkin_stem.json",
+                "beetroots_stage0.json",
+                "beetroots_stage1.json",
+                "beetroots_stage2.json",
+                "beetroots_stage3.json",
+                "beetroots_stage3a.json",
+                "beetroots_stage3b.json",
+                "beetroots_stage3c.json",
+                "beetroots_stage3d.json",
+                "carrots_stage0.json",
+                "carrots_stage1.json",
+                "carrots_stage2.json",
+                "carrots_stage3.json",
+                "carrots_stage3a.json",
+                "carrots_stage3b.json",
+                "carrots_stage3c.json",
+                "carrots_stage3d.json",
+                "melon_stem_growth0.json",
+                "melon_stem_growth1.json",
+                "melon_stem_growth2.json",
+                "melon_stem_growth3.json",
+                "melon_stem_growth4.json",
+                "melon_stem_growth5.json",
+                "melon_stem_growth6.json",
+                "melon_stem_growth7.json",
+                "potatoes_stage0.json",
+                "potatoes_stage1.json",
+                "potatoes_stage2.json",
+                "potatoes_stage3.json",
+                "potatoes_stage3a.json",
+                "potatoes_stage3b.json",
+                "potatoes_stage3c.json",
+                "potatoes_stage3d.json",
+                "pumpkin_stem_growth0.json",
+                "pumpkin_stem_growth1.json",
+                "pumpkin_stem_growth2.json",
+                "pumpkin_stem_growth3.json",
+                "pumpkin_stem_growth4.json",
+                "pumpkin_stem_growth5.json",
+                "pumpkin_stem_growth6.json",
+                "pumpkin_stem_growth7.json",
+                "wheat_stage0.json",
+                "wheat_stage1.json",
+                "wheat_stage2.json",
+                "wheat_stage3.json",
+                "wheat_stage4.json",
+                "wheat_stage5.json",
+                "wheat_stage6.json",
+                "wheat_stage7.json",
+                "wheat_stage7a.json",
+                "wheat_stage7b.json",
+                "wheat_stage7c.json",
+                "wheat_stage7d.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/fresh_crops/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/models/block").file(file, arrayBuffer);
+                }
+                console.log("Fresh Crops Loaded");
+            }
 
             // Generate and download zip
             console.log("Generating and downloading zip...");
