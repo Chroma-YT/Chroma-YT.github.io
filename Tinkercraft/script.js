@@ -1150,9 +1150,6 @@ async function buildAndDownload() {
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/crafter").file("disabled_slot.png", await fetch("pack_assets/immersive_ui/disabled_slot.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/crafter").file("unpowered_redstone.png", await fetch("pack_assets/immersive_ui/unpowered_redstone.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/crafter").file("powered_redstone.png", await fetch("pack_assets/immersive_ui/powered_redstone.png").then(response => response.arrayBuffer()));
-                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/hud").file("effect_background.png", await fetch("pack_assets/immersive_ui/effect_background.png").then(response => response.arrayBuffer()));
-                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/hud").file("effect_background_ambient.png", await fetch("pack_assets/immersive_ui/effect_background_ambient.png").then(response => response.arrayBuffer()));
-                zip.folder("resourcepack/assets/minecraft/textures/gui/advancements").file("window.png", await fetch("pack_assets/immersive_ui/window.png").then(response => response.arrayBuffer()));
                 console.log("Immersive UI loaded assorted extra file paths");
 
                 console.log("Immersive UI Loaded");
