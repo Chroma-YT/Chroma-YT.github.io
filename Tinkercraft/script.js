@@ -89,7 +89,6 @@ buttons.forEach((button) => {
     buttons.forEach((b) => b.classList.remove('selected'));
     button.classList.add('selected');
     version = button.getAttribute('data-selected-version'); // Save the selected version in the variable
-    console.log(version);
     });
 });
 
