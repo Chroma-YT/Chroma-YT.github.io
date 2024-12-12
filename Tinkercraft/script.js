@@ -157,6 +157,7 @@ async function buildAndDownload() {
             if (selected.includes("modern_creepers") && (version === "21" || version === "20")) {
                 zip.folder("resourcepack/assets/minecraft/textures/entity/creeper").file("creeper.png", await fetch("pack_assets/modern_creepers/creeper.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/entity/creeper").file("creeper_armor.png", await fetch("pack_assets/modern_creepers/creeper_armor.png").then(response => response.arrayBuffer()));
+                console.log("Modern Creepers loaded file path at resourcepack/assets/minecraft/textures/entity/creeper");
                 console.log("Modern Creepers Loaded");
             }
             if (selected.includes("fresh_crops") && (version === "21" || version === "20")) {
@@ -174,6 +175,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/blockstates").file(file, arrayBuffer);
                 }
+                console.log("Fresh Crops loaded file path at resourcepack/assets/minecraft/blockstates");
 
                 files = [
                     "attached_melon_stem.png",
@@ -241,6 +243,7 @@ async function buildAndDownload() {
                         let arrayBuffer = await response.arrayBuffer();
                         zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
                     }
+                    console.log("Fresh Crops loaded file path at resourcepack/assets/minecraft/textures/block");
 
                 files = [
                     "attached_melon_stem.json",
@@ -304,6 +307,7 @@ async function buildAndDownload() {
                         let arrayBuffer = await response.arrayBuffer();
                         zip.folder("resourcepack/assets/minecraft/models/block").file(file, arrayBuffer);
                     }
+                    console.log("Fresh Crops loaded file path at resourcepack/assets/minecraft/models/block");
                 
                 console.log("Fresh Crops Loaded");
             }
@@ -338,7 +342,8 @@ async function buildAndDownload() {
                         let arrayBuffer = await response.arrayBuffer();
                         zip.folder("resourcepack/assets/minecraft/textures/item").file(file, arrayBuffer);
                     }
-                
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/item");
+                    
                 zip.folder("resourcepack/assets/minecraft/textures/gui").file("recipe_book.png", await fetch("pack_assets/transparent_ui/recipe_book.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui").file("demo_background.png", await fetch("pack_assets/transparent_ui/demo_background.png").then(response => response.arrayBuffer()));
 
@@ -366,6 +371,7 @@ async function buildAndDownload() {
                         let arrayBuffer = await response.arrayBuffer();
                         zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/recipe_book").file(file, arrayBuffer);
                     }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/recipe_book");
 
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/social_interactions").file("background.png", await fetch("pack_assets/transparent_ui/background.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/social_interactions").file("background.png.mcmeta", await fetch("pack_assets/transparent_ui/background.png.mcmeta").then(response => response.arrayBuffer()));
@@ -388,6 +394,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/loom").file(file, arrayBuffer);
                 }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/loom");
 
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smithing").file("error.png", await fetch("pack_assets/transparent_ui/error.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smoker").file("burn_progress.png", await fetch("pack_assets/transparent_ui/burn_progress.png").then(response => response.arrayBuffer()));
@@ -404,6 +411,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/villager").file(file, arrayBuffer);
                 }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/villager");
 
                 files = [
                     "scroller.png",
@@ -443,6 +451,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/creative_inventory").file(file, arrayBuffer);
                 }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/creative_inventory");
 
                 files = [
                     "enchantment_slot.png",
@@ -455,6 +464,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/enchanting_table").file(file, arrayBuffer);
                 }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/enchanting_table");
 
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/furnace").file("burn_progress.png", await fetch("pack_assets/transparent_ui/burn_progress.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/furnace").file("lit_progress.png", await fetch("pack_assets/transparent_ui/lit_progress.png").then(response => response.arrayBuffer()));
@@ -472,6 +482,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/horse").file(file, arrayBuffer);
                 }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/horse");
 
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/inventory").file("effect_background_large.png", await fetch("pack_assets/transparent_ui/effect_background_large.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/inventory").file("effect_background_small.png", await fetch("pack_assets/transparent_ui/effect_background_small.png").then(response => response.arrayBuffer()));
@@ -487,6 +498,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/anvil").file(file, arrayBuffer);
                 }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/anvil");
 
                 files = [
                     "button.png",
@@ -513,6 +525,7 @@ async function buildAndDownload() {
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/hud").file("effect_background.png", await fetch("pack_assets/transparent_ui/effect_background.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/hud").file("effect_background_ambient.png", await fetch("pack_assets/transparent_ui/effect_background_ambient.png").then(response => response.arrayBuffer()));
                 zip.folder("resourcepack/assets/minecraft/textures/gui/advancements").file("window.png", await fetch("pack_assets/transparent_ui/window.png").then(response => response.arrayBuffer()));
+                console.log("Transparent UI loaded assorted extra file paths");
 
                 files = [
                     "tab_above_left.png",
@@ -540,6 +553,13 @@ async function buildAndDownload() {
                     "tab_right_top.png",
                     "tab_right_top_selected.png"
                 ];
+
+            for (let file of files) {
+                let response = await fetch(`pack_assets/transparent_ui/${file}`);
+                let arrayBuffer = await response.arrayBuffer();
+                zip.folder("resourcepack/assets/minecraft/textures/gui/container").file(file, arrayBuffer);
+            }
+            console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/container");
 
                 files = [
                     "anvil.png",
@@ -570,6 +590,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/textures/gui/container").file(file, arrayBuffer);
                 }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/container");
 
                 files = [
                     "tab_item_search.png",
@@ -583,6 +604,7 @@ async function buildAndDownload() {
                     let arrayBuffer = await response.arrayBuffer();
                     zip.folder("resourcepack/assets/minecraft/textures/gui/container/creative_inventory").file(file, arrayBuffer);
                 }
+                console.log("Transparent UI loaded file path at resourcepack/assets/minecraft/textures/gui/container/creative_inventory");
 
                 console.log("Transparent UI Loaded");
             }
