@@ -13,38 +13,6 @@ const resourcepacks = ['modern_creepers', 'fresh_crops', 'immersive_ui', 'dark_u
 const datapacks = ['grand_world'];
 
 
-// Define the configuration rules
-const configRules = {
-    '20': {
-        'modern_creepers': {
-            'files': [
-                { 'file': 'creeper.png', 'path': 'resourcepack/assets/minecraft/textures/entity/creeper', 'libraryPath': 'pack_assets/modern_creepers' },
-                { 'file': 'creeper_armor.png', 'path': 'resourcepack/assets/minecraft/textures/entity/creeper', 'libraryPath': 'pack_assets/modern_creepers' }
-            ]
-        },
-        'pack2': {
-            'files': [
-                { 'file': 'file3.txt', 'path': 'path/to/pack3', 'libraryPath': 'path/to/library3' },
-                { 'file': 'file4.txt', 'path': 'path/to/pack4', 'libraryPath': 'path/to/library4' }
-            ]
-        }
-    },
-    '21': {
-        'modern_creepers': {
-            'files': [
-                { 'file': 'creeper.png', 'path': 'resourcepack/assets/minecraft/textures/entity/creeper', 'libraryPath': 'pack_assets/modern_creepers' },
-                { 'file': 'creeper_armor.png', 'path': 'resourcepack/assets/minecraft/textures/entity/creeper', 'libraryPath': 'pack_assets/modern_creepers' }
-            ]
-        },
-        'pack2': {
-            'files': [
-                { 'file': 'file7.txt', 'path': 'path/to/pack7', 'libraryPath': 'path/to/library7' },
-                { 'file': 'file8.txt', 'path': 'path/to/pack8', 'libraryPath': 'path/to/library8' }
-            ]
-        }
-    }
-};
-
 function selectButton(button) {
     const buttons = document.querySelectorAll('.header-button');
     buttons.forEach(btn => btn.classList.remove('selected'));
@@ -131,7 +99,7 @@ buttons.forEach((button) => {
 
 
 //Build and Download the file
-function buildAndDownload() {
+async function buildAndDownload() {
     if (selected.length === 0) {
         console.log("No packs selected. Please select at least one pack.");
         return;
@@ -163,6 +131,43 @@ function buildAndDownload() {
             if (hasDatapack) {
                 console.log("Datapack detected");
             }
+
+            // Create the zip file
+            const zip = new JSZip();
+            if (hasResourcepack) {
+                if (version === "20") {
+                    zip.folder("resourcepack").file("pack.mcmeta", await fetch("pack_assets/core/20/resource/pack.mcmeta").then(response => response.arrayBuffer()));
+                    console.log("Resourcepack root created for version 20");
+                } else if (version === "21") {
+                    zip.folder("resourcepack").file("pack.mcmeta", await fetch("pack_assets/core/21/resource/pack.mcmeta").then(response => response.arrayBuffer()));
+                    console.log("Resourcepack root created for version 21");
+                }
+            }
+            if (hasDatapack) {
+                if (version === "20") {
+                    zip.folder("datapack").file("pack.mcmeta", await fetch("pack_assets/core/20/datapack/pack.mcmeta").then(response => response.arrayBuffer()));
+                    console.log("Datapack root created for version 20");
+                } else if (version === "21") {
+                    zip.folder("datapack").file("pack.mcmeta", await fetch("pack_assets/core/21/datapack/pack.mcmeta").then(response => response.arrayBuffer()));
+                    console.log("Datapack root created for version 21");
+                }
+            }
+
+            //Load Packs
+            if (selected.includes("modern_creepers") && (version === "21" || version === "20")) {
+                zip.folder("resourcepack/assets/minecraft/textures/entity/creeper").file("creeper.png", await fetch("pack_assets/modern_creepers/creeper.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/entity/creeper").file("creeper_armor.png", await fetch("pack_assets/modern_creepers/creeper_armor.png").then(response => response.arrayBuffer()));
+                console.log("Modern Creepers Loaded");
+            }
+
+            // Generate and download zip
+            console.log("Generating and downloading zip...");
+            zip.generateAsync({ type: "blob" }).then((content) => {
+            const link = document.createElement("a");
+            link.href = URL.createObjectURL(content);
+            link.download = "Tinkercraft Pack.zip";
+            link.click();
+            });
         }
     }
 }
