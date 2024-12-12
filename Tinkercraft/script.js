@@ -150,16 +150,9 @@ function buildAndDownload() {
         }
 
         if (!incompatiblePacksFound) {
-            console.log("No incompatible packs found. Proceeding to manifest creation...");
+            console.log("No incompatible packs found. Proceeding to file creation...");
             console.log(`Version: ${version}`);
             console.log(`Packs selected: ${selected.join(', ')}`);
-
-            // Generate the file tree
-            const fileTree = generateFileTree(selected, version);
-            console.log("File Tree:");
-            Object.keys(fileTree).forEach(filePath => {
-                console.log(`  ${filePath}`);
-            });
 
             const hasResourcepack = resourcepacks.some(value => selected.includes(value));
             const hasDatapack = datapacks.some(value => selected.includes(value));
@@ -167,50 +160,9 @@ function buildAndDownload() {
             if (hasResourcepack) {
                 console.log("Resourcepack detected");
             }
-            
             if (hasDatapack) {
                 console.log("Datapack detected");
             }
-
-            // Create a zip archive using JSZip
-            const zip = new JSZip();
-            console.log("Creating zip archive...");
-            Object.keys(fileTree).forEach(filePath => {
-                const libraryPath = fileTree[filePath].libraryPath;
-                console.log(`Adding file to zip archive: ${filePath}`);
-                zip.file(filePath, '', { createFolders: true });
-                fetch(libraryPath)
-                    .then(response => {
-                        console.log(`Fetched file from library path: ${libraryPath}`);
-                        return response.blob();
-                    })
-                    .then(blob => {
-                        console.log(`Added file to zip archive: ${filePath}`);
-                        zip.file(filePath, blob);
-                    })
-                    .catch(error => {
-                        console.error(`Error adding file to zip archive: ${filePath}`, error);
-                    });
-            });
-
-            // Generate the zip archive as a blob
-            console.log("Generating zip archive as blob...");
-            zip.generateAsync({ type: 'blob' })
-                .then(blob => {
-                    console.log("Zip archive generated as blob.");
-                    // Create a URL that points to the blob
-                    const url = URL.createObjectURL(blob);
-                    console.log(`Created URL for zip archive: ${url}`);
-                    // Download the zip archive from the URL
-                    const link = document.createElement('a');
-                    link.href = url;
-                    link.download = 'download.zip';
-                    console.log("Downloading zip archive...");
-                    link.click();
-                })
-                .catch(error => {
-                    console.error("Error generating zip archive as blob:", error);
-                });
         }
     }
 }
@@ -218,24 +170,3 @@ function buildAndDownload() {
 const button = document.getElementById("run-button");
 // Add an event listener to the button
 button.addEventListener("click", buildAndDownload);
-
-
-
-// Function to generate the file tree
-function generateFileTree(selected, version) {
-    const fileTree = {};
-
-    selected.forEach(pack => {
-        if (configRules[version] && configRules[version][pack]) {
-            const files = configRules[version][pack].files;
-            files.forEach(file => {
-                const filePath = `${file.path}/${file.file}`;
-                const libraryPath = `${file.libraryPath}/${file.file}`;
-                fileTree[filePath] = { libraryPath };
-                console.log(`  ${filePath} has library at ${libraryPath}`);
-            });
-        }
-    });
-
-    return fileTree;
-}
