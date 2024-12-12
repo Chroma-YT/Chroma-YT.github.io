@@ -104,7 +104,7 @@ async function buildAndDownload() {
         return;
     } else {
         console.log("Checking Compatibility...");
-
+        let langFilePaths = [];
         let incompatiblePacksFound = false;
         // Check if selected array contains any of the incompatible pairs
         for (let i = 0; i < incompatiblePacks.length; i++) {
@@ -905,14 +905,301 @@ async function buildAndDownload() {
 
                 console.log("Dark UI Loaded");
             }
+            
+            if (selected.includes("immersive_ui")) {
+                langFilePaths.push("pack_assets/immersive_ui/lang/en_us.json");
+                console.log("Immersive UI loaded lang file");
 
-            // Generate and download zip
-            console.log("Generating and downloading zip...");
-            zip.generateAsync({ type: "blob" }).then((content) => {
-            const link = document.createElement("a");
-            link.href = URL.createObjectURL(content);
-            link.download = "Tinkercraft Pack.zip";
-            link.click();
+                files = [
+                    "accessibility.png",
+                    "bars.png",
+                    "book.png",
+                    "checkbox.png",
+                    "checkmark.png",
+                    "footer_separator.png",
+                    "header_separator.png",
+                    "icons.png",
+                    "recipe_book.png",
+                    "recipe_button.png",
+                    "report_button.png",
+                    "resource_packs.png",
+                    "server_selection.png",
+                    "social_interactions.png",
+                    "spectator_widgets.png",
+                    "tab_button.png",
+                    "toasts.png",
+                    "widgets.png",
+                    "world_selection.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui");
+
+                files = [
+                    "anvil.png",
+                    "beacon.png",
+                    "blast_furnace.png",
+                    "brewing_stand.png",
+                    "brewing_stand_frame_0.png",
+                    "brewing_stand_frame_1.png",
+                    "brewing_stand_frame_2.png",
+                    "brewing_stand_frame_3.png",
+                    "brewing_stand_frame_4.png",
+                    "brewing_stand_frame_5.png",
+                    "bundle.png",
+                    "cartography_table.png",
+                    "crafter.png",
+                    "crafting_table.png",
+                    "dispenser.png",
+                    "enchanting_table.png",
+                    "furnace.png",
+                    "generic_54.png",
+                    "grindstone.png",
+                    "hopper.png",
+                    "inventory.png",
+                    "legacy_smithing.png",
+                    "loom.png",
+                    "shulker_box.png",
+                    "smoker.png",
+                    "smithing.png",
+                    "stats_icons.png",
+                    "stonecutter.png",
+                    "tabs.png",
+                    "villager.png",
+                    "wandering_trader_deprecated.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/container").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/container");
+
+                files = [
+                    "move_down_highlighted.png",
+                    "move_up_highlighted.png",
+                    "select_highlighted.png",
+                    "unselect_highlighted.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/transferable_list").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/transferable_list");
+
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/world_list").file("join_highlighted.png", await fetch("pack_assets/immersive_ui/join_highlighted.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/world_list").file("marked_join_highlighted.png", await fetch("pack_assets/immersive_ui/marked_join_highlighted.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/server_list").file("join_highlighted.png", await fetch("pack_assets/immersive_ui/join_highlighted.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/server_list").file("move_down_highlighted.png", await fetch("pack_assets/immersive_ui/move_down_highlighted.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/server_list").file("move_up_highlighted.png", await fetch("pack_assets/immersive_ui/move_up_highlighted.png").then(response => response.arrayBuffer()));
+
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/social_interactions").file("background.png", await fetch("pack_assets/dark_ui/background.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/social_interactions").file("background.png.mcmeta", await fetch("pack_assets/dark_ui/background.png.mcmeta").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/statistics").file("header.png", await fetch("pack_assets/dark_ui/header.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container").file("slot.png", await fetch("pack_assets/dark_ui/slot.png").then(response => response.arrayBuffer()));
+
+                files = [
+                    "banner_slot.png",
+                    "dye_slot.png",
+                    "pattern.png",
+                    "pattern_highlighted.png",
+                    "pattern_selected.png",
+                    "pattern_slot.png",
+                    "scroller.png",
+                    "scroller_disabled.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/loom").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/loom");
+
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smithing").file("error.png", await fetch("pack_assets/immersive_ui/error.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smoker").file("burn_progress.png", await fetch("pack_assets/immersive_ui/burn_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/smoker").file("lit_progress.png", await fetch("pack_assets/immersive_ui/lit_progress.png").then(response => response.arrayBuffer()));
+
+                files = [
+                    "out_of_stock.png",
+                    "scroller.png",
+                    "scroller_disabled.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/villager").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/villager");
+
+                files = [
+                    "scroller.png",
+                    "scroller_disabled.png",
+                    "tab_bottom_selected_1.png",
+                    "tab_bottom_selected_2.png",
+                    "tab_bottom_selected_3.png",
+                    "tab_bottom_selected_4.png",
+                    "tab_bottom_selected_5.png",
+                    "tab_bottom_selected_6.png",
+                    "tab_bottom_selected_7.png",
+                    "tab_bottom_unselected_1.png",
+                    "tab_bottom_unselected_2.png",
+                    "tab_bottom_unselected_3.png",
+                    "tab_bottom_unselected_4.png",
+                    "tab_bottom_unselected_5.png",
+                    "tab_bottom_unselected_6.png",
+                    "tab_bottom_unselected_7.png",
+                    "tab_top_selected_1.png",
+                    "tab_top_selected_2.png",
+                    "tab_top_selected_3.png",
+                    "tab_top_selected_4.png",
+                    "tab_top_selected_5.png",
+                    "tab_top_selected_6.png",
+                    "tab_top_selected_7.png",
+                    "tab_top_unselected_1.png",
+                    "tab_top_unselected_2.png",
+                    "tab_top_unselected_3.png",
+                    "tab_top_unselected_4.png",
+                    "tab_top_unselected_5.png",
+                    "tab_top_unselected_6.png",
+                    "tab_top_unselected_7.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/creative_inventory").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/creative_inventory");
+
+                files = [
+                    "enchantment_slot.png",
+                    "enchantment_slot_disabled.png",
+                    "enchantment_slot_highlighted.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/enchanting_table").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/enchanting_table");
+
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/furnace").file("burn_progress.png", await fetch("pack_assets/immersive_ui/burn_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/furnace").file("lit_progress.png", await fetch("pack_assets/immersive_ui/lit_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/grindstone").file("error.png", await fetch("pack_assets/immersive_ui/error.png").then(response => response.arrayBuffer()));
+
+                files = [
+                    "armor_slot.png",
+                    "chest_slots.png",
+                    "llama_armor_slot.png",
+                    "saddle_slot.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/horse").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/horse");
+
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/inventory").file("effect_background_large.png", await fetch("pack_assets/immersive_ui/effect_background_large.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/inventory").file("effect_background_small.png", await fetch("pack_assets/immersive_ui/effect_background_small.png").then(response => response.arrayBuffer()));
+
+                files = [
+                    "error.png",
+                    "text_field.png",
+                    "text_field_disabled.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/anvil").file(file, arrayBuffer);
+                }
+                console.log("Immersive UI loaded file path at resourcepack/assets/minecraft/textures/gui/sprites/container/anvil");
+
+                files = [
+                    "button.png",
+                    "button_disabled.png",
+                    "button_highlighted.png",
+                    "button_selected.png"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/immersive_ui/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/beacon").file(file, arrayBuffer);
+                }
+
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/blast_furnace").file("burn_progress.png", await fetch("pack_assets/immersive_ui/burn_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/blast_furnace").file("lit_progress.png", await fetch("pack_assets/immersive_ui/lit_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/brewing_stand").file("brew_progress.png", await fetch("pack_assets/immersive_ui/brew_progress.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/brewing_stand").file("bubbles.png", await fetch("pack_assets/immersive_ui/bubbles.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/bundle").file("slot.png", await fetch("pack_assets/immersive_ui/slot.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/bundle").file("blocked_slot.png", await fetch("pack_assets/immersive_ui/blocked_slot.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/cartography_table").file("error.png", await fetch("pack_assets/immersive_ui/error.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/crafter").file("disabled_slot.png", await fetch("pack_assets/immersive_ui/disabled_slot.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/container/crafter").file("unpowered_redstone.png", await fetch("pack_assets/immersive_ui/unpowered_redstone.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/hud").file("effect_background.png", await fetch("pack_assets/immersive_ui/effect_background.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/hud").file("effect_background_ambient.png", await fetch("pack_assets/immersive_ui/effect_background_ambient.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/gui/advancements").file("window.png", await fetch("pack_assets/immersive_ui/window.png").then(response => response.arrayBuffer()));
+                console.log("Immersive UI loaded assorted extra file paths");
+
+                console.log("Immersive UI Loaded");
+            }
+            
+            // Merge lang files
+            console.log("langFilePaths:", langFilePaths);
+            
+            Promise.all(langFilePaths.map((filePath) => {
+                console.log("Fetching file:", filePath);
+                return fetch(filePath)
+                .then((response) => {
+                    console.log("Response received for file:", filePath);
+                    return response.json();
+                })
+                .then((jsonData) => {
+                    console.log("JSON data received for file:", filePath);
+                    zip.file("resourcepack/assets/minecraft/lang/en_us.json", JSON.stringify(jsonData));
+                    return jsonData;
+                })
+                .catch((error) => {
+                    console.error("Error fetching file:", filePath, error);
+                });
+            })).then((jsonDatas) => {
+                console.log("All files fetched and processed. Merging data...");
+                if (jsonDatas.length > 0) {
+                const mergedData = {};
+                jsonDatas.forEach((jsonData) => {
+                    Object.assign(mergedData, jsonData);
+                });
+                console.log("Merged data:", mergedData);
+                console.log("Merged data added to zip file. Proceeding to download...");
+                return zip.generateAsync({ type: 'blob' });
+                } else {
+                console.log("No lang files to be merged.");
+                return zip.generateAsync({ type: 'blob' });
+                }
+            }).then((content) => {
+                if (content) {
+                console.log("Download initiated...")
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(content);
+                link.download = "Tinkercraft Pack.zip";
+                link.click();
+                console.log("Download completed.");
+                }
+            }).catch((error) => {
+                console.error("Error processing files:", error);
             });
         }
     }
