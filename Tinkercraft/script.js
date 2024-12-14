@@ -92,7 +92,44 @@ buttons.forEach((button) => {
     });
 });
 
+// Get the button and modal window elements
+const openModalButton = document.getElementById('open-modal');
+const modal = document.getElementById('modal');
+const modalOverlay = document.querySelector('.modal-overlay');
 
+// Add an event listener to the button to toggle the modal window
+openModalButton.addEventListener('click', () => {
+    modal.style.display = 'block';
+    modalOverlay.style.display = 'block';
+    overrideConsoleLog();
+    buildAndDownload();
+});
+
+// Get the cancel button
+const cancelButton = document.querySelector('.cancel-button');
+
+// Add an event listener to the cancel button to close the modal window
+cancelButton.addEventListener('click', () => {
+    modal.style.display = 'none';
+    modalOverlay.style.display = 'none';
+    restoreConsoleLog();
+});
+
+const originalConsoleLog = console.log;
+
+// Function to override console.log
+function overrideConsoleLog() {
+    console.log = function(...args) {
+        const modalConsole = document.querySelector('.modal-console');
+        modalConsole.innerHTML += '' + args.join('') + '<br/>';
+        originalConsoleLog.apply(console, args);
+    };
+}
+
+// Function to restore original console.log
+function restoreConsoleLog() {
+    console.log = originalConsoleLog;
+}
 
 
 
@@ -159,6 +196,7 @@ async function buildAndDownload() {
                 console.log("Modern Creepers loaded file path at resourcepack/assets/minecraft/textures/entity/creeper");
                 console.log("Modern Creepers Loaded");
             }
+
             if (selected.includes("fresh_crops") && (version === "21" || version === "20")) {
                 let files = [
                 "beetroots.json",
@@ -310,6 +348,7 @@ async function buildAndDownload() {
                 
                 console.log("Fresh Crops Loaded");
             }
+
             if (selected.includes("transparent_ui") && (version === "21" || version === "20")) {
 
                 zip.folder("resourcepack/assets/minecraft/shaders/core").file("rendertype_text.vsh", await fetch("pack_assets/transparent_ui/rendertype_text.vsh").then(response => response.arrayBuffer()));
@@ -905,7 +944,7 @@ async function buildAndDownload() {
 
                 console.log("Dark UI Loaded");
             }
-            
+
             if (selected.includes("immersive_ui")) {
                 langFilePaths.push("pack_assets/immersive_ui/lang/en_us.json");
                 console.log("Immersive UI loaded lang file");
@@ -1154,7 +1193,513 @@ async function buildAndDownload() {
 
                 console.log("Immersive UI Loaded");
             }
-            
+
+            if (selected.includes("wood_for_boomers") && (version === "21" || version === "20")) {
+                zip.folder("resourcepack/assets/minecraft/textures/gui/sprites/toast").file("wooden_planks.png", await fetch("pack_assets/wood_for_boomers/wooden_planks.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/painting").file("back.png", await fetch("pack_assets/wood_for_boomers/back.png").then(response => response.arrayBuffer()));
+
+                let files = [
+                    "acacia_planks.png",
+                    "acacia_planks_01.png",
+                    "acacia_planks_02.png",
+                    "acacia_planks_03.png",
+                    "acacia_planks_04.png",
+                    "acacia_planks_05.png",
+                    "birch_planks.png",
+                    "birch_planks_01.png",
+                    "birch_planks_02.png",
+                    "birch_planks_03.png",
+                    "birch_planks_04.png",
+                    "birch_planks_05.png",
+                    "cartography_table_side1.png",
+                    "cartography_table_side2.png",
+                    "cartography_table_side3.png",
+                    "cartography_table_top.png",
+                    "cherry_planks.png",
+                    "cherry_planks_01.png",
+                    "cherry_planks_02.png",
+                    "cherry_planks_03.png",
+                    "cherry_planks_04.png",
+                    "cherry_planks_05.png",
+                    "crafter_east.png",
+                    "crafter_east_crafting.png",
+                    "crafter_east_triggered.png",
+                    "crafter_north.png",
+                    "crafter_north_crafting.png",
+                    "crafter_south.png",
+                    "crafter_south_triggered.png",
+                    "crafter_west.png",
+                    "crafter_west_crafting.png",
+                    "crafter_west_triggered.png",
+                    "crafting_table_front.png",
+                    "crafting_table_side.png",
+                    "crimson_planks.png",
+                    "crimson_planks_01.png",
+                    "crimson_planks_02.png",
+                    "crimson_planks_03.png",
+                    "crimson_planks_04.png",
+                    "crimson_planks_05.png",
+                    "dark_oak_planks.png",
+                    "dark_oak_planks_01.png",
+                    "dark_oak_planks_02.png",
+                    "dark_oak_planks_03.png",
+                    "dark_oak_planks_04.png",
+                    "dark_oak_planks_05.png",
+                    "fletching_table_front.png",
+                    "fletching_table_side.png",
+                    "fletching_table_top.png",
+                    "jungle_planks.png",
+                    "jungle_planks_01.png",
+                    "jungle_planks_02.png",
+                    "jungle_planks_03.png",
+                    "jungle_planks_04.png",
+                    "jungle_planks_05.png",
+                    "lectern_base.png",
+                    "mangrove_planks.png",
+                    "mangrove_planks_01.png",
+                    "mangrove_planks_02.png",
+                    "mangrove_planks_03.png",
+                    "mangrove_planks_04.png",
+                    "mangrove_planks_05.png",
+                    "oak_planks.png",
+                    "oak_planks_01.png",
+                    "oak_planks_02.png",
+                    "oak_planks_03.png",
+                    "oak_planks_04.png",
+                    "oak_planks_05.png",
+                    "smithing_table_front.png",
+                    "smithing_table_side.png",
+                    "spruce_planks.png",
+                    "spruce_planks_01.png",
+                    "spruce_planks_02.png",
+                    "spruce_planks_03.png",
+                    "spruce_planks_04.png",
+                    "spruce_planks_05.png",
+                    "warped_planks.png",
+                    "warped_planks_01.png",
+                    "warped_planks_02.png",
+                    "warped_planks_03.png",
+                    "warped_planks_04.png",
+                    "warped_planks_05.png",
+                    "pale_oak_planks.png",
+                    "pale_oak_planks_01.png",
+                    "pale_oak_planks_02.png",
+                    "pale_oak_planks_03.png",
+                    "pale_oak_planks_04.png",
+                    "pale_oak_planks_05.png"
+                ];
+                    
+                    for (let file of files) {
+                        let response = await fetch(`pack_assets/wood_for_boomers/${file}`);
+                        let arrayBuffer = await response.arrayBuffer();
+                        zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                    }
+                    console.log("Wood for Boomers loaded file path at resourcepack/assets/minecraft/textures/block");
+
+                    files = [
+                        "black.png",
+                        "blue.png",
+                        "brown.png",
+                        "cyan.png",
+                        "gray.png",
+                        "green.png",
+                        "light_blue.png",
+                        "light_gray.png",
+                        "lime.png",
+                        "magenta.png",
+                        "orange.png",
+                        "pink.png",
+                        "purple.png",
+                        "red.png",
+                        "white.png",
+                        "yellow.png"
+                    ];
+
+                    for (let file of files) {
+                        let response = await fetch(`pack_assets/wood_for_boomers/${file}`);
+                        let arrayBuffer = await response.arrayBuffer();
+                        zip.folder("resourcepack/assets/minecraft/textures/entity/bed").file(file, arrayBuffer);
+                    }
+                    console.log("Wood for Boomers loaded file path at resourcepack/assets/minecraft/textures/entity/bed");
+
+                    files = [
+                        "mangrove.png",
+                        "oak.png",
+                        "spruce.png",
+                        "acacia.png",
+                        "birch.png",
+                        "cherry.png",
+                        "dark_oak.png",
+                        "jungle.png",
+                        "pale_oak.png"
+                    ];
+
+                    for (let file of files) {
+                        let response = await fetch(`pack_assets/wood_for_boomers/${file}`);
+                        let arrayBuffer = await response.arrayBuffer();
+                        zip.folder("resourcepack/assets/minecraft/textures/entity/boat").file(file, arrayBuffer);
+                    }
+                    console.log("Wood for Boomers loaded file path at resourcepack/assets/minecraft/textures/entity/boat");
+
+                    files = [
+                        "mangrove.png",
+                        "oak.png",
+                        "spruce.png",
+                        "acacia.png",
+                        "birch.png",
+                        "cherry.png",
+                        "dark_oak.png",
+                        "jungle.png",
+                        "pale_oak.png"
+                    ];
+
+                    for (let file of files) {
+                        let response = await fetch(`pack_assets/wood_for_boomers/chest_boat/${file}`);
+                        let arrayBuffer = await response.arrayBuffer();
+                        zip.folder("resourcepack/assets/minecraft/textures/entity/chest_boat").file(file, arrayBuffer);
+                    }
+                    console.log("Wood for Boomers loaded file path at resourcepack/assets/minecraft/textures/entity/chest_boat");
+
+                    files = [
+                        "mangrove.png",
+                        "oak.png",
+                        "spruce.png",
+                        "acacia.png",
+                        "birch.png",
+                        "cherry.png",
+                        "dark_oak.png",
+                        "jungle.png",
+                        "pale_oak.png"
+                    ];
+
+                    for (let file of files) {
+                        let response = await fetch(`pack_assets/wood_for_boomers/sign/${file}`);
+                        let arrayBuffer = await response.arrayBuffer();
+                        zip.folder("resourcepack/assets/minecraft/textures/entity/signs").file(file, arrayBuffer);
+                    }
+                    console.log("Wood for Boomers loaded file path at resourcepack/assets/minecraft/textures/entity/signs");
+
+                console.log("Wood for Boomers Loaded");
+            }
+
+            if (selected.includes("ores_for_boomers") && (version === "21" || version === "20")) {
+                let files = [
+                    "iron_ore.png",
+                    "lapis_ore.png",
+                    "redstone_ore.png",
+                    "redstone_ore_off.png",
+                    "coal_ore.png",
+                    "copper_ore.png",
+                    "deepslate_coal_ore.png",
+                    "deepslate_copper_ore.png",
+                    "deepslate_diamond_ore.png",
+                    "deepslate_emerald_ore.png",
+                    "deepslate_gold_ore.png",
+                    "deepslate_iron_ore.png",
+                    "deepslate_lapis_ore.png",
+                    "deepslate_redstone_ore.png",
+                    "deepslate_redstone_ore_off.png",
+                    "diamond_ore.png",
+                    "emerald_ore.png",
+                    "gold_ore.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/ores_for_boomers/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Ores for Boomers loaded file path at resourcepack/assets/minecraft/textures/block");
+                console.log("Ores for Boomers Loaded");
+            }
+
+            if (selected.includes("gravel_for_boomers") && (version === "21" || version === "20")) {
+                let files = [
+                    "gravel.png",
+                    "suspicious_gravel_0.png",
+                    "suspicious_gravel_1.png",
+                    "suspicious_gravel_2.png",
+                    "suspicious_gravel_3.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/gravel_for_boomers/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Gravel for Boomers loaded file path at resourcepack/assets/minecraft/textures/block");
+                console.log("Gravel for Boomers Loaded");
+            }
+
+            if (selected.includes("plants_for_boomers") && (version === "21" || version === "20")) {
+                let files = [
+                    "leaves.json",
+                    "vine.json",
+                    "acacia_leaves.json",
+                    "birch_leaves.json",
+                    "dark_oak_leaves.json",
+                    "grass_block.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/plants_for_boomers/leaves/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/models/block").file(file, arrayBuffer);
+                }
+                console.log("Plants for Boomers loaded file path at resourcepack/assets/minecraft/models/block");
+
+                files = [
+                    "potted_azalea_bush_top.png",
+                    "potted_flowering_azalea_bush_plant.png",
+                    "potted_flowering_azalea_bush_side.png",
+                    "potted_flowering_azalea_bush_top.png",
+                    "short_grass.png",
+                    "spruce_leaves.png",
+                    "spruce_sapling.png",
+                    "sugar_cane.png",
+                    "tall_grass_bottom.png",
+                    "tall_grass_top.png",
+                    "vine.png",
+                    "acacia_sapling.png",
+                    "azalea_leaves.png",
+                    "azalea_plant.png",
+                    "azalea_side.png",
+                    "azalea_top.png",
+                    "birch_sapling.png",
+                    "dark_oak_sapling.png",
+                    "fern.png",
+                    "flowering_azalea_leaves.png",
+                    "flowering_azalea_side.png",
+                    "flowering_azalea_top.png",
+                    "grass.png",
+                    "grass_block_side.png",
+                    "grass_block_top.png",
+                    "jungle_leaves.png",
+                    "jungle_sapling.png",
+                    "large_fern_bottom.png",
+                    "large_fern_top.png",
+                    "lily_pad.png",
+                    "mangrove_leaves.png",
+                    "moss_block.png",
+                    "oak_leaves.png",
+                    "oak_sapling.png",
+                    "potted_azalea_bush_plant.png",
+                    "potted_azalea_bush_side.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/plants_for_boomers/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Plants for Boomers loaded file path at resourcepack/assets/minecraft/textures/block");
+
+                zip.folder("resourcepack/assets/minecraft/textures/colormap").file("grass.png", await fetch("pack_assets/plants_for_boomers/colormaps/grass.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/colormap").file("foliage.png", await fetch("pack_assets/plants_for_boomers/colormaps/foliage.png").then(response => response.arrayBuffer()));
+                console.log("Plants for Boomers loaded file path at resourcepack/assets/minecraft/textures/colormap");
+
+                console.log("Plants for Boomers Loaded");
+            }
+
+            if (selected.includes("wool_for_boomers") && (version === "21" || version === "20")) {
+                let files = [
+                    "light_gray_wool.png",
+                    "lime_wool.png",
+                    "magenta_wool.png",
+                    "orange_wool.png",
+                    "pink_wool.png",
+                    "purple_wool.png",
+                    "red_wool.png",
+                    "white_wool.png",
+                    "yellow_wool.png",
+                    "black_wool.png",
+                    "blue_wool.png",
+                    "brown_wool.png",
+                    "cyan_wool.png",
+                    "gray_wool.png",
+                    "green_wool.png",
+                    "light_blue_wool.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/wool_for_boomers/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Wool for Boomers loaded file path at resourcepack/assets/minecraft/textures/block");
+                console.log("Wool for Boomers Loaded");
+            }
+
+            if (selected.includes("shulkers_for_boomers") && (version === "21" || version === "20")) {
+                let files = [
+                    "shulker_brown.png",
+                    "shulker_cyan.png",
+                    "shulker_gray.png",
+                    "shulker_green.png",
+                    "shulker_light_blue.png",
+                    "shulker_light_gray.png",
+                    "shulker_lime.png",
+                    "shulker_magenta.png",
+                    "shulker_orange.png",
+                    "shulker_pink.png",
+                    "shulker_purple.png",
+                    "shulker_red.png",
+                    "shulker_white.png",
+                    "shulker_yellow.png",
+                    "shulker_black.png",
+                    "shulker_blue.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/shulkers_for_boomers/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/entity/shulker").file(file, arrayBuffer);
+                }
+                console.log("Shulkers for Boomers loaded file path at resourcepack/assets/minecraft/textures/entity/shulker");
+
+                files = files = [
+                    "cyan_shulker_box.png",
+                    "gray_shulker_box.png",
+                    "green_shulker_box.png",
+                    "light_blue_shulker_box.png",
+                    "light_gray_shulker_box.png",
+                    "lime_shulker_box.png",
+                    "magenta_shulker_box.png",
+                    "orange_shulker_box.png",
+                    "pink_shulker_box.png",
+                    "purple_shulker_box.png",
+                    "red_shulker_box.png",
+                    "white_shulker_box.png",
+                    "yellow_shulker_box.png",
+                    "black_shulker_box.png",
+                    "blue_shulker_box.png",
+                    "brown_shulker_box.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/shulkers_for_boomers/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Shulkers for Boomers loaded file path at resourcepack/assets/minecraft/textures/block");
+
+                console.log("Shulkers for Boomers Loaded");
+            }
+
+            if (selected.includes("cobble_for_boomers") && (version === "21" || version === "20")) {
+                zip.folder("resourcepack/assets/minecraft/textures/block").file("cobblestone.png", await fetch("pack_assets/cobble_for_boomers/cobblestone.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/block").file("mossy_cobblestone.png", await fetch("pack_assets/cobble_for_boomers/mossy_cobblestone.png").then(response => response.arrayBuffer()));
+                console.log("Cobble for Boomers loaded file path at resourcepack/assets/minecraft/textures/block");
+
+                console.log("Cobble for Boomers Loaded");
+            }
+
+            if (selected.includes("netherack_for_boomers") && (version === "21" || version === "20")) {
+                let files = [
+                    "nether_quartz_ore.png",
+                    "netherrack.png",
+                    "warped_nylium_side.png",
+                    "crimson_nylium_side.png",
+                    "nether_gold_ore.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/netherack_for_boomers/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Netherack for Boomers loaded file path at resourcepack/assets/minecraft/textures/block");
+                console.log("Netherack for Boomers Loaded");
+            }
+
+            if (selected.includes("minecraft_for_boomers") && (version === "21" || version === "20")) {
+                let files = [
+                    "edition.png",
+                    "minceraft.png",
+                    "minecraft.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/minecraft_for_boomers/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/title").file(file, arrayBuffer);
+                }
+                console.log("Minecraft for Boomers loaded file path at resourcepack/assets/minecraft/textures/gui/title");
+                console.log("Minecraft for Boomers Loaded");
+            }
+
+            if (selected.includes("pigman") && (version === "21" || version === "20")) {
+                langFilePaths.push("pack_assets/pigman/lang/en_us.json");
+                console.log("Pigman! loaded lang file");
+
+                let files = [
+                    "zombified_piglin2.png",
+                    "zombified_piglin3.png",
+                    "zombified_piglin.properties"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/pigman/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/optifine/random/entity/piglin").file(file, arrayBuffer);
+                }
+                console.log("Pigman! loaded file path at resourcepack/assets/minecraft/optifine/random/entity/piglin");
+
+                files = [
+                    "zombified_piglin.png",
+                    "zombified_piglin.jem"
+                ];
+
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/pigman/model/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/optifine/cem").file(file, arrayBuffer);
+                }
+                console.log("Pigman! loaded file path at resourcepack/assets/minecraft/optifine/cem");
+
+                zip.folder("resourcepack/assets/minecraft/textures/entity/piglin").file("zombified_piglin.png", await fetch("pack_assets/pigman/zombified_piglin.png").then(response => response.arrayBuffer()));
+
+                console.log("Pigman! Loaded");
+            }
+
+            if (selected.includes("oof") && (version === "21" || version === "20")) {
+                let files = [
+                    "hit3.ogg",
+                    "fallbig.ogg",
+                    "fallsmall.ogg",
+                    "hit1.ogg",
+                    "hit2.ogg"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/oof/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/sounds/damage").file(file, arrayBuffer);
+                }
+                console.log("Oof! loaded file path at resourcepack/assets/minecraft/sounds/damage");
+                console.log("Oof! Loaded");
+            }
+
+            if (selected.includes("i_hate_panoramas") && (version === "21" || version === "20")) {
+                let files = [
+                    "panorama_4.png",
+                    "panorama_5.png",
+                    "panorama_overlay.png",
+                    "panorama_0.png",
+                    "panorama_1.png",
+                    "panorama_2.png",
+                    "panorama_3.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/i_hate_panoramas/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/gui/title").file(file, arrayBuffer);
+                }
+                console.log("I Hate Panoramas! loaded file path at resourcepack/assets/minecraft/textures/gui/title");
+                console.log("I Hate Panoramas! Loaded");
+            }
+
             // Merge lang files
             console.log("langFilePaths:", langFilePaths);
             
@@ -1174,7 +1719,7 @@ async function buildAndDownload() {
                     console.error("Error fetching file:", filePath, error);
                 });
             })).then((jsonDatas) => {
-                console.log("All files fetched and processed. Merging data...");
+                console.log("All lang files fetched and processed. Merging data...");
                 if (jsonDatas.length > 0) {
                 const mergedData = {};
                 jsonDatas.forEach((jsonData) => {
@@ -1193,8 +1738,10 @@ async function buildAndDownload() {
                 const link = document.createElement("a");
                 link.href = URL.createObjectURL(content);
                 link.download = "Tinkercraft Pack.zip";
+                console.log(`Download link: ${link.href}`);
+                console.log("Please note that this link is valid for 5 minutes, or until you close this tab.");
                 link.click();
-                console.log("Download completed.");
+                console.log("Download completed. You can now safely close this pop-up window.");
                 }
             }).catch((error) => {
                 console.error("Error processing files:", error);

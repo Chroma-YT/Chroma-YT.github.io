@@ -58,6 +58,106 @@ body {
   box-sizing: border-box;
 }
 
+/* Style the modal window container */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 2; /* Add a z-index to ensure the modal window is on top */
+}
+
+/* Style the dark overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 1; /* Make sure the overlay is behind the modal window */
+}
+
+/* Style the modal window content */
+.modal-content {
+  background-image: url('deepslate.png');
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  image-rendering: pixelated;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 80vw; /* Take up 80% of the screen width */
+  height: 80vh; /* Take up 80% of the screen height */
+  overflow-y: auto;
+}
+
+.cancel-button {
+  padding: 0 20px; /* Add 20px horizontal padding */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #777; /* Light gray for non-selected */
+  color: white;
+  transition: background-color 0.3s ease;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  height: 50px; /* Update height to 50px */
+  line-height: 50px; /* Set line height to match height to center text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center text horizontally and vertically */
+}
+
+.modal-text {
+  position: absolute;
+  bottom: 15px;
+  left: 25px;
+  font-size: 20px;
+  height: 50px;
+  line-height: 50px;
+  padding-right: 20px; /* Add 20px padding to the right to create space for the button */
+  color: white;
+}
+
+.cancel-button:hover {
+  background-color: #555; /* Dark gray on hover */
+}
+
+.modal-console {
+  background-color: #000;
+  padding: 10px;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+  color: white;
+  box-sizing: border-box;
+  height: calc(100% - 60px); /* Adjust the height based on the cancel button height */
+  font-family: monospace;
+  font-size: 14px;
+  padding: 5px;
+  overflow-y: auto;
+}
+
+.modal-console::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.modal-console::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 10px;
+}
+
+.modal-console::-webkit-scrollbar-track {
+  background-color: #444;
+}
+
 .sidebar {
   width: 25%;
   height: 100vh;
@@ -130,6 +230,27 @@ body {
   word-wrap: break-word;
   word-break: break-word;
   box-sizing: border-box;
+}
+
+.download-button {
+  padding: 0 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #777;
+  color: white;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* center align */
+}
+
+.download-button:hover {
+  background-color: #444;
 }
 
 .square {
