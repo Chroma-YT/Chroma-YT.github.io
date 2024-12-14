@@ -123,6 +123,7 @@ function overrideConsoleLog() {
         const modalConsole = document.querySelector('.modal-console');
         modalConsole.innerHTML += '' + args.join('') + '<br/>';
         originalConsoleLog.apply(console, args);
+        modalConsole.scrollTop = modalConsole.scrollHeight;
     };
 }
 
@@ -945,7 +946,7 @@ async function buildAndDownload() {
                 console.log("Dark UI Loaded");
             }
 
-            if (selected.includes("immersive_ui")) {
+            if (selected.includes("immersive_ui") && (version === "21" || version === "20")) {
                 langFilePaths.push("pack_assets/immersive_ui/lang/en_us.json");
                 console.log("Immersive UI loaded lang file");
 
