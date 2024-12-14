@@ -1701,6 +1701,93 @@ async function buildAndDownload() {
                 console.log("I Hate Panoramas! Loaded");
             }
 
+            if (selected.includes("scrumptious_skulk") && (version === "21" || version === "20")) {
+                let files = [
+                    "recovery_compass_21_e.png",
+                    "recovery_compass_22_e.png",
+                    "recovery_compass_23_e.png",
+                    "recovery_compass_24_e.png",
+                    "recovery_compass_25_e.png",
+                    "recovery_compass_26_e.png",
+                    "recovery_compass_27_e.png",
+                    "recovery_compass_28_e.png",
+                    "recovery_compass_29_e.png",
+                    "recovery_compass_30_e.png",
+                    "recovery_compass_31_e.png",
+                    "disc_fragment_5_e.png",
+                    "echo_shard_e.png",
+                    "music_disc_5_e.png",
+                    "recovery_compass_00_e.png",
+                    "recovery_compass_01_e.png",
+                    "recovery_compass_02_e.png",
+                    "recovery_compass_03_e.png",
+                    "recovery_compass_04_e.png",
+                    "recovery_compass_05_e.png",
+                    "recovery_compass_06_e.png",
+                    "recovery_compass_07_e.png",
+                    "recovery_compass_08_e.png",
+                    "recovery_compass_09_e.png",
+                    "recovery_compass_10_e.png",
+                    "recovery_compass_11_e.png",
+                    "recovery_compass_12_e.png",
+                    "recovery_compass_13_e.png",
+                    "recovery_compass_14_e.png",
+                    "recovery_compass_15_e.png",
+                    "recovery_compass_16_e.png",
+                    "recovery_compass_17_e.png",
+                    "recovery_compass_18_e.png",
+                    "recovery_compass_19_e.png",
+                    "recovery_compass_20_e.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/scrumptious_skulk/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/item").file(file, arrayBuffer);
+                }
+                console.log("Scrumptious Skulk loaded file path at resourcepack/assets/minecraft/textures/item");
+
+                files = [
+                    "sculk_catalyst_top_e.png",
+                    "sculk_e.png",
+                    "sculk_e.png.mcmeta",
+                    "sculk_sensor_bottom_e.png",
+                    "sculk_sensor_side_e.png",
+                    "sculk_sensor_top_e.png",
+                    "sculk_shrieker_bottom_e.png",
+                    "sculk_shrieker_can_summon_inner_top.png",
+                    "sculk_shrieker_can_summon_inner_top.png.mcmeta",
+                    "sculk_shrieker_can_summon_inner_top_e.png",
+                    "sculk_shrieker_can_summon_inner_top_e.png.mcmeta",
+                    "sculk_shrieker_inner_top.png",
+                    "sculk_shrieker_inner_top.png.mcmeta",
+                    "sculk_shrieker_inner_top_e.png",
+                    "sculk_shrieker_inner_top_e.png.mcmeta",
+                    "sculk_shrieker_side_e.png",
+                    "sculk_vein_e.png",
+                    "sculk_vein_e.png.mcmeta",
+                    "calibrated_sculk_sensor_input_side_e.png",
+                    "calibrated_sculk_sensor_top_e.png",
+                    "sculk_catalyst_bottom_e.png",
+                    "sculk_catalyst_side_bloom_e.png",
+                    "sculk_catalyst_side_bloom_e.png.mcmeta",
+                    "sculk_catalyst_side_e.png",
+                    "sculk_catalyst_top_bloom_e.png",
+                    "sculk_catalyst_top_bloom_e.png.mcmeta"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/scrumptious_skulk/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Scrumptious Skulk loaded file path at resourcepack/assets/minecraft/textures/block");
+
+                zip.folder("resourcepack/assets/minecraft/optifine").file("emmisive.properties", await fetch("pack_assets/scrumptious_skulk/emmisive.properties").then(response => response.arrayBuffer()));
+
+                console.log("Scrumptious Skulk Loaded");
+            }
+
             // Merge lang files
             console.log("langFilePaths:", langFilePaths);
             
