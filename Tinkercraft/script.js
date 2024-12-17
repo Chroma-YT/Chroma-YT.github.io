@@ -9,7 +9,7 @@ let incompatiblePacks = [
     ["transparent_ui", "dark_ui", "immersive_ui"]
 ];
 
-const resourcepacks = ['modern_creepers', 'fresh_crops', 'immersive_ui', 'dark_ui', 'transparent_ui', "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas"];
+const resourcepacks = ['modern_creepers', 'fresh_crops', 'immersive_ui', 'dark_ui', 'transparent_ui', "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas", "smooth_fences", "unique_dyes"];
 const datapacks = ['grand_world'];
 
 
@@ -131,9 +131,6 @@ function overrideConsoleLog() {
 function restoreConsoleLog() {
     console.log = originalConsoleLog;
 }
-
-
-
 
 //Build and Download the file
 async function buildAndDownload() {
@@ -1331,8 +1328,7 @@ async function buildAndDownload() {
                         "birch.png",
                         "cherry.png",
                         "dark_oak.png",
-                        "jungle.png",
-                        "pale_oak.png"
+                        "jungle.png"
                     ];
 
                     for (let file of files) {
@@ -1350,8 +1346,7 @@ async function buildAndDownload() {
                         "birch.png",
                         "cherry.png",
                         "dark_oak.png",
-                        "jungle.png",
-                        "pale_oak.png"
+                        "jungle.png"
                     ];
 
                     for (let file of files) {
@@ -1369,8 +1364,7 @@ async function buildAndDownload() {
                         "birch.png",
                         "cherry.png",
                         "dark_oak.png",
-                        "jungle.png",
-                        "pale_oak.png"
+                        "jungle.png"
                     ];
 
                     for (let file of files) {
@@ -1379,6 +1373,27 @@ async function buildAndDownload() {
                         zip.folder("resourcepack/assets/minecraft/textures/entity/signs").file(file, arrayBuffer);
                     }
                     console.log("Wood for Boomers loaded file path at resourcepack/assets/minecraft/textures/entity/signs");
+
+                    if (version === "21"){
+                        zip.folder("resourcepack/1_21_4/assets/minecraft/textures/entity/signs").file("pale_oak.png", await fetch("pack_assets/wood_for_boomers/pale_oak.png").then(response => response.arrayBuffer()));
+                        zip.folder("resourcepack/1_21_4/assets/minecraft/textures/entity/chest_boat").file("pale_oak.png", await fetch("pack_assets/wood_for_boomers/pale_oak.png").then(response => response.arrayBuffer()));
+                        zip.folder("resourcepack/1_21_4/assets/minecraft/textures/entity/boat").file("pale_oak.png", await fetch("pack_assets/wood_for_boomers/pale_oak.png").then(response => response.arrayBuffer()));
+                        files = [
+                            "pale_oak_planks.png",
+                            "pale_oak_planks_01.png",
+                            "pale_oak_planks_02.png",
+                            "pale_oak_planks_03.png",
+                            "pale_oak_planks_04.png",
+                            "pale_oak_planks_05.png"
+                        ];
+                            
+                            for (let file of files) {
+                                let response = await fetch(`pack_assets/wood_for_boomers/${file}`);
+                                let arrayBuffer = await response.arrayBuffer();
+                                zip.folder("resourcepack/1_21_4/assets/minecraft/textures/block").file(file, arrayBuffer);
+                            }
+                            console.log("Wood for Boomers loaded file path at resourcepack/1_21_4/assets/minecraft/textures/block");
+                    }
 
                 console.log("Wood for Boomers Loaded");
             }
@@ -1955,6 +1970,171 @@ async function buildAndDownload() {
                 zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/underground_river").file("total.json", await fetch("pack_assets/grand_world/total3.json").then(response => response.arrayBuffer()));
 
                 console.log("Grand World loaded");
+            }
+
+            if (selected.includes("smooth_fences") && (version === "21" || version === "20")) {
+                let files = [
+                    "spruce_fence_gate.json",
+                    "warped_fence.json",
+                    "warped_fence_gate.json",
+                    "acacia_fence.json",
+                    "acacia_fence_gate.json",
+                    "birch_fence.json",
+                    "birch_fence_gate.json",
+                    "cherry_fence.json",
+                    "cherry_fence_gate.json",
+                    "crimson_fence.json",
+                    "crimson_fence_gate.json",
+                    "dark_oak_fence.json",
+                    "dark_oak_fence_gate.json",
+                    "jungle_fence.json",
+                    "jungle_fence_gate.json",
+                    "mangrove_fence.json",
+                    "mangrove_fence_gate.json",
+                    "oak_fence.json",
+                    "oak_fence_gate.json",
+                    "spruce_fence.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/smooth_fences/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/blockstates").file(file, arrayBuffer);
+                }
+                console.log("Smooth Fences loaded file path at resourcepack/assets/minecraft/blockstates")
+                
+                files = [
+                    "acacia_fence_gate.json",
+                    "acacia_fence_gate_open.json",
+                    "acacia_fence_gate_wall.json",
+                    "acacia_fence_gate_wall_open.json",
+                    "acacia_fence_inventory.json",
+                    "acacia_fence_post.json",
+                    "acacia_fence_side.json",
+                    "birch_fence_gate.json",
+                    "birch_fence_gate_open.json",
+                    "birch_fence_gate_wall.json",
+                    "birch_fence_gate_wall_open.json",
+                    "birch_fence_inventory.json",
+                    "birch_fence_post.json",
+                    "birch_fence_side.json",
+                    "cherry_fence_gate.json",
+                    "cherry_fence_gate_open.json",
+                    "cherry_fence_gate_wall.json",
+                    "cherry_fence_gate_wall_open.json",
+                    "cherry_fence_inventory.json",
+                    "cherry_fence_post.json",
+                    "cherry_fence_side.json",
+                    "crimson_fence_gate.json",
+                    "crimson_fence_gate_open.json",
+                    "crimson_fence_gate_wall.json",
+                    "crimson_fence_gate_wall_open.json",
+                    "crimson_fence_inventory.json",
+                    "crimson_fence_post.json",
+                    "crimson_fence_side.json",
+                    "custom_fence_inventory.json",
+                    "custom_fence_post.json",
+                    "custom_fence_side_east.json",
+                    "custom_fence_side_north.json",
+                    "custom_fence_side_south.json",
+                    "custom_fence_side_west.json",
+                    "dark_oak_fence_gate.json",
+                    "dark_oak_fence_gate_open.json",
+                    "dark_oak_fence_gate_wall.json",
+                    "dark_oak_fence_gate_wall_open.json",
+                    "dark_oak_fence_inventory.json",
+                    "dark_oak_fence_post.json",
+                    "dark_oak_fence_side.json",
+                    "fencier_fence_gate.json",
+                    "fencier_fence_gate_open.json",
+                    "fencier_fence_gate_wall.json",
+                    "fencier_fence_gate_wall_open.json",
+                    "fencier_fence_inventory.json",
+                    "fencier_fence_post.json",
+                    "fencier_fence_side.json",
+                    "jungle_fence_gate.json",
+                    "jungle_fence_gate_open.json",
+                    "jungle_fence_gate_wall.json",
+                    "jungle_fence_gate_wall_open.json",
+                    "jungle_fence_inventory.json",
+                    "jungle_fence_post.json",
+                    "jungle_fence_side.json",
+                    "mangrove_fence_gate.json",
+                    "mangrove_fence_gate_open.json",
+                    "mangrove_fence_gate_wall.json",
+                    "mangrove_fence_gate_wall_open.json",
+                    "mangrove_fence_inventory.json",
+                    "mangrove_fence_post.json",
+                    "mangrove_fence_side.json",
+                    "oak_fence_gate.json",
+                    "oak_fence_gate_open.json",
+                    "oak_fence_gate_wall.json",
+                    "oak_fence_gate_wall_open.json",
+                    "oak_fence_inventory.json",
+                    "oak_fence_post.json",
+                    "oak_fence_side.json",
+                    "spruce_fence_gate.json",
+                    "spruce_fence_gate_open.json",
+                    "spruce_fence_gate_wall.json",
+                    "spruce_fence_gate_wall_open.json",
+                    "spruce_fence_inventory.json",
+                    "spruce_fence_post.json",
+                    "spruce_fence_side.json",
+                    "warped_fence_gate.json",
+                    "warped_fence_gate_open.json",
+                    "warped_fence_gate_wall.json",
+                    "warped_fence_gate_wall_open.json",
+                    "warped_fence_inventory.json",
+                    "warped_fence_post.json",
+                    "warped_fence_side.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/smooth_fences/models/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/models/block").file(file, arrayBuffer);
+                }
+                console.log("Smooth Fences loaded file path at resourcepack/assets/minecraft/models/block");
+
+                if(version === "21") {
+                    zip.folder("resourcepack/1_21/assets/minecraft/blockstates").file("pale_oak_fence.json", await fetch("pack_assets/smooth_fences/pale_oak_fence.json").then(response => response.arrayBuffer()));
+                    zip.folder("resourcepack/1_21/assets/minecraft/blockstates").file("pale_oak_fence_gate.json", await fetch("pack_assets/smooth_fences/pale_oak_fence_gate.json").then(response => response.arrayBuffer()));
+                    files = [
+                        "pale_oak_fence_gate.json",
+                        "pale_oak_fence_gate_open.json",
+                        "pale_oak_fence_gate_wall.json",
+                        "pale_oak_fence_gate_wall_open.json",
+                        "pale_oak_fence_inventory.json",
+                        "pale_oak_fence_post.json",
+                        "pale_oak_fence_side.json"
+                    ];
+
+                    for (let file of files) {
+                        let response = await fetch(`pack_assets/smooth_fences/models/${file}`);
+                        let arrayBuffer = await response.arrayBuffer();
+                        zip.folder("resourcepack/1_21/assets/minecraft/blockstates").file(file, arrayBuffer);
+                    }
+                    console.log("Smooth Fences loaded file path at resourcepack/1_21/assets/minecraft/blockstates")
+                }
+                console.log("Smooth Fences Loaded");
+            }
+
+            if (selected.includes("unique_dyes") && (version === "21" || version === "20")) {
+                let files = [
+                    "gray_dye.png",
+                    "lime_dye.png",
+                    "magenta_dye.png",
+                    "pink_dye.png",
+                    "purple_dye.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/unique_dyes/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/item").file(file, arrayBuffer);
+                }
+                console.log("Unique Dyes loaded file path at resourcepack/assets/minecraft/textures/item");
+                console.log("Unique Dyes Loaded");
             }
 
             // Merge lang files
