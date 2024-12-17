@@ -9,7 +9,7 @@ let incompatiblePacks = [
     ["transparent_ui", "dark_ui", "immersive_ui"]
 ];
 
-const resourcepacks = ['modern_creepers', 'fresh_crops', 'immersive_ui', 'dark_ui', 'transparent_ui'];
+const resourcepacks = ['modern_creepers', 'fresh_crops', 'immersive_ui', 'dark_ui', 'transparent_ui', "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas"];
 const datapacks = ['grand_world'];
 
 
@@ -182,10 +182,10 @@ async function buildAndDownload() {
             }
             if (hasDatapack) {
                 if (version === "20") {
-                    zip.folder("datapack").file("pack.mcmeta", await fetch("pack_assets/core/20/datapack/pack.mcmeta").then(response => response.arrayBuffer()));
+                    zip.folder("datapack").file("pack.mcmeta", await fetch("pack_assets/core/20/data/pack.mcmeta").then(response => response.arrayBuffer()));
                     console.log("Datapack root created for version 20");
                 } else if (version === "21") {
-                    zip.folder("datapack").file("pack.mcmeta", await fetch("pack_assets/core/21/datapack/pack.mcmeta").then(response => response.arrayBuffer()));
+                    zip.folder("datapack").file("pack.mcmeta", await fetch("pack_assets/core/21/data/pack.mcmeta").then(response => response.arrayBuffer()));
                     console.log("Datapack root created for version 21");
                 }
             }
@@ -1786,6 +1786,175 @@ async function buildAndDownload() {
                 zip.folder("resourcepack/assets/minecraft/optifine").file("emmisive.properties", await fetch("pack_assets/scrumptious_skulk/emmisive.properties").then(response => response.arrayBuffer()));
 
                 console.log("Scrumptious Skulk Loaded");
+            }
+
+            if (selected.includes("grand_world") && (version === "21" || version === "20")) {
+
+                zip.folder("datapack/data/minecraft/dimension_type").file("overworld.json", await fetch("pack_assets/grand_world/overworld.json").then(response => response.arrayBuffer()));
+
+                zip.folder("datapack/data/minecraft/worldgen").file("large_biomes.json", await fetch("pack_assets/grand_world/large_biomes.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen").file("overworld.json", await fetch("pack_assets/grand_world/overworld2.json").then(response => response.arrayBuffer()));
+                console.log("Grand World loaded source");
+
+                let files = [
+                    "continentalness_large.json",
+                    "erosion.json",
+                    "ridge.json",
+                    "continentalness.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/grand_world/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("datapack/data/minecraft/worldgen/noise").file(file, arrayBuffer);
+                }
+                console.log("Grand World loaded file path at datapack/data/minecraft/worldgen/noise");
+
+                zip.folder("datapack/data/minecraft/worldgen/noise_settings").file("large_biomes.json", await fetch("pack_assets/grand_world/large_biomes2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/noise_settings").file("overworld.json", await fetch("pack_assets/grand_world/overworld3.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld").file("erosion.json", await fetch("pack_assets/grand_world/erosion2.json").then(response => response.arrayBuffer()));
+                console.log("Grand World loaded assorted files");
+
+                files = [
+                    "jaggedness.json",
+                    "offset.json",
+                    "ridges.json",
+                    "temperature.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/grand_world/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("datapack/data/minecraft/worldgen/density_function/overworld").file(file, arrayBuffer);
+                }
+                console.log("Grand World loaded file path at datapack/data/minecraft/worldgen/density_function/overworld");
+
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld/noise_router").file("erosion.json", await fetch("pack_assets/grand_world/erosion3.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld/noise_router").file("ridges.json", await fetch("pack_assets/grand_world/ridges2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld/noise_router").file("temperature.json", await fetch("pack_assets/grand_world/temperature2.json").then(response => response.arrayBuffer()));
+
+                files = [
+                    "final_density.json",
+                    "fluid_level_floodedness.json",
+                    "initial_density_without_jaggedness.json",
+                    "barrier.json",
+                    "fluid_level_spread.json",
+                    "lava.json",
+                    "vegetation.json",
+                    "vein_gap.json",
+                    "vein_ridged.json",
+                    "vein_toggle.json",
+                    "continents.json",
+                    "depth.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/grand_world/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("datapack/data/minecraft/worldgen/density_function/overworld/noise_router").file(file, arrayBuffer);
+                }
+                console.log("Grand World loaded file path at datapack/data/minecraft/worldgen/density_function/overworld/noise_router");
+
+                zip.folder("datapack/data/tinkercraft_grandworld_module/lithostitched/worldgen_modifier").file("warmer_stony_shore.json", await fetch("pack_assets/grand_world/warmer_stony_shore.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes").file("jaggedness.json", await fetch("pack_assets/grand_world/jaggedness2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes").file("offset.json", await fetch("pack_assets/grand_world/offset2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes").file("temperature.json", await fetch("pack_assets/grand_world/temperature3.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes/noise_router").file("continents.json", await fetch("pack_assets/grand_world/continents2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes/noise_router").file("depth.json", await fetch("pack_assets/grand_world/depth2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes/noise_router").file("final_density.json", await fetch("pack_assets/grand_world/final_density2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes/noise_router").file("fluid_level_floodedness.json", await fetch("pack_assets/grand_world/fluid_level_floodedness2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes/noise_router").file("initial_density_without_jaggedness.json", await fetch("pack_assets/grand_world/initial_density_without_jaggedness2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes/noise_router").file("temperature.json", await fetch("pack_assets/grand_world/temperature4.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/overworld_large_biomes/noise_router").file("vegetation.json", await fetch("pack_assets/grand_world/vegetation2.json").then(response => response.arrayBuffer()));
+                console.log("Grand World loaded file path at datapack/data/minecraft/worldgen/density_function/overworld_large_biomes/noise_router");
+
+                files = [
+                    "x.json",
+                    "y.json",
+                    "z.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/grand_world/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/cave_shift").file(file, arrayBuffer);
+                }
+                console.log("Grand World loaded file path at datapack/data/tinkercraft_grandworld_module/worldgen/noise/cave_shift");
+
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/cliffs").file("rarity.json", await fetch("pack_assets/grand_world/rarity.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/dune").file("ridge.json", await fetch("pack_assets/grand_world/ridge2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/dune").file("warp.json", await fetch("pack_assets/grand_world/warp.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/hbridges").file("base.json", await fetch("pack_assets/grand_world/base.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/hbridges").file("detailed.json", await fetch("pack_assets/grand_world/detailed.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/hbridges").file("weathering.json", await fetch("pack_assets/grand_world/weathering.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/lava_river").file("ridge.json", await fetch("pack_assets/grand_world/ridge3.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/lava_river").file("thickness.json", await fetch("pack_assets/grand_world/thickness.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/offset").file("1.json", await fetch("pack_assets/grand_world/1.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/offset").file("2.json", await fetch("pack_assets/grand_world/2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/offset").file("3.json", await fetch("pack_assets/grand_world/3.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/pillar").file("location.json", await fetch("pack_assets/grand_world/location.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/pillar").file("shift_x.json", await fetch("pack_assets/grand_world/shift_x.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/noise/pillar").file("shift_z.json", await fetch("pack_assets/grand_world/shift_z.json").then(response => response.arrayBuffer()));
+                console.log("Grand World loaded file path at datapack/data/tinkercraft_grandworld_module/worldgen/noise");
+
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes").file("aquifer_parameters.json", await fetch("pack_assets/grand_world/aquifer_parameters.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes").file("sloped_cheese.json", await fetch("pack_assets/grand_world/sloped_cheese.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes").file("wackiness.json", await fetch("pack_assets/grand_world/wackiness.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes").file("continents.json", await fetch("pack_assets/grand_world/continents3.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes").file("depth.json", await fetch("pack_assets/grand_world/depth3.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes/cliff").file("parameters.json", await fetch("pack_assets/grand_world/parameters.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes/legacy").file("cliffs.json", await fetch("pack_assets/grand_world/cliffs.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes/underground_river").file("parameters_2d.json", await fetch("pack_assets/grand_world/parameters_2d.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes/underground_river").file("parameters_3d.json", await fetch("pack_assets/grand_world/parameters_3d.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes/underground_river").file("parameters_lax_3d.json", await fetch("pack_assets/grand_world/parameters_lax_3d.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes/underground_river").file("parameters_strict_3d.json", await fetch("pack_assets/grand_world/parameters_strict_3d.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes/underground_river").file("total.json", await fetch("pack_assets/grand_world/total.json").then(response => response.arrayBuffer()));
+                console.log("Grand World loaded file path at datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld_large_biomes");
+
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants").file("terrain_scale.json", await fetch("pack_assets/grand_world/terrain_scale.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants").file("erosion_noise.json", await fetch("pack_assets/grand_world/erosion_noise.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants").file("deep_ocean_depth.json", await fetch("pack_assets/grand_world/deep_ocean_depth.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants").file("desert_dunes.json", await fetch("pack_assets/grand_world/desert_dunes.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants").file("lava_rivers.json", await fetch("pack_assets/grand_world/lava_rivers.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants").file("ocean_depth.json", await fetch("pack_assets/grand_world/ocean_depth.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants").file("underground_river_multiplier.json", await fetch("pack_assets/grand_world/underground_river_multiplier.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants").file("underground_river_toggle.json", await fetch("pack_assets/grand_world/underground_river_toggle.json").then(response => response.arrayBuffer()));
+                console.log("Grand World loaded file path at datapack/data/tinkercraft_grandworld_module/worldgen/density_function/constants");
+
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges").file("ridges.json", await fetch("pack_assets/grand_world/ridges3.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges").file("shifteddetail.json", await fetch("pack_assets/grand_world/shifteddetail.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges").file("weathering.json", await fetch("pack_assets/grand_world/weathering2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges/noiseshift").file("base.json", await fetch("pack_assets/grand_world/base2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges/noiseshift").file("shiftx.json", await fetch("pack_assets/grand_world/shiftx.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges/noiseshift").file("shiftz.json", await fetch("pack_assets/grand_world/shiftz.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges/noiseshift").file("slopex.json", await fetch("pack_assets/grand_world/slopex.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges/noiseshift").file("slopez.json", await fetch("pack_assets/grand_world/slopez.json").then(response => response.arrayBuffer()));
+                console.log("Grand World loaded file path at datapack/data/tinkercraft_grandworld_module/worldgen/density_function/hbridges");
+
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("aquifer_parameters.json", await fetch("pack_assets/grand_world/aquifer_parameters2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("caves.json", await fetch("pack_assets/grand_world/caves.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("erosion.json", await fetch("pack_assets/grand_world/erosion4.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("lava_rivers.json", await fetch("pack_assets/grand_world/lava_rivers2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("sloped_cheese.json", await fetch("pack_assets/grand_world/sloped_cheese2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("wackiness.json", await fetch("pack_assets/grand_world/wackiness2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("continents.json", await fetch("pack_assets/grand_world/continents4.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("depth.json", await fetch("pack_assets/grand_world/depth4.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("min_offset.json", await fetch("pack_assets/grand_world/min_offset.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld").file("ridges.json", await fetch("pack_assets/grand_world/ridges4.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/cliff").file("parameters.json", await fetch("pack_assets/grand_world/parameters2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/dunes").file("total.json", await fetch("pack_assets/grand_world/total2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/legacy").file("cliffs.json", await fetch("pack_assets/grand_world/cliffs2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/legacy").file("erosion_folded.json", await fetch("pack_assets/grand_world/erosion_folded.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/legacy").file("offset_noise.json", await fetch("pack_assets/grand_world/offset_noise.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/legacy").file("ridges_folded.json", await fetch("pack_assets/grand_world/ridges_folded.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/underground_river").file("parameters_2d.json", await fetch("pack_assets/grand_world/parameters_2d2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/underground_river").file("parameters_3d.json", await fetch("pack_assets/grand_world/parameters_3d2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/underground_river").file("parameters_lax_3d.json", await fetch("pack_assets/grand_world/parameters_lax_3d2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/underground_river").file("parameters_strict_3d.json", await fetch("pack_assets/grand_world/parameters_strict_3d2.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/underground_river").file("pillar.json", await fetch("pack_assets/grand_world/pillar.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/tinkercraft_grandworld_module/worldgen/density_function/overworld/underground_river").file("total.json", await fetch("pack_assets/grand_world/total3.json").then(response => response.arrayBuffer()));
+
+                console.log("Grand World loaded");
             }
 
             // Merge lang files

@@ -321,6 +321,29 @@
                 </div>
             </div>
             <!-- Collapsible Section End -->
+            <!-- Collapsible Section Start -->
+            <div class="collapsible-section">
+                <button class="collapsible">Worldgen</button>
+                <div class="collapsible-content">
+                    <!-- Button Start -->
+                    <div class="square" name="grand_world" data-sidebar-content='
+                        <h2>Grand World</h2>
+                        <div class="c-compare" style="--value:50%;">
+                            <img class="c-compare__left" src="grandworld_before.png" alt="Before" />
+                            <img class="c-compare__right" src="grandworld_after.png" alt="After" />
+                            <input type="range" class="c-rng c-compare__range" min="0" max="100" value="50" oninput="this.parentNode.style.setProperty(\"--value\", `${this.value}%`)" />
+                        </div>
+                        <p class="center-text"><small>Before   ------  Move the slider!  ------   After</small></p>
+                        <p>This pack completely overhauls world generation. You can find many new features in your world, including dramatic and scaled mountains, underground aquifers and rivers, and even lava lakes deep in the world. This pack also modernizes the code to generate the world, fixing "lerp issues," where Minecraft cannot properly smooth terrain, leading to weird staircasing.</p>
+                        <ul>
+                            <li>Completely server-side!</li>
+                            <li>Lithostiched recommended!</li>
+                        </ul>'>
+                    </div>
+                    <!-- Button End -->
+                </div>
+            </div>
+            <!-- Collapsible Section End -->
             <!-- Download Button Start -->
             <div style="text-align: center; margin-top: 20px;">
                 <button id="open-modal" class="download-button">Download</button>
