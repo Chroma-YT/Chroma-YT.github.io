@@ -9,9 +9,8 @@ let incompatiblePacks = [
     ["transparent_ui", "dark_ui", "immersive_ui"]
 ];
 
-const resourcepacks = ['modern_creepers', 'fresh_crops', 'immersive_ui', 'dark_ui', 'transparent_ui', "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas", "smooth_fences", "unique_dyes"];
-const datapacks = ['grand_world'];
-
+const resourcepacks = ["modern_creepers", "fresh_crops", "immersive_ui", "dark_ui", "transparent_ui", "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas", "smooth_fences", "unique_dyes"];
+const datapacks = ["grand_world", "mega_nether"];
 
 function selectButton(button) {
     const buttons = document.querySelectorAll('.header-button');
@@ -2135,6 +2134,16 @@ async function buildAndDownload() {
                 }
                 console.log("Unique Dyes loaded file path at resourcepack/assets/minecraft/textures/item");
                 console.log("Unique Dyes Loaded");
+            }
+
+            if (selected.includes("mega_nether") && (version === "21" || version === "20")) {
+                zip.folder("datapack/data/minecraft/dimension").file("the_nether.json", await fetch("pack_assets/mega_nether/the_nether.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/dimension_type").file("the_nether.json", await fetch("pack_assets/mega_nether/the_nether2s.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/configured_carver").file("nether_cave.json", await fetch("pack_assets/mega_nether/nether_cave.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/density_function/nether").file("base_3d_noise.json", await fetch("pack_assets/mega_nether/base_3d_noise.json").then(response => response.arrayBuffer()));
+                zip.folder("datapack/data/minecraft/worldgen/noise_settings").file("nether.json", await fetch("pack_assets/mega_nether/nether.json").then(response => response.arrayBuffer()));
+
+                console.log("Mega Nether Loaded");
             }
 
             // Merge lang files
