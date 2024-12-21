@@ -9,7 +9,7 @@ let incompatiblePacks = [
     ["transparent_ui", "dark_ui", "immersive_ui"]
 ];
 
-const resourcepacks = ["modern_creepers", "fresh_crops", "immersive_ui", "dark_ui", "transparent_ui", "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas", "smooth_fences", "unique_dyes"];
+const resourcepacks = ["modern_creepers", "fresh_crops", "immersive_ui", "dark_ui", "transparent_ui", "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas", "smooth_fences", "unique_dyes", "cursed_mobs"];
 const datapacks = ["grand_world", "mega_nether"];
 
 function selectButton(button) {
@@ -2146,6 +2146,343 @@ async function buildAndDownload() {
                 console.log("Mega Nether Loaded");
             }
 
+            if (selected.includes("cursed_mobs") && (version === "21" || version === "20")) {
+                let files = [
+                    "allay.jem",
+                    "allay.png",
+                    "axolotl.jem",
+                    "axolotl.png",
+                    "bat.jem",
+                    "bat.png",
+                    "bee.jem",
+                    "bee.png",
+                    "blaze.jem",
+                    "blaze.png",
+                    "boat.jem",
+                    "boat.png",
+                    "breeze.jem",
+                    "breeze.png",
+                    "breeze_wind.jem",
+                    "breeze_wind.png",
+                    "camel.jem",
+                    "camel.png",
+                    "cat.jem",
+                    "cat.png",
+                    "cave_spider.jem",
+                    "cave_spider.png",
+                    "chicken.jem",
+                    "chicken.png",
+                    "cod.jem",
+                    "cod.png",
+                    "cow.jem",
+                    "cow.png",
+                    "creeper.jem",
+                    "creeper.png",
+                    "dolphin.jem",
+                    "dolphin.png",
+                    "donkey.jem",
+                    "donkey.png",
+                    "dragon.jem",
+                    "dragon.png",
+                    "drowned.jem",
+                    "drowned.png",
+                    "drowned_outer.jem",
+                    "drowned_outer.png",
+                    "elder_guardian.jem",
+                    "elder_guardian.png",
+                    "enderman.jem",
+                    "enderman.png",
+                    "evoker.jem",
+                    "evoker.png",
+                    "evoker_fangs.jem",
+                    "evoker_fangs.png",
+                    "fox.jem",
+                    "fox.png",
+                    "glow_squid.jem",
+                    "glow_squid.png",
+                    "head_creeper.jem",
+                    "head_creeper.png",
+                    "head_dragon.jem",
+                    "head_dragon.png",
+                    "horse.jem",
+                    "horse.png",
+                    "iron_golem.jem",
+                    "iron_golem.png",
+                    "llama.jem",
+                    "llama.png",
+                    "magma_cube.jem",
+                    "magma_cube.png",
+                    "minecart.jem",
+                    "minecart.png",
+                    "mooshroom.jem",
+                    "mooshroom.png",
+                    "pig.jem",
+                    "pig.png",
+                    "piglin.jem",
+                    "piglin.png",
+                    "piglin_brute.jem",
+                    "piglin_brute.png",
+                    "plains.png",
+                    "polar_bear.jem",
+                    "polar_bear.png",
+                    "puffer_fish_big.jem",
+                    "puffer_fish_big.png",
+                    "puffer_fish_medium.jem",
+                    "puffer_fish_medium.png",
+                    "puffer_fish_small.jem",
+                    "puffer_fish_small.png",
+                    "ravager.jem",
+                    "ravager.png",
+                    "salmon.jem",
+                    "salmon.png",
+                    "sheep.jem",
+                    "sheep.png",
+                    "sheep_wool.jem",
+                    "sheep_wool.png",
+                    "shulker.jem",
+                    "shulker.png",
+                    "skeleton.jem",
+                    "skeleton.png",
+                    "spider.jem",
+                    "spider.png",
+                    "squid.jem",
+                    "squid.png",
+                    "tropical_fish_a.jem",
+                    "tropical_fish_a.png",
+                    "turtle.jem",
+                    "turtle.png",
+                    "vex.jem",
+                    "vex.png",
+                    "villager.jem",
+                    "villager.png",
+                    "zombie.jem",
+                    "zombie.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/cursed_mobs/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/optifine/cem").file(file, arrayBuffer);
+                }
+                console.log("Cursed Mobs loaded file path at resourcepack/assets/minecraft/optifine/cem");
+                console.log("Cursed Mobs Loaded");
+            }
+
+            if (selected.includes("mob_pixel_consistency") && (version === "21" || version === "20")) {
+                let files = [
+                    "wither.png",
+                    "wither_invulnerable.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/mob_pixel_consistency/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/entity/wither").file(file, arrayBuffer);
+                }
+                console.log("Mob Pixel Consistency loaded file path at resourcepack/assets/minecraft/textures/entity/wither");
+
+                files = [
+                    "ghast.png",
+                    "ghast_shooting.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/mob_pixel_consistency/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/entity/ghast").file(file, arrayBuffer);
+                }
+                zip.folder("resourcepack/assets/minecraft/textures/entity").file("guardian_elder.png", await fetch("pack_assets/mob_pixel_consistency/guardian_elder.png").then(response => response.arrayBuffer()));
+                console.log("Mob Pixel Consistency loaded file path at resourcepack/assets/minecraft/textures/entity/ghast");
+
+                console.log("Mob Pixel Consistency Loaded");
+            }
+
+            if (selected.includes("particle_pixel_consistency") && (version === "21" || version === "20")) {
+                let files = [
+                    "beacon_beam.png",
+                    "end_gateway_beam.png",
+                    "experience_orb.png",
+                    "guardian_beam.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/particle_pixel_consistency/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/entity").file(file, arrayBuffer);
+                }
+                console.log("Particle Pixel Consistency loaded file path at resourcepack/assets/minecraft/textures/entity");
+
+                files = [
+                    "sonic_boom_0.png",
+                    "sonic_boom_1.png",
+                    "sonic_boom_2.png",
+                    "sonic_boom_3.png",
+                    "sonic_boom_4.png",
+                    "sonic_boom_5.png",
+                    "sonic_boom_6.png",
+                    "sonic_boom_7.png",
+                    "sonic_boom_8.png",
+                    "sonic_boom_9.png",
+                    "sonic_boom_10.png",
+                    "sonic_boom_11.png",
+                    "sonic_boom_12.png",
+                    "sonic_boom_13.png",
+                    "sonic_boom_14.png",
+                    "sonic_boom_15.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/particle_pixel_consistency/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/particle").file(file, arrayBuffer);
+                }
+                console.log("Particle Pixel Consistency loaded file path at resourcepack/assets/minecraft/textures/particle");
+
+                console.log("Particle Pixel Consistency Loaded");
+            }
+
+            if (selected.includes("block_pixel_consistency") && (version === "21" || version === "20")) {
+                let files = [
+                    "acacia.png",
+                    "bamboo.png",
+                    "birch.png",
+                    "cherry.png",
+                    "crimson.png",
+                    "dark_oak.png",
+                    "jungle.png",
+                    "mangrove.png",
+                    "oak.png",
+                    "spruce.png",
+                    "warped.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/block_pixel_consistency/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/entity/signs").file(file, arrayBuffer);
+                }
+                console.log("Block Pixel Consistency loaded file path at resourcepack/assets/minecraft/textures/entity/signs");
+
+                files = [
+                    "trip_wire_source.png",
+                    "tripwire.png",
+                    "tripwire_hook_block.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/block_pixel_consistency/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Block Pixel Consistency loaded file path at resourcepack/assets/minecraft/textures/block");
+
+                files = [
+                    "tripwire_attached_ne.json",
+                    "tripwire_attached_n.json",
+                    "tripwire_attached_ns.json",
+                    "tripwire_attached_nse.json",
+                    "tripwire_attached_nsew.json",
+                    "tripwire_hook.json",
+                    "tripwire_hook_attached.json",
+                    "tripwire_hook_attached_on.json",
+                    "tripwire_ne.json",
+                    "tripwire_n.json",
+                    "tripwire_ns.json",
+                    "tripwire_nse.json",
+                    "tripwire_nsew.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/block_pixel_consistency/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/models/block").file(file, arrayBuffer);
+                }
+                console.log("Block Pixel Consistency loaded file path at resourcepack/assets/minecraft/models/block");
+
+                if(version === "21") {
+                    zip.folder("resourcepack/1_21_4/assets/minecraft/textures/entity/signs").file("pale_oak.png", await fetch("pack_assets/block_pixel_consistency/pale_oak.png").then(response => response.arrayBuffer())); 
+                }
+                console.log("Block Pixel Consistency loaded file path at resourcepack/1_21_4/assets/minecraft/textures/entity/signs");
+
+                console.log("Block Pixel Consistency Loaded");
+            }
+
+            if (selected.includes("consistent_buckets") && (version === "21" || version === "20")) {
+                let files = [
+                    "bucket.png",
+                    "lava_bucket.png",
+                    "milk_bucket.png",
+                    "powder_snow_bucket.png",
+                    "tadpole_bucket.png",
+                    "water_bucket.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/consistent_buckets/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/item").file(file, arrayBuffer);
+                }
+                console.log("Consistent Buckets loaded file path at resourcepack/assets/minecraft/textures/item");
+                console.log("Consistent Buckets Loaded");
+            }
+
+            if (selected.includes("dripleaf_fix") && (version === "21" || version === "20")) {
+                zip.folder("resourcepack/assets/minecraft/textures/block").file("big_dripleaf_stem_full_tilt.png", await fetch("pack_assets/dripleaf_fix/big_dripleaf_stem_full_tilt.png").then(response => response.arrayBuffer()));
+                zip.folder("resourcepack/assets/minecraft/textures/block").file("big_dripleaf_stem_partial_tilt.png", await fetch("pack_assets/dripleaf_fix/big_dripleaf_stem_partial_tilt.png").then(response => response.arrayBuffer()));
+                let files = [
+                    "big_dripleaf_full_tilt.json",
+                    "big_dripleaf_partial_tilt.json",
+                    "small_dripleaf_bottom.json",
+                    "small_dripleaf_top.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/dripleaf_fix/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/models/block").file(file, arrayBuffer);
+                }
+                console.log("Dripleaf Fix loaded file path at resourcepack/assets/minecraft/models/block");
+
+                console.log("Dripleaf Fix Loaded");
+            }
+
+            if (selected.includes("soul_soil_campfire") && (version === "21" || version === "20")) {
+                zip.folder("resourcepack/assets/minecraft/blockstates").file("soul_campfire.json", await fetch("pack_assets/soul_soil_campfire/soul_campfire1.json").then(response => response.arrayBuffer()));
+
+                let files = [
+                    "soul_campfire_log_lit.png",
+                    "soul_campfire_log_lit.png.mcmeta",
+                    "soul_campfire_log.png"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/soul_soil_campfire/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/textures/block").file(file, arrayBuffer);
+                }
+                console.log("Soul Soil Campfire loaded file path at resourcepack/assets/minecraft/textures/block");
+
+                files = [
+                    "soul_campfire_off.json",
+                    "soul_campfire.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/soul_soil_campfire/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("resourcepack/assets/minecraft/models/block").file(file, arrayBuffer);
+                }
+                console.log("Soul Soil Campfire loaded file path at resourcepack/assets/minecraft/models/block");
+
+                console.log("Soul Soil Campfire Loaded");
+            }
+
+            if (selected.includes("consistent_pots") && (version === "21" || version === "20")) {
+                zip.folder("resourcepack/assets/minecraft/textures/entity/decorated_pot").file("decorated_pot_side.png", await fetch("pack_assets/consistent_pots/decorated_pot_side.png").then(response => response.arrayBuffer()));
+
+                console.log("Consistent Pots Loaded");
+            }
+
             // Merge lang files
             console.log("langFilePaths:", langFilePaths);
             
@@ -2198,4 +2535,4 @@ async function buildAndDownload() {
 // Get the button element
 const button = document.getElementById("run-button");
 // Add an event listener to the button
-button.addEventListener("click", buildAndDownload);
+button.addEventListener("click", buildAndDownload);``

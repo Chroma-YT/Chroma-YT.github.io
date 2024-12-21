@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 0 0 0 0;
   font-family: Arial, sans-serif;
   background-image: url('dirt.png'); /* Set background image for the body */
   background-repeat: repeat; /* Tile the background image */
@@ -54,7 +54,7 @@ body {
 
 .main-content {
   width: 75%; /* Ensure the main content takes up 75% of the page width */
-  padding: 20px;
+  padding: 0;
   box-sizing: border-box;
 }
 
@@ -294,6 +294,14 @@ body {
   text-align: center;
 }
 
+.right-text {
+  text-align: right;
+}
+
+.left-text {
+  text-align: left;
+}
+
 /* Slider that hopefully works :) */
 .c-compare {
   --h: 9;
@@ -379,4 +387,28 @@ body {
 .c-compare__range, .c-compare__range::-webkit-slider-runnable-track, .c-compare__range::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
+}
+
+.footer-bar {
+  font-size: large;
+  position: relative;
+  color: white;
+  bottom: 0;
+  width: 100%; /* Set the width to 75% of the screen width */
+  margin: 0 0 0 0;
+  height: 100px;
+  justify-content: space-between;
+  display: flex;
+  background-image: url('footer.png'); /* Set background image for the header */
+  background-repeat: repeat; /* Tile the background image */
+  background-position: -14px; /* Start tiling from the bottom left */
+  background-size: 100px 100px;
+  line-height: 75px;
+}
+
+.footer-bar a:link,
+.footer-bar a:visited,
+.footer-bar a:hover,
+.footer-bar a:active {
+  color: white;
 }

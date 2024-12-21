@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('dirt.png'); /* Set background image for the body */
+    background-repeat: repeat; /* Tile the background image */
+    background-size: 100px 100px; /* Ensure the dirt tiles match the size of the stone tiles */
+    background-position: top right; /* Start tiling from the top right */
+    color: white;
+    text-align: center;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+p {
+    width: 50%;
+    margin: 0 auto;
+    word-wrap: break-word;
+}
+
+a {
+    color: white;
+}
