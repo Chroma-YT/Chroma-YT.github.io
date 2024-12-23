@@ -537,6 +537,22 @@
             <div class="collapsible-section">
                 <button class="collapsible">Challenges</button>
                 <div class="collapsible-content">
+                    <!-- Button Start -->
+                    <div class="square" name="cave_mode" data-sidebar-content='
+                        <h2>Cave Mode</h2>
+                        <div class="c-compare" style="--value:50%;">
+                            <img class="c-compare__left" src="cavemode_before.png" alt="Before" />
+                            <img class="c-compare__right" src="cavemode_after.png" alt="After" />
+                            <input type="range" class="c-rng c-compare__range" min="0" max="100" value="50" oninput="this.parentNode.style.setProperty(\"--value\", `${this.value}%`)" />
+                        </div>
+                        <p class="center-text"><small>Before   ------  Move the slider!  ------   After</small></p>
+                        <p>This pack makes the entire world generate as a massive cave system.</p>
+                        <ul>
+                            <li>Completely server-side!</li>
+                            <li>This pack could cause problems with datapacks and mods that add biomes.</li>
+                        </ul>'>
+                    </div>
+                    <!-- Button End -->
                 </div>
             </div>
             <!-- Collapsible Section End -->

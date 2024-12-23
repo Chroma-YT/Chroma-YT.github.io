@@ -6,11 +6,12 @@ let version = "21";
 
 // Define the incompatible packs
 let incompatiblePacks = [
-    ["transparent_ui", "dark_ui", "immersive_ui"]
+    ["transparent_ui", "dark_ui", "immersive_ui"],
+    ["grand_world", "cave_mode"]
 ];
 
-const resourcepacks = ["modern_creepers", "fresh_crops", "immersive_ui", "dark_ui", "transparent_ui", "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas", "smooth_fences", "unique_dyes", "cursed_mobs"];
-const datapacks = ["grand_world", "mega_nether"];
+const resourcepacks = ["modern_creepers", "fresh_crops", "immersive_ui", "dark_ui", "transparent_ui", "scrumptious_skulk", "wood_for_boomers", "ores_for_boomers", "gravel_for_boomers", "plants_for_boomers", "wool_for_boomers", "shulkers_for_boomers", "cobble_for_boomers", "netherack_for_boomers", "minecraft_for_boomers", "pigman", "oof", "i_hate_panoramas", "smooth_fences", "unique_dyes", "cursed_mobs", "mob_pixel_consistency", "particle_pixel_consistency", "block_pixel_consistency", "consistent_buckets", "dripleaf_fix", "soul_soil_campfire", "consistent_pots"];
+const datapacks = ["grand_world", "mega_nether", "cave_mode"];
 
 function selectButton(button) {
     const buttons = document.querySelectorAll('.header-button');
@@ -2481,6 +2482,50 @@ async function buildAndDownload() {
                 zip.folder("resourcepack/assets/minecraft/textures/entity/decorated_pot").file("decorated_pot_side.png", await fetch("pack_assets/consistent_pots/decorated_pot_side.png").then(response => response.arrayBuffer()));
 
                 console.log("Consistent Pots Loaded");
+            }
+
+            if (selected.includes("cave_mode") && (version === "21" || version === "20")) {
+                zip.folder("datapack/data/minecraft/dimension_type").file("overworld.json", await fetch("pack_assets/cave_mode/overworld.json").then(response => response.arrayBuffer()));
+                let files = [
+                    "igloo.json",
+                    "jungle_temple.json",
+                    "ocean_monument.json",
+                    "ocean_ruin_cold.json",
+                    "ocean_ruin_warm.json",
+                    "shipwreck.json",
+                    "shipwreck_beached.json",
+                    "swamp_hut.json",
+                    "woodland_mansion.json",
+                    "village_desert.json",
+                    "village_plains.json",
+                    "village_savanna.json",
+                    "village_snowy.json",
+                    "village_taiga.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/cave_mode/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("datapack/data/minecraft/tags/worldgen/biome/has_structure").file(file, arrayBuffer);
+                }
+                console.log("Cave Mode loaded file path at datapack/data/minecraft/tags/worldgen/biome/has_structure");
+
+                zip.folder("datapack/data/minecraft/worldgen/noise_settings").file("overworld.json", await fetch("pack_assets/cave_mode/overworld1.json").then(response => response.arrayBuffer()));
+
+                files = [
+                    "monster_room_deep.json",
+                    "monster_room.json",
+                    "amethyst_geode.json"
+                ];
+                
+                for (let file of files) {
+                    let response = await fetch(`pack_assets/cave_mode/${file}`);
+                    let arrayBuffer = await response.arrayBuffer();
+                    zip.folder("datapack/data/minecraft/worldgen/placed_feature").file(file, arrayBuffer);
+                }
+                console.log("Cave Mode loaded file path at datapack/data/minecraft/worldgen/placed_feature");
+
+                console.log("Cave Mode Loaded");
             }
 
             // Merge lang files
