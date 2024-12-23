@@ -2525,6 +2525,10 @@ async function buildAndDownload() {
                 }
                 console.log("Cave Mode loaded file path at datapack/data/minecraft/worldgen/placed_feature");
 
+                if (version === "21") {
+                    zip.folder("datapack/1_21_2/data/minecraft/dimension_type").file("overworld.json", await fetch("pack_assets/cave_mode/overworld2.json").then(response => response.arrayBuffer()));
+                }
+
                 console.log("Cave Mode Loaded");
             }
 
