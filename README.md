@@ -1,2 +1,2 @@
 # Chroma-YT.github.io
-hopefully this will be a website
+This website basically is just a collection of all of my projects, whether it be for personal projects, school, or commisions.
