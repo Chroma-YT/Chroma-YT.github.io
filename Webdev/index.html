@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webdev Tools</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="gear.png" type="image/png">
+</head>
+<body>
+    <div class="splash-page">
+        <span id="typing-text"></span>
+    </div>
+    <div class="hidden-content">
+        <div class="sticky-header">
+            Search for a Tool
+            <input type="text" placeholder="Search...">
+        </div>
+        <h1>Toggle Switch</h1>
+        <div class="slider-container">
+            <span class="slider-description">This is a simple toggleable switch that has an output that can be detected by JavaScript, and has a customizable color spectrum. Click it to try it out!</span>
+            <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <p><br>Add this code to your files in the relevant locations.</p>
+        <h4>index.html</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>&lt;label class="toggle-switch"&gt;<br>
+&nbsp;&nbsp;&lt;input type="checkbox"&gt;<br>
+&nbsp;&nbsp;&lt;span class="slider"&gt;&lt;/span&gt;<br>
+&lt;/label&gt;</code>
+        </div>
+        <h4>styles.css</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>.toggle-switch {<br>
+&nbsp;&nbsp;position: relative;<br>
+&nbsp;&nbsp;display: inline-block;<br>
+&nbsp;&nbsp;width: 60px;<br>
+&nbsp;&nbsp;height: 34px;<br>
+}<br><br>
+.toggle-switch input {<br>
+&nbsp;&nbsp;opacity: 0;<br>
+&nbsp;&nbsp;width: 0;<br>
+&nbsp;&nbsp;height: 0;<br>
+}<br><br>
+.slider {<br>
+&nbsp;&nbsp;position: absolute;<br>
+&nbsp;&nbsp;cursor: pointer;<br>
+&nbsp;&nbsp;top: 0;<br>
+&nbsp;&nbsp;left: 0;<br>
+&nbsp;&nbsp;right: 0;<br>
+&nbsp;&nbsp;bottom: 0;<br>
+&nbsp;&nbsp;background-color: #ccc;<br>
+&nbsp;&nbsp;transition: .4s;<br>
+&nbsp;&nbsp;border-radius: 34px;<br>
+}<br><br>
+.slider:before {<br>
+&nbsp;&nbsp;position: absolute;<br>
+&nbsp;&nbsp;content: "";<br>
+&nbsp;&nbsp;height: 26px;<br>
+&nbsp;&nbsp;width: 26px;<br>
+&nbsp;&nbsp;left: 4px;<br>
+&nbsp;&nbsp;bottom: 4px;<br>
+&nbsp;&nbsp;background-color: white;<br>
+&nbsp;&nbsp;transition: .4s;<br>
+&nbsp;&nbsp;border-radius: 50%;<br>
+}<br><br>
+input:checked + .slider {<br>
+&nbsp;&nbsp;background-color: #2196F3;<br>
+}<br><br>
+input:checked + .slider:before {<br>
+&nbsp;&nbsp;transform: translateX(26px);<br>
+}<br><br>
+.slider-container {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;justify-content: space-between;<br>
+&nbsp;&nbsp;align-items: center;<br>
+&nbsp;&nbsp;width: 50%;<br>
+&nbsp;&nbsp;margin: 0 auto;<br>
+}<br><br>
+.slider-description {<br>
+&nbsp;&nbsp;flex: 1;<br>
+&nbsp;&nbsp;text-align: left;<br>
+&nbsp;&nbsp;padding-right: 10px;<br>
+}</code>
+        </div>
+        <h4>script.js</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>const toggleSwitch = document.querySelector('.toggle-switch input');<br>
+let isSwitchOn = toggleSwitch.checked;<br><br>
+toggleSwitch.addEventListener('change', function() {<br>
+&nbsp;&nbsp;isSwitchOn = toggleSwitch.checked;<br>
+&nbsp;&nbsp;console.log(`Toggle Switch is ${isSwitchOn ? 'ON' : 'OFF'}`);<br>
+});<br><br>
+const rangeSlider = document.querySelector('.range-slider');<br>
+const rangeValue = document.querySelector('.range-value');<br>
+let sliderValue = rangeSlider.value;<br>
+rangeSlider.addEventListener('input', function() {<br>
+&nbsp;&nbsp;sliderValue = rangeSlider.value;<br>
+&nbsp;&nbsp;rangeValue.textContent = sliderValue;<br>
+&nbsp;&nbsp;console.log(`Range Slider value: ${sliderValue}`);<br>
+});<br><br>
+const popupButton = document.querySelector('.popup-button');<br>
+const popup = document.querySelector('.popup');<br>
+popupButton.addEventListener('click', function() {<br>
+&nbsp;&nbsp;popup.classList.add('show');<br>
+&nbsp;&nbsp;setTimeout(function() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;popup.classList.add('hide');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(function() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;popup.classList.remove('show', 'hide');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}, 500); // Wait for the glide out animation to complete<br>
+&nbsp;&nbsp;}, 3000); // Popup will disappear after 3 seconds<br>
+});</code>
+        </div>
+        <h1>Range Slider</h1>
+        <p>This range slider allows you to select a value between 1 and 100. The selected value is displayed next to the slider and updates in real-time as you move the slider.</p>
+        <div class="range-slider-container">
+            <input type="range" min="1" max="100" value="50" class="range-slider">
+            <span class="range-value">50</span>
+        </div>
+        <p><br>Add this code to your files in the relevant locations.</p>
+        <h4>index.html</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>&lt;div class="range-slider-container"&gt;<br>
+&nbsp;&nbsp;&lt;input type="range" min="1" max="100" value="50" class="range-slider"&gt;<br>
+&nbsp;&nbsp;&lt;span class="range-value"&gt;50&lt;/span&gt;<br>
+&lt;/div&gt;</code>
+        </div>
+        <h4>styles.css</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>.range-slider-container {<br>
+&nbsp;&nbsp;display: flex;<br>
+&nbsp;&nbsp;justify-content: space-between;<br>
+&nbsp;&nbsp;align-items: center;<br>
+&nbsp;&nbsp;width: 50%;<br>
+&nbsp;&nbsp;margin: 20px auto;<br>
+}<br><br>
+.range-slider-description {<br>
+&nbsp;&nbsp;flex: 1;<br>
+&nbsp;&nbsp;text-align: left;<br>
+&nbsp;&nbsp;padding-right: 10px;<br>
+}<br><br>
+.range-slider {<br>
+&nbsp;&nbsp;-webkit-appearance: none;<br>
+&nbsp;&nbsp;width: 100%;<br>
+&nbsp;&nbsp;height: 8px;<br>
+&nbsp;&nbsp;background: #ccc;<br>
+&nbsp;&nbsp;outline: none;<br>
+&nbsp;&nbsp;opacity: 0.7;<br>
+&nbsp;&nbsp;transition: opacity .2s;<br>
+&nbsp;&nbsp;border-radius: 5px;<br>
+}<br><br>
+.range-slider:hover {<br>
+&nbsp;&nbsp;opacity: 1;<br>
+}<br><br>
+.range-slider::-webkit-slider-thumb {<br>
+&nbsp;&nbsp;-webkit-appearance: none;<br>
+&nbsp;&nbsp;appearance: none;<br>
+&nbsp;&nbsp;width: 20px;<br>
+&nbsp;&nbsp;height: 20px;<br>
+&nbsp;&nbsp;background: #2196F3;<br>
+&nbsp;&nbsp;cursor: pointer;<br>
+&nbsp;&nbsp;border-radius: 50%;<br>
+}<br><br>
+.range-slider::-moz-range-thumb {<br>
+&nbsp;&nbsp;width: 20px;<br>
+&nbsp;&nbsp;height: 20px;<br>
+&nbsp;&nbsp;background: #2196F3;<br>
+&nbsp;&nbsp;cursor: pointer;<br>
+&nbsp;&nbsp;border-radius: 50%;<br>
+}</code>
+        </div>
+        <h4>script.js</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>const rangeSlider = document.querySelector('.range-slider');<br>
+const rangeValue = document.querySelector('.range-value');<br>
+let sliderValue = rangeSlider.value;<br>
+rangeSlider.addEventListener('input', function() {<br>
+&nbsp;&nbsp;sliderValue = rangeSlider.value;<br>
+&nbsp;&nbsp;rangeValue.textContent = sliderValue;<br>
+&nbsp;&nbsp;console.log(`Range Slider value: ${sliderValue}`);<br>
+});</code>
+        </div>
+        <h1>Popup Notification</h1>
+        <p>This button triggers a popup notification that will disappear after 3 seconds.<br</p>
+        <button class="popup-button">Show Popup</button>
+        <div class="popup">
+            This is a popup notification!
+        </div>
+        <p><br>Add this code to your files in the relevant locations.</p>
+        <h4>index.html</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>&lt;button class="popup-button"&gt;Show Popup&lt;/button&gt;<br>
+&lt;div class="popup"&gt;This is a popup notification!<br>
+&lt;/div&gt;</code>
+        </div>
+        <h4>styles.css</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>.popup {<br>
+&nbsp;&nbsp;display: none;<br>
+&nbsp;&nbsp;position: fixed;<br>
+&nbsp;&nbsp;bottom: 20px;<br>
+&nbsp;&nbsp;right: 20px;<br>
+&nbsp;&nbsp;background-color: #333;<br>
+&nbsp;&nbsp;color: #e0e0e0;<br>
+&nbsp;&nbsp;padding: 20px;<br>
+&nbsp;&nbsp;border-radius: 5px;<br>
+&nbsp;&nbsp;box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);<br>
+&nbsp;&nbsp;z-index: 1001;<br>
+&nbsp;&nbsp;opacity: 0;<br>
+&nbsp;&nbsp;transform: translateX(100%);<br>
+&nbsp;&nbsp;transition: opacity 0.5s, transform 0.5s;<br>
+}<br><br>
+.popup.show {<br>
+&nbsp;&nbsp;display: block;<br>
+&nbsp;&nbsp;opacity: 1;<br>
+&nbsp;&nbsp;transform: translateX(0);<br>
+}<br><br>
+.popup.hide {<br>
+&nbsp;&nbsp;opacity: 0;<br>
+&nbsp;&nbsp;transform: translateX(100%);<br>
+}<br><br>
+.popup-button {<br>
+&nbsp;&nbsp;background-color: #444;<br>
+&nbsp;&nbsp;color: #e0e0e0;<br>
+&nbsp;&nbsp;border: none;<br>
+&nbsp;&nbsp;padding: 10px 20px;<br>
+&nbsp;&nbsp;border-radius: 3px;<br>
+&nbsp;&nbsp;cursor: pointer;<br>
+&nbsp;&nbsp;font-family: Arial, sans-serif; /* Use Arial font */<br>
+&nbsp;&nbsp;font-size: 1em;<br>
+&nbsp;&nbsp;margin-top: 20px; /* Add space above the button */<br>
+}<br><br>
+.popup-button:hover {<br>
+&nbsp;&nbsp;background-color: #555;<br>
+}</code>
+        </div>
+        <h4>script.js</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>const popupButton = document.querySelector('.popup-button');<br>
+const popup = document.querySelector('.popup');<br>
+popupButton.addEventListener('click', function() {<br>
+&nbsp;&nbsp;popup.classList.add('show');<br>
+&nbsp;&nbsp;setTimeout(function() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;popup.classList.add('hide');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(function() {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;popup.classList.remove('show', 'hide');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}, 500); // Wait for the glide out animation to complete<br>
+&nbsp;&nbsp;}, 3000); // Popup will disappear after 3 seconds<br>
+});</code>
+        </div>
+        <h1>Collapsible Sidebar</h1>
+        <p>This button triggers a collapsible sidebar that can be used to display ads or other content.</p>
+        <button class="openbtn" onclick="openNav()">☰ Open Sidebar</button>
+        <div id="mySidebar" class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a href="#">Ad Content Here</a>
+        </div>
+        <p><br>Add this code to your files in the relevant locations.</p>
+        <h4>index.html</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>&lt;button class="openbtn" onclick="openNav()"&gt;☰ Open Sidebar&lt;/button&gt;<br>
+&lt;div id="mySidebar" class="sidebar"&gt;<br>
+&nbsp;&nbsp;&lt;a href="javascript:void(0)" class="closebtn" onclick="closeNav()"&gt;×&lt;/a&gt;<br>
+&nbsp;&nbsp;&lt;a href="#"&gt;Ad Content Here&lt;/a&gt;<br>
+&lt;/div&gt;</code>
+        </div>
+        <h4>styles.css</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>.sidebar {<br>
+&nbsp;&nbsp;height: 100%;<br>
+&nbsp;&nbsp;width: 0;<br>
+&nbsp;&nbsp;position: fixed;<br>
+&nbsp;&nbsp;z-index: 1000;<br>
+&nbsp;&nbsp;top: 0;<br>
+&nbsp;&nbsp;right: 0;<br>
+&nbsp;&nbsp;background-color: #333;<br>
+&nbsp;&nbsp;overflow-x: hidden;<br>
+&nbsp;&nbsp;transition: 0.5s;<br>
+&nbsp;&nbsp;padding-top: 60px;<br>
+}<br><br>
+.sidebar a {<br>
+&nbsp;&nbsp;padding: 10px 15px;<br>
+&nbsp;&nbsp;text-decoration: none;<br>
+&nbsp;&nbsp;font-size: 25px;<br>
+&nbsp;&nbsp;color: #e0e0e0;<br>
+&nbsp;&nbsp;display: block;<br>
+&nbsp;&nbsp;transition: 0.3s;<br>
+}<br><br>
+.sidebar a:hover {<br>
+&nbsp;&nbsp;color: #f1f1f1;<br>
+}<br><br>
+.sidebar .closebtn {<br>
+&nbsp;&nbsp;position: absolute;<br>
+&nbsp;&nbsp;top: 0;<br>
+&nbsp;&nbsp;right: 25px;<br>
+&nbsp;&nbsp;font-size: 36px;<br>
+&nbsp;&nbsp;margin-left: 50px;<br>
+}<br><br>
+.openbtn {<br>
+&nbsp;&nbsp;font-size: 20px;<br>
+&nbsp;&nbsp;cursor: pointer;<br>
+&nbsp;&nbsp;background-color: #444;<br>
+&nbsp;&nbsp;color: #e0e0e0;<br>
+&nbsp;&nbsp;border: none;<br>
+&nbsp;&nbsp;padding: 10px 15px;<br>
+&nbsp;&nbsp;border-radius: 3px;<br>
+&nbsp;&nbsp;margin-top: 20px; /* Add space above the button */<br>
+}<br><br>
+.openbtn:hover {<br>
+&nbsp;&nbsp;background-color: #555;<br>
+}</code>
+        </div>
+        <h4>script.js</h4>
+        <div class="code-container">
+            <button class="copy-button">Copy</button>
+            <code>function openNav() {<br>
+&nbsp;&nbsp;document.getElementById("mySidebar").style.width = "250px";<br>
+}<br><br>
+function closeNav() {<br>
+&nbsp;&nbsp;document.getElementById("mySidebar").style.width = "0";<br>
+}</code>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
