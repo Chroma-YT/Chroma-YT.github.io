@@ -1,0 +1,2 @@
+# A Collection of 3D Prints
+This is a collection of commercial use 3d prints in a format in which the user can find what they want, choose the filament they wish to use, and then put it in an algorithm to determine pricing, where the seller can make a substantial profit.

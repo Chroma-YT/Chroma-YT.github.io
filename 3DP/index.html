@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+    <div class="tile">
+        <div class="tile-title">Flexi-Rex</div>
+        <div class="model-container" id="model1"></div>
+    </div>
+    <div class="tile">
+        <div class="tile-title">Squishy Waffle</div>
+        <div class="model-container" id="model3"></div>
+    </div>
+    <div class="tile">
+        <div class="tile-title">Infinity Cube</div>
+        <div class="model-container" id="model4"></div>
+    </div>
+    <div class="tile">
+        <div class="tile-title">Grabbing Claw</div>
+        <div class="model-container" id="model5"></div>
+    </div>
+    <div class="tile">
+        <div class="tile-title">Catapult</div>
+        <div class="model-container" id="model6"></div>
+    </div>
+    <div class="tile">
+        <div class="tile-title">Skibidi Toilet</div>
+        <div class="model-container" id="model7"></div>
+    </div>
+    <!-- Add more tiles as needed -->
+    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.tile').forEach(tile => {
+            tile.addEventListener('click', () => {
+                const modelId = tile.querySelector('.model-container').id;
+                window.location.href = `subpage.html?model=${modelId}`;
+            });
+        });
+    </script>
+</body>
+</html>

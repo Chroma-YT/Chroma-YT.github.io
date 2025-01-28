@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Viewer</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/STLLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="subpage-container">
+        <button class="back-button" onclick="window.history.back()">Back</button>
+        <div class="model-container" id="model-sub" style="width: 66.66vw; height: 100vh;"></div>
+        <div class="model-title" id="model-title" style="width: 33.33vw; height: 100vh; display: flex; align-items: center; justify-content: center; font-size: 24px; font-weight: bold;"></div>
+        <div class="info-icon">i</div>
+        <div class="info-popup" id="info-popup">
+            <a href="#" target="_blank">More Information</a>
+        </div>
+    </div>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const modelId = urlParams.get('model');
+        const modelFiles = {
+            model1: 'flexirex.stl',
+            model3: 'squishywaffle.stl',
+            model4: 'infinitycube.stl',
+            model5: 'grabbingclaw.stl',
+            model6: 'catapult.stl',
+            model7: 'skibiditoilet.stl'
+        };
+        const modelTitles = {
+            model1: 'Flexi-Rex',
+            model3: 'Squishy Waffle',
+            model4: 'Infinity Cube',
+            model5: 'Grabbing Claw',
+            model6: 'Catapult',
+            model7: 'Skibidi Toilet'
+        };
+        const modelLinks = {
+            model1: 'https://github.com/DrLex0/print3D-FlexiRex',
+            model4: 'https://www.thingiverse.com/thing:4997903',
+            model5: 'https://www.thingiverse.com/thing:2877546',
+            model6: 'https://www.thingiverse.com/thing:4879520',
+            model7: 'https://makerworld.com/en/models/427235?from=search#profileId-331160'
+        };
+        document.getElementById('model-title').innerText = modelTitles[modelId];
+        if (modelLinks[modelId]) {
+            document.getElementById('info-popup').querySelector('a').href = modelLinks[modelId];
+        } else {
+            document.getElementById('info-popup').style.display = 'none';
+        }
+        renderSubpageModel('model-sub', modelFiles[modelId], modelId + '-sub');
+    </script>
+</body>
+</html>

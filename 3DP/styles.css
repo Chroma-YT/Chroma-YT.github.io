@@ -1,0 +1,114 @@
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #333;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    height: 100vh;
+    margin: 0;
+    flex-wrap: wrap;
+    overflow: auto; /* Allow scrolling if needed */
+}
+
+.tile {
+    width: 200px;
+    height: 220px; /* Increase height to maintain square shape with padding */
+    border: 1px solid #007BFF; /* Blue border */
+    border-radius: 5px;
+    background-color: white;
+    display: flex;
+    flex-direction: column-reverse; /* Move title below the model */
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    position: relative;
+    padding-top: 20px; /* Add padding to move the 3D render display down */
+    cursor: pointer; /* Make tiles clickable */
+    z-index: 1; /* Ensure tiles are on top */
+}
+
+.tile-title {
+    font-size: 20px; /* Increase font size */
+    color: #007BFF; /* Blue color */
+    margin-top: -10px; /* Move text up */
+    background-color: white;
+    padding: 10px 15px; /* Increase padding */
+    border-radius: 10px; /* Increase border radius */
+    text-align: center;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif; /* Change font to a formal yet noticeable one */
+    font-weight: bold; /* Make text bold */
+}
+
+.model-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.subpage-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f8ff;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.model-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #f0f8ff;
+}
+
+.info-icon {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.info-popup {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.info-icon:hover + .info-popup,
+.info-popup:hover {
+    display: block;
+}
